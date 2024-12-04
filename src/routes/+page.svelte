@@ -196,34 +196,36 @@
     margin: 0 auto;
     padding: 1rem;
     width: 100%;
-  }
 
-  :global(.hero-section) {
-    h1 {
-      line-height: 1.2;
+    :global {
+      .hero-section {
+        h1 {
+          line-height: 1.2;
+        }
+      }
+
+      .hero-section-title {
+        font-weight: 400;
+      }
     }
-  }
 
-  :global(.hero-section-title) {
-    font-weight: 400;
-  }
+    .github-bubble {
+      background: white;
+      padding: 12px 16px;
+      border-radius: 16px;
+      position: relative;
+    }
 
-  .github-bubble {
-    background: white;
-    padding: 12px 16px;
-    border-radius: 16px;
-    position: relative;
-  }
-
-  .github-bubble::after {
-    content: '';
-    position: absolute;
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-left: 10px solid white;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    .github-bubble::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left: 10px solid white;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
   }
 
   .box {

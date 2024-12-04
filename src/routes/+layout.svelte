@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Header from '$lib/components/Header.svelte';
+  import Navbar from '$lib/components/Navbar.svelte';
   import Footer from '$lib/components/Homepage/Footer.svelte';
   import { theme } from '$lib/theme';
   import { browser } from '$app/environment';
@@ -21,8 +21,7 @@
 
 <div class="app" style={cssVariables}>
   <QueryClientProvider client={queryClient}>
-    <Header />
-
+    <Navbar />
     <main>
       {@render children()}
     </main>
