@@ -6,11 +6,10 @@
 
   import { createQuery } from '@tanstack/svelte-query';
 
-  // TODO: Maybe this can be done in a better way
   const query = createQuery({
     queryKey: ['stargazers-count'],
-    queryFn: () =>
-      fetch(`https://api.github.com/repositories/${REPO_ID}`).then((res) => res.json()),
+    queryFn: async () =>
+      await fetch(`https://api.github.com/repositories/${REPO_ID}`).then((res) => res.json()),
   });
 </script>
 
@@ -21,10 +20,8 @@
       <div class="divider"></div>
       <Flex direction="row" alignItems="center" gap={2}>
         <img src={github} alt="GitHub" />
-        {#if $query.isLoading}
-          <p>--</p>
-        {:else if $query.isError}
-          <p>--</p>
+        {#if !$query.data}
+          <p class="loading">---</p>
         {:else}
           <p>{$query.data.stargazers_count}</p>
         {/if}
@@ -34,6 +31,9 @@
 </a>
 
 <style>
+  .loading {
+    opacity: 0.3;
+  }
   .pill-link {
     text-decoration: none;
     height: 100%;
