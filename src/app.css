@@ -1,36 +1,35 @@
-
-
 /* Put */
 :root {
-	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-mono: 'Fira Mono', monospace;
+  --font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'Fira Mono', monospace;
 
-	--color-text: rgba(0, 0, 0, 0.7);
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
+  --color-text: rgba(0, 0, 0, 0.7);
+  --column-width: 42rem;
+  --column-margin-top: 4rem;
 
-	/* Default font */
-	font-family: var(--font-body);
-	color: var(--color-text);
-    font-size: 16px;
+  /* Default font */
+  font-family: var(--font-body);
+  color: var(--color-text);
+  font-size: 16px;
 
-    /* Does this make sense to have? or pointless */
-    --space-1: 0.25rem;
-    --space-2: 0.5rem;
-    --space-3: 0.75rem;
-    --space-4: 1rem;
-    --space-5: 1.25rem;
-    --space-6: 1.5rem;
-    --space-8: 2rem;
-    --space-10: 2.5rem;
-    --space-12: 3rem;
-    --space-16: 4rem;
+  /* Does this make sense to have? or pointless */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
 }
 
-html,body{
-    overscroll-behavior: auto;
-    background: var(--color-light100);
+html,
+body {
+  overscroll-behavior: auto;
+  background: var(--color-light100);
 }
 
 h1,
@@ -38,50 +37,50 @@ h2,
 h3,
 hr,
 p {
-	margin: 0;
+  margin: 0;
 }
 
 h1 {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 
 h2 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 body {
-	min-height: 100vh;
-	margin: 0;
-	background-color: var(--color-light100);
-	background-size: 100vw 100vh;
-    overflow: auto;
-    height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-light100);
+  background-size: 100vw 100vh;
+  overflow: auto;
+  height: 100%;
 }
 
 p {
-	line-height: 1.5;
+  line-height: 1.5;
 }
 
 a {
-	color: var(--color-theme-1);
-	text-decoration: none;
+  color: var(--color-theme-1);
+  text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 input,
 button {
-	font-size: inherit;
-	font-family: inherit;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 /* Preserve focus outline when the button is focused via keyboard navigation but not on click */
 button:focus:not(:focus-visible) {
-	outline: none;
+  outline: none;
 }

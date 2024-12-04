@@ -28,7 +28,7 @@ export const theme = {
     rose500: '#F6765F',
     white: '#FFFFFF',
     black: '#000000',
-  }
+  },
 } as const;
 
 export type ThemeColors = keyof typeof theme.colors;
