@@ -3,20 +3,24 @@
     import Pill from '$lib/design-components/Pill.svelte';
     import github from '$lib/images/github.svg';
     const REPO_ID = 594510762;
-    let githubData: any = null;
-    let loading = true;
-    let error: string | null = null;
+    let githubData: any = $state(null);
+    let loading = $state(true);
+    let error = $state<string | null>(null)
 
-    (async function fetchGithubData() {
-        try {
-            const res = await fetch(`https://api.github.com/repositories/${REPO_ID}`);
-            githubData = await res.json();
-        } catch (err) {
-            error = 'error';
-        } finally {
-            loading = false;
+    $effect(() => {
+        async function fetchGithubData() {
+            try {
+                const res = await fetch(`https://api.github.com/repositories/${REPO_ID}`);
+                githubData = await res.json();
+            } catch (err) {
+                error = 'error';
+            } finally {
+                loading = false;
+            }
         }
-    })();
+        
+        fetchGithubData();
+    });
 </script>
 
 <a href="https://github.com/ScuffleCloud" class="pill-link">
