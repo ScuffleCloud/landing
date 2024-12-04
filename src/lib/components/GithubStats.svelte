@@ -3,23 +3,14 @@
   import Pill from '$lib/design-components/Pill.svelte';
   import github from '$lib/images/github.svg';
   const REPO_ID = 594510762;
-  let githubData: any = $state(null);
-  let loading = $state(true);
-  let error = $state<string | null>(null);
 
-  $effect(() => {
-    async function fetchGithubData() {
-      try {
-        const res = await fetch(`https://api.github.com/repositories/${REPO_ID}`);
-        githubData = await res.json();
-      } catch (err) {
-        error = 'error';
-      } finally {
-        loading = false;
-      }
-    }
+  import { createQuery } from '@tanstack/svelte-query';
 
-    fetchGithubData();
+  // TODO: Maybe this can be done in a better way
+  const query = createQuery({
+    queryKey: ['stargazers-count'],
+    queryFn: () =>
+      fetch(`https://api.github.com/repositories/${REPO_ID}`).then((res) => res.json()),
   });
 </script>
 
@@ -30,12 +21,12 @@
       <div class="divider"></div>
       <Flex direction="row" alignItems="center" gap={2}>
         <img src={github} alt="GitHub" />
-        {#if loading}
+        {#if $query.isLoading}
           <p>--</p>
-        {:else if error}
+        {:else if $query.isError}
           <p>--</p>
         {:else}
-          <p>{githubData.stargazers_count}</p>
+          <p>{$query.data.stargazers_count}</p>
         {/if}
       </Flex>
     </Flex>

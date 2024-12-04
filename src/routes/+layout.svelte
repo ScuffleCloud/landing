@@ -2,23 +2,33 @@
   import Header from '$lib/components/Header.svelte';
   import Footer from '$lib/components/Homepage/Footer.svelte';
   import { theme } from '$lib/theme';
+  import { browser } from '$app/environment';
+  import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
   import '../app.css';
 
   let { children } = $props();
-
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        enabled: browser,
+      },
+    },
+  });
   const cssVariables = Object.entries(theme.colors)
     .map(([key, value]) => `--color-${key}: ${value}`)
     .join(';');
 </script>
 
 <div class="app" style={cssVariables}>
-  <Header />
+  <QueryClientProvider client={queryClient}>
+    <Header />
 
-  <main>
-    {@render children()}
-  </main>
+    <main>
+      {@render children()}
+    </main>
 
-  <Footer />
+    <Footer />
+  </QueryClientProvider>
 </div>
 
 <style>
