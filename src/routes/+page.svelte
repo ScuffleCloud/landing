@@ -209,6 +209,7 @@
       }
     }
 
+    /* Will be changed later when picture is added */
     .github-bubble {
       background: white;
       padding: 0.75rem 1rem;
@@ -216,6 +217,7 @@
       position: relative;
     }
 
+    /* Will be changed later when picture is added */
     .github-bubble::after {
       content: '';
       position: absolute;
@@ -228,6 +230,7 @@
     }
   }
 
+  /* Will be changed later when picture is added */
   .box {
     width: 100px;
     height: 100px;

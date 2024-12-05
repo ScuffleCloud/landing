@@ -71,6 +71,7 @@
     }
   }
 
+  /* Can't define breakpoint variables without scss  */
   @media (max-width: 768px) {
     .footer-content {
       grid-template-columns: repeat(2, 1fr);

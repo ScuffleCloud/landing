@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     padding: 3rem;
-    border-radius: 16px;
+    border-radius: 1rem;
     background-color: var(--color-orange500);
   }
 
@@ -32,11 +32,11 @@
     display: flex;
     flex-direction: column;
     padding: 1.25rem;
-    border-radius: 16px;
+    border-radius: 1rem;
     gap: 1rem;
     height: 100%;
     width: 100%;
-    max-width: 400px;
+    max-width: 25rem;
     background-color: var(--color-peach600);
   }
 
