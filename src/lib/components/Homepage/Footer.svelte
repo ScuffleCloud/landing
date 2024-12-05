@@ -39,9 +39,9 @@
   </div>
 </footer>
 
-<style lang="scss">
+<style>
   .footer {
-    padding: 48px 0;
+    padding: 3rem 0;
     background-color: var(--color-white);
   }
 
@@ -50,7 +50,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+    gap: 2rem;
   }
 
   .footer-section {
@@ -63,7 +63,7 @@
     nav {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 0.75rem;
 
       a {
         font-size: 0.875rem;
@@ -74,7 +74,7 @@
   @media (max-width: 768px) {
     .footer-content {
       grid-template-columns: repeat(2, 1fr);
-      padding: 0 16px;
+      padding: 0 1rem;
     }
   }
 </style>

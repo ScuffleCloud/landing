@@ -18,12 +18,12 @@
   </div>
 </div>
 
-<style lang="scss">
+<style>
   .rectangle {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 48px;
+    padding: 3rem;
     border-radius: 16px;
     background-color: var(--color-orange500);
   }
@@ -31,9 +31,9 @@
   .update-banner {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 1.25rem;
     border-radius: 16px;
-    gap: 16px;
+    gap: 1rem;
     height: 100%;
     width: 100%;
     max-width: 400px;
@@ -63,11 +63,11 @@
   .entry-field-container {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 0.5rem;
   }
 
   .entry-field {
-    padding: 12px 16px;
+    padding: 0.75rem 1rem;
     border-radius: 100px;
     border: 1px solid #ffdbb9;
     width: 100%;

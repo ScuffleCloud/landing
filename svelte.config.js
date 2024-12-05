@@ -13,6 +13,7 @@ const config = {
     // See https://svelte.dev/docs/kit/adapters for more information about adapters.
     adapter: adapter(),
   },
+  // Enforcing runes for external libraries https://github.com/sveltejs/svelte/issues/9632
   vitePlugin: {
     dynamicCompileOptions({ filename }) {
       if (filename.includes('node_modules')) {

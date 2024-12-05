@@ -189,7 +189,7 @@
   </div>
 </div>
 
-<style lang="scss">
+<style>
   .hero-section-container {
     background-color: var(--color-light100);
     max-width: 64rem;

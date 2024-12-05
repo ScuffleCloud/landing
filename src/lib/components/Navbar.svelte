@@ -52,7 +52,6 @@
   header {
     display: flex;
     justify-content: space-between;
-    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
   }
@@ -80,7 +79,6 @@
     justify-content: center;
     align-items: center;
     list-style: none;
-    background: var(--background);
     background-size: contain;
   }
 

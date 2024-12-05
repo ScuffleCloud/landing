@@ -44,7 +44,7 @@
 
   .divider {
     width: 2px;
-    height: 20px;
+    height: 1.25rem;
     background-color: #ddd;
     border-radius: 1px;
   }

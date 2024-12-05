@@ -53,7 +53,6 @@ h3 {
 }
 
 body {
-  min-height: 100vh;
   margin: 0;
   background-color: var(--color-light100);
   background-size: 100vw 100vh;
