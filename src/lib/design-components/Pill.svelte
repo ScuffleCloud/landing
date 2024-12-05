@@ -25,8 +25,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0px 16px;
-    border-radius: 123px;
+    padding: 0px 1rem;
+    border-radius: 50rem;
     width: fit-content;
     cursor: pointer;
     background-color: var(--pill-background);

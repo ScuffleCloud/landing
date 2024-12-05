@@ -59,7 +59,7 @@
   .corner {
     height: 3em;
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
     align-items: center;
     justify-content: center;
   }

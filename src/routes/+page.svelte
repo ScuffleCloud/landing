@@ -211,8 +211,8 @@
 
     .github-bubble {
       background: white;
-      padding: 12px 16px;
-      border-radius: 16px;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
       position: relative;
     }
 
@@ -222,9 +222,9 @@
       right: -10px;
       top: 50%;
       transform: translateY(-50%);
-      border-left: 10px solid white;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
+      border-left: 0.625rem solid white;
+      border-top: 0.625rem solid transparent;
+      border-bottom: 0.625rem solid transparent;
     }
   }
 
@@ -232,7 +232,7 @@
     width: 100px;
     height: 100px;
     background: var(--color-light200);
-    border-radius: 8px;
+    border-radius: 0.5rem;
   }
 
   .features-bg {

@@ -57,7 +57,7 @@
     h3 {
       font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 1rem;
     }
 
     nav {

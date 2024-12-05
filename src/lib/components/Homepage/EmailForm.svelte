@@ -5,7 +5,7 @@
 
 <div class="rectangle">
   <div class="update-banner">
-    <div style="padding: 0px 8px;">
+    <div class="update-banner-container">
       <p class="title">Receive an Update when we&apos;ll go live!</p>
       <p class="subtitle">News from the Scuffle Engineering Team</p>
     </div>
@@ -38,6 +38,10 @@
     width: 100%;
     max-width: 400px;
     background-color: var(--color-peach600);
+  }
+
+  .update-banner-container {
+    padding: 0 0.5rem;
   }
 
   .title {
