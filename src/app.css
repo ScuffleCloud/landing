@@ -5,26 +5,10 @@
   --font-mono: 'Fira Mono', monospace;
 
   font-size: 16px;
-  --color-text: rgba(0, 0, 0, 0.7);
-  --column-width: 42rem;
-  --column-margin-top: 4rem;
-  --breakpoint-md: 48rem;
 
   /* Default font */
   font-family: var(--font-body);
   color: var(--color-text);
-
-  /* Does this make sense to have? or pointless */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
 }
 
 html,
