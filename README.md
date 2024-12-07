@@ -57,7 +57,6 @@ If you find Scuffle valuable, consider supporting us on [**Open Collective**](ht
 
 [![Open Collective](https://a11ybadges.com/badge?logo=opencollective)](https://opencollective.com/scuffle)
 
-
 ## 🛡️ Security Matters
 
 Your security is our priority. 🔒 Refer to our [**Security Policy**](./.github/SECURITY.md) for guidelines on reporting vulnerabilities.
