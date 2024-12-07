@@ -32,6 +32,9 @@
     </a>
 </p>
 
+> [!WARNING]  
+> This repository is under active development and may not be stable.
+
 ## 🤝 Join the Scuffle Community
 
 We ❤️ contributions! Check out our [**CONTRIBUTING.md**](./CONTRIBUTING.md) for detailed guidelines on submitting improvements or bug fixes.
