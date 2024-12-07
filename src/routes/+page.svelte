@@ -270,7 +270,7 @@
   .feature-description {
     font-size: 1rem;
     opacity: 0.8;
-    max-width: 600px;
+    max-width: 75ch;
     line-height: 1.5;
   }
 
@@ -278,6 +278,7 @@
     h2 {
       font-size: 2.5rem;
       margin-bottom: 3rem;
+      /* 768px is a common breakpoint for mobile devices so defining it here for now */
       @media (max-width: 768px) {
         font-size: 2rem;
         margin-bottom: 2rem;
@@ -285,7 +286,7 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
       gap: 2rem;
 
       .card {
@@ -310,7 +311,7 @@
     justify-content: center;
     padding: 0.5rem 1rem;
     border: 1px solid var(--color-orange500);
-    border-radius: 8px;
+    border-radius: 0.5rem;
     color: var(--color-orange500);
     font-weight: 700;
     font-size: 0.75rem;
@@ -334,17 +335,16 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: clamp(0.5rem, 8vw, 3.75rem);
-      max-width: 1200px;
 
       .card {
         padding: 0.5rem;
-        border-radius: 12px;
+        border-radius: 0.75rem;
         background-color: #453435;
 
         .image-wrapper {
           padding: 2rem;
           background-color: #4f3f40;
-          border-radius: 8px;
+          border-radius: 0.5rem;
 
           img {
             width: 100%;

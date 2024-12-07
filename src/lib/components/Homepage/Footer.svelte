@@ -71,7 +71,7 @@
     }
   }
 
-  /* Can't define breakpoint variables without scss  */
+  /* Can't define breakpoint variables without scss. 768px is a common breakpoint for mobile devices */
   @media (max-width: 768px) {
     .footer-content {
       grid-template-columns: repeat(2, 1fr);

@@ -41,7 +41,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0px 1rem;
+    padding: 0 1rem;
     border-radius: 50rem;
     width: fit-content;
     cursor: pointer;

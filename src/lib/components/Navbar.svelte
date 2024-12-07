@@ -57,7 +57,6 @@
   }
 
   .corner {
-    height: 3em;
     display: flex;
     gap: 0.5rem;
     align-items: center;
@@ -74,7 +73,7 @@
     position: relative;
     padding: 0;
     margin: 0;
-    height: 3em;
+    height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,10 +91,10 @@
     content: '';
     position: absolute;
     bottom: 0;
-    left: 50%; /* Center the line */
-    transform: translateX(-50%); /* Offset by half its width for true centering */
-    width: 60%; /* Adjust this value to make it wider/narrower */
-    height: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 0.1875rem;
     background-color: var(--color-orange500);
   }
 

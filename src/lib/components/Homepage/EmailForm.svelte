@@ -72,7 +72,7 @@
 
   .entry-field {
     padding: 0.75rem 1rem;
-    border-radius: 100px;
+    border-radius: 100rem;
     border: 1px solid #ffdbb9;
     width: 100%;
     outline: none;
