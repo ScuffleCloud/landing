@@ -7,18 +7,34 @@
     children: Snippet;
     color: ThemeColors | string;
     borderColor?: ThemeColors | string;
+    as?: 'button' | 'div';
+    onClick?: () => void;
+    class?: string;
+    disabled?: boolean;
   }
 
-  let { children, color, borderColor = 'inherit' }: PillProps = $props();
+  let {
+    children,
+    color,
+    borderColor = 'inherit',
+    as = 'div',
+    onClick,
+    class: className = '',
+    disabled = false,
+  }: PillProps = $props();
 </script>
 
-<div
-  class="pill"
+<svelte:element
+  this={as}
+  class="pill ${className}"
   style:--pill-background={getColor(color)}
   style:--pill-border-color={getColor(borderColor)}
+  onclick={onClick}
+  {disabled}
+  role={as === 'button' ? 'button' : 'div'}
 >
   {@render children()}
-</div>
+</svelte:element>
 
 <style>
   .pill {

@@ -1,15 +1,16 @@
 <script lang="ts">
+  import { PUBLIC_GITHUB_REPO_ID } from '$env/static/public';
   import Flex from '$lib/design-components/Flex.svelte';
   import Pill from '$lib/design-components/Pill.svelte';
   import github from '$lib/images/github.svg';
-  const REPO_ID = 594510762;
-
   import { createQuery } from '@tanstack/svelte-query';
 
   const query = createQuery({
     queryKey: ['stargazers-count'],
     queryFn: async () =>
-      await fetch(`https://api.github.com/repositories/${REPO_ID}`).then((res) => res.json()),
+      await fetch(`https://api.github.com/repositories/${PUBLIC_GITHUB_REPO_ID}`).then((res) =>
+        res.json(),
+      ),
   });
 </script>
 
@@ -19,7 +20,7 @@
       <span style="font-weight: 600;">Contribute</span>
       <div class="divider"></div>
       <Flex direction="row" alignItems="center" gap={2}>
-        <img src={github} alt="GitHub" />
+        <img src={github} alt="GitHub" class="github-icon" />
         {#if !$query.data}
           <p class="loading">---</p>
         {:else}
@@ -43,9 +44,14 @@
   }
 
   .divider {
-    width: 2px;
+    width: 0.125rem;
     height: 1.25rem;
     background-color: #ddd;
     border-radius: 1px;
+  }
+
+  .github-icon {
+    width: 1.35rem;
+    height: 1.35rem;
   }
 </style>
