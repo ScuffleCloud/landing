@@ -51,6 +51,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    max-width: 64rem;
+    padding: 0 1rem;
   }
 
   .footer-section {
