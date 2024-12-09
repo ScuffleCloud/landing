@@ -14,6 +14,7 @@
   let isVisibleTurnstileRequired = false;
   let showTurnstileOverlay = false;
   let isLoading = false;
+  let emailStatusMessage = '';
   let reset = () => {};
 
   const mutate = createMutation({
@@ -33,11 +34,10 @@
       return true;
     },
     onSuccess: () => {
-      alert('Subscribed successfully!');
+      emailStatusMessage = 'Subscribed successfully!';
     },
     onError: (error) => {
-      console.error('Error:', error);
-      alert('There was an error subscribing. Please try again.');
+      emailStatusMessage = 'There was an error subscribing. Please try again.';
     },
     onSettled: () => {
       isLoading = false;
@@ -47,7 +47,7 @@
 
   const handleSubmit = ({ email }: { email: string }) => {
     if (!email) {
-      alert('Please enter a valid email address.');
+      emailStatusMessage = 'Please enter a valid email address.';
       return;
     }
 
@@ -100,6 +100,11 @@
         {/if}
       </Pill>
     </form>
+    {#if emailStatusMessage}
+      <p class="input-status-text" id="email-status">
+        {emailStatusMessage}
+      </p>
+    {/if}
   </div>
 </div>
 <div class="overlay" class:hidden={!showTurnstileOverlay}>
@@ -241,5 +246,12 @@
   .hidden {
     opacity: 0;
     visibility: hidden;
+  }
+
+  .input-status-text {
+    margin-left: 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    color: var(--color-brown600);
   }
 </style>
