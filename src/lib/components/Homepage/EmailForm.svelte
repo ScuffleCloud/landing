@@ -1,3 +1,9 @@
+<!-- For testing
+AUTO_PASS_SITE_KEY=1x00000000000000000000AA
+BLOCK_SITE_KEY=2x00000000000000000000AB
+MANAGED_TURNSTILE_SITE_KEY=3x00000000000000000000FF
+-->
+
 <script lang="ts">
   import Pill from '$lib/design-components/Pill.svelte';
   import { theme } from '$lib/theme';
@@ -5,11 +11,14 @@
   import { createMutation } from '@tanstack/svelte-query';
   import { LoaderCircle } from 'lucide-svelte';
   import { PUBLIC_EMAIL_WORKER_URL } from '$env/static/public';
+  import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
 
   let token = '';
   let email = '';
-  let showTurnstile = false;
+  let isVisibleTurnstileRequired = false;
+  let showTurnstileOverlay = false;
   let isLoading = false;
+
   const mutate = createMutation({
     mutationFn: async (newEmail: string) => {
       const response = await fetch(PUBLIC_EMAIL_WORKER_URL, {
@@ -43,14 +52,23 @@
       alert('Please enter a valid email address.');
       return;
     }
-    isLoading = true;
-    showTurnstile = true;
+
+    if (isVisibleTurnstileRequired || !token) {
+      showTurnstileOverlay = true;
+      isLoading = true;
+      return;
+    }
+
+    $mutate.mutate(email);
   };
 
   const handleTurnstileCallback = (event: CustomEvent) => {
     token = event.detail.token;
-    showTurnstile = false;
-    $mutate.mutate(email);
+
+    // If turnstile required, won't trigger until after-interactive so this can safely mutate
+    if (isVisibleTurnstileRequired) {
+      $mutate.mutate(email);
+    }
   };
 </script>
 
@@ -78,16 +96,25 @@
     </div>
   </div>
 </div>
-{#if showTurnstile}
-  <div class="overlay">
-    <div class="turnstile-box">
-      <p>One more step before you proceed...</p>
-      <div class="turnstile-container">
-        <Turnstile siteKey="0x4AAAAAAA1lFwgl8r7GGJ9I" on:callback={handleTurnstileCallback} />
-      </div>
+<div class="overlay" class:hidden={!showTurnstileOverlay}>
+  <div class="turnstile-box">
+    <p>One more step before you proceed...</p>
+    <div class="turnstile-container">
+      <Turnstile
+        siteKey={PUBLIC_TURNSTILE_SITE_KEY}
+        on:callback={handleTurnstileCallback}
+        on:after-interactive={() => {
+          // Triggers after turnstile completed from user input
+          showTurnstileOverlay = false;
+        }}
+        on:before-interactive={() => {
+          // Runs when managed-turnstile determines user input is needed
+          isVisibleTurnstileRequired = true;
+        }}
+      />
     </div>
   </div>
-{/if}
+</div>
 
 <style>
   .rectangle {
@@ -199,5 +226,10 @@
       align-items: center;
       justify-content: center;
     }
+  }
+
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
   }
 </style>

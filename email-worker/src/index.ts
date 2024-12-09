@@ -11,7 +11,6 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
-// Am i supposed to store these in KV Namespace or local env?
 import { validate } from 'email-validator';
 
 interface Env {
