@@ -1,8 +1,4 @@
-<!-- For testing
-AUTO_PASS_SITE_KEY=1x00000000000000000000AA
-BLOCK_SITE_KEY=2x00000000000000000000AB
-MANAGED_TURNSTILE_SITE_KEY=3x00000000000000000000FF
--->
+<!-- For testing https://developers.cloudflare.com/turnstile/troubleshooting/testing/ -->
 
 <script lang="ts">
   import Pill from '$lib/design-components/Pill.svelte';
@@ -18,6 +14,7 @@ MANAGED_TURNSTILE_SITE_KEY=3x00000000000000000000FF
   let isVisibleTurnstileRequired = false;
   let showTurnstileOverlay = false;
   let isLoading = false;
+  let reset = () => {};
 
   const mutate = createMutation({
     mutationFn: async (newEmail: string) => {
@@ -44,6 +41,7 @@ MANAGED_TURNSTILE_SITE_KEY=3x00000000000000000000FF
     },
     onSettled: () => {
       isLoading = false;
+      reset();
     },
   });
 
@@ -78,14 +76,22 @@ MANAGED_TURNSTILE_SITE_KEY=3x00000000000000000000FF
       <p class="title">Receive an Update when we&apos;ll go live!</p>
       <p class="subtitle">News from the Scuffle Engineering Team</p>
     </div>
-    <div class="entry-field-container">
-      <input class="entry-field" placeholder="Your email address" type="email" bind:value={email} />
-      <Pill
-        color={theme.colors.brown600}
-        as="button"
-        onClick={() => handleSubmit({ email })}
-        disabled={isLoading}
-      >
+    <form
+      class="entry-field-container"
+      onsubmit={(e) => {
+        e.preventDefault();
+        handleSubmit({ email });
+      }}
+    >
+      <input
+        class="entry-field"
+        placeholder="Your email address"
+        type="email"
+        bind:value={email}
+        required
+        aria-label="Email address"
+      />
+      <Pill color={theme.colors.brown600} as="button" disabled={isLoading} type="submit">
         <p class="button-text" style="opacity: {isLoading ? 0 : 1}">Subscribe</p>
         {#if isLoading}
           <div class="loader-container">
@@ -93,7 +99,7 @@ MANAGED_TURNSTILE_SITE_KEY=3x00000000000000000000FF
           </div>
         {/if}
       </Pill>
-    </div>
+    </form>
   </div>
 </div>
 <div class="overlay" class:hidden={!showTurnstileOverlay}>
@@ -111,6 +117,10 @@ MANAGED_TURNSTILE_SITE_KEY=3x00000000000000000000FF
           // Runs when managed-turnstile determines user input is needed
           isVisibleTurnstileRequired = true;
         }}
+        on:expired={() => {
+          reset();
+        }}
+        bind:reset
       />
     </div>
   </div>

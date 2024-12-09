@@ -61,20 +61,16 @@ export default {
 		const email = body.get('email');
 		const token = body.get('cf-turnstile-response');
 
-		console.log('test2');
-		console.log(email, token);
 		if (typeof email !== 'string' || typeof token !== 'string') {
 			console.error('missing email or token', typeof email, typeof token);
 			return new Response('Invalid request', { status: 400, headers });
 		}
-		console.log('test123');
 
 		if (!validate(email)) {
 			return new Response('Invalid email address', { status: 400, headers });
 		}
 
 		const ip = request.headers.get('CF-Connecting-IP') as string;
-		console.log('test1');
 
 		// Validate captcha using turnstile.
 		let turnstileOutcome: TurnstileOutcome;
@@ -101,7 +97,6 @@ export default {
 			return new Response('The provided Turnstile token was not valid!', { status: 401, headers });
 		}
 
-		console.log('test');
 		let result: Response;
 		try {
 			const formData = new FormData();
