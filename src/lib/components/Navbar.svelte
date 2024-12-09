@@ -32,7 +32,7 @@
       <GithubStats />
       <Pill color={theme.colors.orange500}>
         <Flex direction="row" alignItems="center" gap={1}>
-          Get a demo
+          <span style="font-weight: 700;">Get a demo</span>
           <img src={backButton} alt="Back" />
         </Flex>
       </Pill>
@@ -103,7 +103,6 @@
     height: 100%;
     align-items: center;
     padding: 0 0.5rem;
-    color: var(--color-text);
     text-decoration: none;
     transition: color 0.2s linear;
   }

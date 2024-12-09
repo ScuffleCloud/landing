@@ -35,6 +35,9 @@ importers:
       globals:
         specifier: ^15.13.0
         version: 15.13.0
+      lucide-svelte:
+        specifier: ^0.468.0
+        version: 0.468.0(svelte@5.2.9)
       prettier:
         specifier: ^3.4.1
         version: 3.4.1
@@ -47,6 +50,9 @@ importers:
       svelte-check:
         specifier: ^4.0.0
         version: 4.1.0(svelte@5.2.9)(typescript@5.7.2)
+      svelte-turnstile:
+        specifier: ^0.9.0
+        version: 0.9.0(svelte@5.2.9)
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -944,6 +950,11 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
+  lucide-svelte@0.468.0:
+    resolution: {integrity: sha512-n0ecAFtCY5LEeL+PJ1Xj4n3c2gzj8tMpak0KMGnvoSJEjCsCnRB0mekBtJZAo7beyynW9Qj5Um1KfMBAeTNplw==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
+
   magic-string@0.30.14:
     resolution: {integrity: sha512-5c99P1WKTed11ZC0HMJOj6CDIue6F8ySu+bJL+85q1zBEIY8IklrJ1eiKC2NDRh3Ct3FcvmJPyQHb9erXMTJNw==}
 
@@ -1283,6 +1294,11 @@ packages:
       svelte:
         optional: true
 
+  svelte-turnstile@0.9.0:
+    resolution: {integrity: sha512-fyU2Ym2qSHzNTPvbOkZTQh7n8Fd8Uk+SvT05aRP3E/pK+x8DjL/Bl2NjVjqXD0MspkwEsmLhMI5DGsG3vZ++eA==}
+    peerDependencies:
+      svelte: ^3.58.0 || ^4.0.0 || ^5.0.0
+
   svelte@5.2.9:
     resolution: {integrity: sha512-LjO7R6K8FI8dA3l+4CcsbJ3djIe2TtokHGzfpDTro5g8nworMbTz9alCR95EQXGsqlzIAvqJtZ7Yy0o33lL09Q==}
     engines: {node: '>=18'}
@@ -1318,6 +1334,9 @@ packages:
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
+  turnstile-types@1.2.3:
+    resolution: {integrity: sha512-EDjhDB9TDwda2JRbhzO/kButPio3JgrC3gXMVAMotxldybTCJQVMvPNJ89rcAiN9vIrCb2i1E+VNBCqB8wue0A==}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -2191,6 +2210,10 @@ snapshots:
 
   lodash.merge@4.6.2: {}
 
+  lucide-svelte@0.468.0(svelte@5.2.9):
+    dependencies:
+      svelte: 5.2.9
+
   magic-string@0.30.14:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -2491,6 +2514,11 @@ snapshots:
     optionalDependencies:
       svelte: 5.2.9
 
+  svelte-turnstile@0.9.0(svelte@5.2.9):
+    dependencies:
+      svelte: 5.2.9
+      turnstile-types: 1.2.3
+
   svelte@5.2.9:
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -2536,6 +2564,8 @@ snapshots:
       typescript: 5.7.2
 
   tslib@2.8.1: {}
+
+  turnstile-types@1.2.3: {}
 
   type-check@0.4.0:
     dependencies:

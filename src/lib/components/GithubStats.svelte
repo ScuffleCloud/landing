@@ -17,7 +17,7 @@
 <a href="https://github.com/ScuffleCloud" class="pill-link">
   <Pill color="white" borderColor="#00000012">
     <Flex direction="row" alignItems="center" gap={2}>
-      <span style="font-weight: 600;">Contribute</span>
+      <span style="font-weight: 700;">Contribute</span>
       <div class="divider"></div>
       <Flex direction="row" alignItems="center" gap={2}>
         <img src={github} alt="GitHub" class="github-icon" />
