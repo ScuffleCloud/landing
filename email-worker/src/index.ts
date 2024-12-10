@@ -93,12 +93,11 @@ export default {
 			return new Response('The provided Turnstile token was not valid!', { status: 401, headers });
 		}
 
-		let result: Response;
 		try {
 			const formData = new FormData();
 			formData.append('address', email);
 
-			result = await fetch(`https://api.mailgun.net/v3/lists/${MAILGUN_MAILINGLIST}/members`, {
+			const result = await fetch(`https://api.mailgun.net/v3/lists/${MAILGUN_MAILINGLIST}/members`, {
 				body: formData,
 				method: 'POST',
 				headers: {
