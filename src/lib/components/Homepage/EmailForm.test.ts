@@ -37,7 +37,6 @@ afterAll(() => server.close());
 test('submits email and triggers POST request', async () => {
   const user = userEvent.setup();
   const mockGetToken = vi.fn().mockResolvedValue('test-token');
-  const mockResetTurnstile = vi.fn();
 
   render(TestWrapper, {
     props: {
@@ -48,7 +47,6 @@ test('submits email and triggers POST request', async () => {
         TURNSTILE_CONTEXT_KEY,
         {
           getToken: mockGetToken,
-          resetTurnstile: mockResetTurnstile,
         },
       ],
     ]),
@@ -64,6 +62,5 @@ test('submits email and triggers POST request', async () => {
   });
 
   expect(mockGetToken).toHaveBeenCalledTimes(1);
-  expect(mockResetTurnstile).toHaveBeenCalledTimes(1);
   expect(submitButton).not.toBeDisabled();
 });

@@ -12,27 +12,34 @@
     token = event.detail.token;
   };
 
-  export const resetTurnstile = () => {
-    reset();
-  };
-
   export const getToken = async (): Promise<string> => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       if (token) {
         resolve(token);
+        token = undefined;
+        reset();
         return;
+      } else {
+        // Otherwise reset as must be blocked or interaction needed
+        reset();
       }
       showTurnstileOverlay = true;
 
       // Otherwise wait for token to be set and resolve
       const originalCallback = handleTurnstileCallback;
       handleTurnstileCallback = (event: CustomEvent) => {
-        // Sets token
-        originalCallback(event);
-        resolve(event.detail.token);
+        // Reject if captcha failed
+        if (!event.detail.token) {
+          reject(new Error('Captcha failed'));
+        } else {
+          resolve(event.detail.token);
+        }
+        token = undefined;
 
         // Reset callback
         handleTurnstileCallback = originalCallback;
+        reset();
+        showTurnstileOverlay = false;
       };
     });
   };
@@ -44,9 +51,12 @@
     <div class="turnstile-container">
       <Turnstile
         siteKey={PUBLIC_TURNSTILE_SITE_KEY}
-        on:callback={handleTurnstileCallback}
+        on:callback={(event) => handleTurnstileCallback(event)}
         on:after-interactive={() => {
           showTurnstileOverlay = false;
+        }}
+        on:error={(event) => {
+          handleTurnstileCallback(event);
         }}
         bind:reset
       />

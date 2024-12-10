@@ -16,9 +16,8 @@
     token: string;
   };
 
-  const { getToken, resetTurnstile } = getContext<{
+  const { getToken } = getContext<{
     getToken: () => Promise<string>;
-    resetTurnstile: () => void;
   }>(TURNSTILE_CONTEXT_KEY);
 
   const mutate = createMutation({
@@ -48,7 +47,6 @@
     },
     onSettled: () => {
       isLoading = false;
-      resetTurnstile();
     },
   });
 

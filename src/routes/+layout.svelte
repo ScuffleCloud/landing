@@ -24,7 +24,6 @@
   let turnstileOverlayComponent: TurnstileOverlay | null = null;
   setContext(TURNSTILE_CONTEXT_KEY, {
     getToken: async () => await turnstileOverlayComponent?.getToken(),
-    resetTurnstile: () => turnstileOverlayComponent?.resetTurnstile(),
   });
 </script>
 
