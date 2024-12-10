@@ -24,12 +24,8 @@ interface TurnstileOutcome {
 	success: boolean;
 }
 
-interface MailgunOutcome {
-	message?: string;
-}
-
 export default {
-	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+	async fetch(request: Request, env: Env): Promise<Response> {
 		const { MAILGUN_API_KEY, MAILGUN_MAILINGLIST, TURNSTILE_KEY, ALLOWED_ORIGIN_URLS } = env;
 		const ALLOWED_ORIGINS = ALLOWED_ORIGIN_URLS.split(',');
 		const origin = request.headers.get('Origin') as string;
@@ -109,14 +105,9 @@ export default {
 					Authorization: `Basic ${btoa(`api:${MAILGUN_API_KEY}`)}`,
 				},
 			});
-		} catch (e) {
-			console.error('failed to create user on mailgun list', e);
-			return new Response('Internal Server Error', { status: 500, headers });
-		}
 
-		let mailgunOutcome: MailgunOutcome;
-		try {
-			mailgunOutcome = await result.json();
+			// Assert response can be parsed as json
+			await result.json();
 		} catch (e) {
 			console.error('failed to create user on mailgun list', e);
 			return new Response('Internal Server Error', { status: 500, headers });

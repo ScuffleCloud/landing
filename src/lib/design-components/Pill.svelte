@@ -12,6 +12,7 @@
     class?: string;
     disabled?: boolean;
     type?: 'button' | 'submit';
+    dataTestId?: string;
   }
 
   let {
@@ -23,6 +24,7 @@
     class: className = '',
     disabled = false,
     type = 'button',
+    dataTestId,
   }: PillProps = $props();
 </script>
 
@@ -35,6 +37,7 @@
   {disabled}
   role={as === 'button' ? 'button' : 'div'}
   {type}
+  data-testid={dataTestId}
 >
   {@render children()}
 </svelte:element>

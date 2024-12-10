@@ -5,6 +5,9 @@
   import { browser } from '$app/environment';
   import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
   import '../app.css';
+  import TurnstileOverlay from '$lib/components/TurnstileOverlay.svelte';
+  import { setContext } from 'svelte';
+  import { TURNSTILE_CONTEXT_KEY } from '$lib/design-components/utils';
 
   let { children } = $props();
   const queryClient = new QueryClient({
@@ -17,11 +20,18 @@
   const cssVariables = Object.entries(theme.colors)
     .map(([key, value]) => `--color-${key}: ${value}`)
     .join(';');
+
+  let turnstileOverlayComponent: TurnstileOverlay | null = null;
+  setContext(TURNSTILE_CONTEXT_KEY, {
+    getToken: async () => await turnstileOverlayComponent?.getToken(),
+    resetTurnstile: () => turnstileOverlayComponent?.resetTurnstile(),
+  });
 </script>
 
 <div class="app" style={cssVariables}>
   <QueryClientProvider client={queryClient}>
     <Navbar />
+    <TurnstileOverlay bind:this={turnstileOverlayComponent} />
     <main>
       {@render children()}
     </main>

@@ -1,30 +1,34 @@
-<!-- For testing https://developers.cloudflare.com/turnstile/troubleshooting/testing/ -->
-
 <script lang="ts">
   import Pill from '$lib/design-components/Pill.svelte';
   import { theme } from '$lib/theme';
-  import { Turnstile } from 'svelte-turnstile';
   import { createMutation } from '@tanstack/svelte-query';
   import { LoaderCircle } from 'lucide-svelte';
   import { PUBLIC_EMAIL_WORKER_URL } from '$env/static/public';
-  import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
+  import { getContext } from 'svelte';
+  import { TURNSTILE_CONTEXT_KEY } from '$lib/design-components/utils';
 
-  let token = '';
   let email = '';
-  let isVisibleTurnstileRequired = false;
-  let showTurnstileOverlay = false;
   let isLoading = false;
   let emailStatusMessage = '';
-  let reset = () => {};
+
+  type MutationParams = {
+    email: string;
+    token: string;
+  };
+
+  const { getToken, resetTurnstile } = getContext<{
+    getToken: () => Promise<string>;
+    resetTurnstile: () => void;
+  }>(TURNSTILE_CONTEXT_KEY);
 
   const mutate = createMutation({
-    mutationFn: async (newEmail: string) => {
+    mutationFn: async ({ email, token }: MutationParams) => {
       const response = await fetch(PUBLIC_EMAIL_WORKER_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: new URLSearchParams({ email: newEmail, 'cf-turnstile-response': token }),
+        body: new URLSearchParams({ email, 'cf-turnstile-response': token }),
       });
 
       if (!response.ok) {
@@ -33,39 +37,32 @@
 
       return true;
     },
+    onMutate: () => {
+      isLoading = true;
+    },
     onSuccess: () => {
       emailStatusMessage = 'Subscribed successfully!';
     },
-    onError: (error) => {
+    onError: () => {
       emailStatusMessage = 'There was an error subscribing. Please try again.';
     },
     onSettled: () => {
       isLoading = false;
-      reset();
+      resetTurnstile();
     },
   });
 
-  const handleSubmit = ({ email }: { email: string }) => {
+  const handleSubmit = async ({ email }: { email: string }) => {
     if (!email) {
       emailStatusMessage = 'Please enter a valid email address.';
       return;
     }
 
-    if (isVisibleTurnstileRequired || !token) {
-      showTurnstileOverlay = true;
-      isLoading = true;
-      return;
-    }
-
-    $mutate.mutate(email);
-  };
-
-  const handleTurnstileCallback = (event: CustomEvent) => {
-    token = event.detail.token;
-
-    // If turnstile required, won't trigger until after-interactive so this can safely mutate
-    if (isVisibleTurnstileRequired) {
-      $mutate.mutate(email);
+    try {
+      const token = await getToken();
+      $mutate.mutate({ email, token });
+    } catch (error) {
+      emailStatusMessage = 'Verification failed. Please try again.';
     }
   };
 </script>
@@ -90,8 +87,15 @@
         bind:value={email}
         required
         aria-label="Email address"
+        data-testid="email-input-field"
       />
-      <Pill color={theme.colors.brown600} as="button" disabled={isLoading} type="submit">
+      <Pill
+        color={theme.colors.brown600}
+        as="button"
+        disabled={isLoading}
+        type="submit"
+        dataTestId="submit-button"
+      >
         <p class="button-text" style="opacity: {isLoading ? 0 : 1}">Subscribe</p>
         {#if isLoading}
           <div class="loader-container">
@@ -105,29 +109,6 @@
         {emailStatusMessage}
       </p>
     {/if}
-  </div>
-</div>
-<div class="overlay" class:hidden={!showTurnstileOverlay}>
-  <div class="turnstile-box">
-    <p>One more step before you proceed...</p>
-    <div class="turnstile-container">
-      <Turnstile
-        siteKey={PUBLIC_TURNSTILE_SITE_KEY}
-        on:callback={handleTurnstileCallback}
-        on:after-interactive={() => {
-          // Triggers after turnstile completed from user input
-          showTurnstileOverlay = false;
-        }}
-        on:before-interactive={() => {
-          // Runs when managed-turnstile determines user input is needed
-          isVisibleTurnstileRequired = true;
-        }}
-        on:expired={() => {
-          reset();
-        }}
-        bind:reset
-      />
-    </div>
   </div>
 </div>
 
@@ -215,37 +196,6 @@
     &::placeholder {
       color: rgba(0, 0, 0, 0.6);
     }
-  }
-
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-
-    & p {
-      color: white;
-      text-align: center;
-      margin-bottom: 1rem;
-      margin-top: 40vh;
-    }
-
-    & .turnstile-container {
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  .hidden {
-    opacity: 0;
-    visibility: hidden;
   }
 
   .input-status-text {
