@@ -6,6 +6,7 @@
   import { PUBLIC_EMAIL_WORKER_URL } from '$env/static/public';
   import { getContext } from 'svelte';
   import { TURNSTILE_CONTEXT_KEY } from '$lib/design-components/utils';
+  import type { TurnstileError } from '../types';
 
   let email = '';
   let isLoading = false;
@@ -13,7 +14,6 @@
 
   type MutationParams = {
     email: string;
-    token: string;
   };
 
   const { getToken } = getContext<{
@@ -21,7 +21,9 @@
   }>(TURNSTILE_CONTEXT_KEY);
 
   const mutate = createMutation({
-    mutationFn: async ({ email, token }: MutationParams) => {
+    mutationFn: async ({ email }: MutationParams) => {
+      const token = await getToken();
+
       const response = await fetch(PUBLIC_EMAIL_WORKER_URL, {
         method: 'POST',
         headers: {
@@ -42,8 +44,12 @@
     onSuccess: () => {
       emailStatusMessage = 'Subscribed successfully!';
     },
-    onError: () => {
+    onError: (error: TurnstileError) => {
+      // Check if error is captcha error or not
       emailStatusMessage = 'There was an error subscribing. Please try again.';
+      if (error.wasCaptcha) {
+        emailStatusMessage = error.message;
+      }
     },
     onSettled: () => {
       isLoading = false;
@@ -55,13 +61,7 @@
       emailStatusMessage = 'Please enter a valid email address.';
       return;
     }
-
-    try {
-      const token = await getToken();
-      $mutate.mutate({ email, token });
-    } catch (error) {
-      emailStatusMessage = 'Verification failed. Please try again.';
-    }
+    $mutate.mutate({ email });
   };
 </script>
 

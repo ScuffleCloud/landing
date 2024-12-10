@@ -3,6 +3,7 @@
 <script lang="ts">
   import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
   import { Turnstile } from 'svelte-turnstile';
+  import type { TurnstileError } from './types';
 
   let showTurnstileOverlay = false;
   let reset: () => void;
@@ -30,7 +31,10 @@
       handleTurnstileCallback = (event: CustomEvent) => {
         // Reject if captcha failed
         if (!event.detail.token) {
-          reject(new Error('Captcha failed'));
+          reject({
+            message: 'Captcha failed',
+            wasCaptcha: true,
+          } satisfies TurnstileError);
         } else {
           resolve(event.detail.token);
         }
