@@ -22,4 +22,4 @@ vite.config.ts.timestamp-*
 pnpm-lock.yaml
 
 # Email Worker
-email-worker/**
+email-worker/.wrangler/
