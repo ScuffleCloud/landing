@@ -11,6 +11,8 @@
     onClick?: () => void;
     class?: string;
     disabled?: boolean;
+    type?: 'button' | 'submit';
+    dataTestId?: string;
   }
 
   let {
@@ -21,6 +23,8 @@
     onClick,
     class: className = '',
     disabled = false,
+    type = 'button',
+    dataTestId,
   }: PillProps = $props();
 </script>
 
@@ -32,6 +36,8 @@
   onclick={onClick}
   {disabled}
   role={as === 'button' ? 'button' : 'div'}
+  {type}
+  data-testid={dataTestId}
 >
   {@render children()}
 </svelte:element>

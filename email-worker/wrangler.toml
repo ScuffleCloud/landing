@@ -1,0 +1,22 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "email-worker"
+main = "src/index.ts"
+compatibility_date = "2024-12-05"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+
+[vars]
+ENVIRONMENT = "development"
+MAILGUN_MAILINGLIST = "scuffle.tv@scuffle.tv"
+ALLOWED_ORIGIN_URLS = 'http://localhost:5173,http://www.localhost:5173'
+
+[vars.secrets]
+API_KEY=''
+TURNSTILE_KEY=''
+
+[env.production]
+name = "email-worker-production"
+vars.ENVIRONMENT = "production"
+vars.ALLOWED_ORIGIN_URLS=''
