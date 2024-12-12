@@ -5,6 +5,20 @@
   import backButton from '$lib/images/back-button.svg';
   import RoadmapTimeline from '$lib/components/RoadmapTimeline.svelte';
   import botToLaunch from '$lib/images/bot-to-launch.svg';
+  import { spring } from 'svelte/motion';
+
+  const yPosition = spring(0, {
+    stiffness: 0.2,
+    damping: 0.4,
+  });
+
+  function handleMouseEnter() {
+    $yPosition = -5;
+  }
+
+  function handleMouseLeave() {
+    $yPosition = 0;
+  }
 </script>
 
 <div class="page-bg">
@@ -27,8 +41,25 @@
     </div>
   </div>
   <RoadmapTimeline />
-  <!-- Now everytime i click this image. i want it to rise in the air -->
-  <img src={botToLaunch} alt="launch-bot" />
+  <div class="animation-container">
+    <!-- Animate here -->
+    <Pill color={theme.colors.orange500} as="button" onClick={() => {}}>
+      <p>Launch Bot</p>
+      <img src={backButton} alt="Back" />
+    </Pill>
+    <div class="bounce-bot-container">
+      <!-- TODO: Remove this asset in place of a different one -->
+      <img
+        src={botToLaunch}
+        alt="launch-bot"
+        draggable="false"
+        style="transform: translateY({$yPosition}px);"
+        class="bounce-bot"
+        onmouseenter={handleMouseEnter}
+        onmouseleave={handleMouseLeave}
+      />
+    </div>
+  </div>
 </div>
 
 <style>
@@ -79,28 +110,52 @@
           }
         }
 
-        /* TODO: Touch up clamp values when font-sizes and other designs are finalized */
-        :global(.pill) {
-          font-weight: 700;
-          height: clamp(2rem, 6vw, 3rem);
-          gap: 0.25rem;
-          white-space: nowrap;
-          padding: 0 clamp(0.75rem, 2vw, 1rem);
-
-          img {
-            width: clamp(1rem, 3vw, 1.5rem);
-            height: auto;
-          }
-
-          p {
-            font-size: clamp(0.75rem, 2.3vw, 1rem);
-          }
-        }
-
         .pill-link {
           text-decoration: none;
         }
       }
+    }
+  }
+
+  .animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 10rem;
+
+    .bounce-bot-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+
+      .bounce-bot {
+        cursor: pointer;
+        will-change: transform;
+        width: 150px;
+        height: auto;
+        user-select: none;
+      }
+    }
+  }
+
+  /* TODO: Touch up clamp values when font-sizes and other designs are finalized */
+  :global(.pill) {
+    font-weight: 700;
+    height: clamp(2rem, 6vw, 3rem);
+    gap: 0.25rem;
+    white-space: nowrap;
+    padding: 0 clamp(0.75rem, 2vw, 1rem);
+
+    img {
+      width: clamp(1rem, 3vw, 1.5rem);
+      height: auto;
+    }
+
+    p {
+      font-size: clamp(0.75rem, 2.3vw, 1rem);
     }
   }
 </style>
