@@ -46,13 +46,20 @@
   }
 
   .footer-content {
-    max-width: var(--column-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, minmax(auto, 14rem));
     max-width: 64rem;
     padding: 0 1rem;
+    justify-content: center;
+  }
+
+  /* for gap in 2x2 layout */
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
   }
 
   .footer-section {

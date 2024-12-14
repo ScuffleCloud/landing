@@ -11,17 +11,16 @@
 <div class="header-container">
   <header>
     <div class="corner">
-      test123
       <img src={tempLogo} alt="GitHub" />
+      SCUFFLE
     </div>
-
     <nav>
       <ul>
         <li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-          <a href="/">Home</a>
+          <a href="/">Homepage</a>
         </li>
-        <li aria-current={$page.url.pathname === '/testpage2' ? 'page' : undefined}>
-          <a href="/testpage2">testpage2</a>
+        <li aria-current={$page.url.pathname === '/roadmap' ? 'page' : undefined}>
+          <a href="/roadmap">Roadmap</a>
         </li>
         <li aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined}>
           <a href="/about">about</a>
