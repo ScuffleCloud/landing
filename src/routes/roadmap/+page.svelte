@@ -14,7 +14,7 @@
 
   let scrollComplete = false;
   let pathData = $state('');
-  let isAnimating = false;
+  let isAnimating = $state(false);
 
   function fadeIntoViewPostAnimation() {
     anime({
@@ -121,7 +121,12 @@
   </div>
   <RoadmapTimeline />
   <div class="animation-container">
-    <Pill color={theme.colors.orange500} as="button" onClick={startAnimation}>
+    <Pill
+      color={theme.colors.orange500}
+      as="button"
+      onClick={startAnimation}
+      disabled={isAnimating}
+    >
       <p>Go Back</p>
       <img src={backButton} alt="Back" style="transform: rotate(-90deg);" />
     </Pill>

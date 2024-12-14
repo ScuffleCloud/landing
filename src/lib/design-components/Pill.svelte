@@ -53,5 +53,9 @@
     cursor: pointer;
     background-color: var(--pill-background);
     border: 1px solid var(--pill-border-color);
+
+    &[disabled] {
+      color: var(--color);
+    }
   }
 </style>
