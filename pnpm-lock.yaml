@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/archivo':
+        specifier: ^5.1.0
+        version: 5.1.0
       animejs:
         specifier: ^3.2.2
         version: 3.2.2
@@ -92,7 +95,7 @@ importers:
     devDependencies:
       '@cloudflare/vitest-pool-workers':
         specifier: ^0.5.2
-        version: 0.5.35(@cloudflare/workers-types@4.20241205.0)(@vitest/runner@2.1.8)(@vitest/snapshot@2.1.8)(vitest@2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8)(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0))
+        version: 0.5.35(@cloudflare/workers-types@4.20241205.0)(@vitest/runner@2.1.8)(@vitest/snapshot@2.1.8)(vitest@2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8(vitest@2.1.8))(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0))
       '@cloudflare/workers-types':
         specifier: ^4.20241205.0
         version: 4.20241205.0
@@ -104,7 +107,7 @@ importers:
         version: 5.7.2
       vitest:
         specifier: 2.0.5
-        version: 2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8)(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0)
+        version: 2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8(vitest@2.1.8))(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0)
       wrangler:
         specifier: ^3.60.3
         version: 3.94.0(@cloudflare/workers-types@4.20241205.0)
@@ -511,6 +514,9 @@ packages:
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
+
+  '@fontsource-variable/archivo@5.1.0':
+    resolution: {integrity: sha512-q0q76Qt9qulNS/nMFhAcaWeDi/Z3Eka5qKX1P75DV06KwpCJ4Q2yeh0RnugNiyGFyxkinx9zJfyjO+agG4Yfkg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2566,7 +2572,7 @@ snapshots:
     dependencies:
       mime: 3.0.0
 
-  '@cloudflare/vitest-pool-workers@0.5.35(@cloudflare/workers-types@4.20241205.0)(@vitest/runner@2.1.8)(@vitest/snapshot@2.1.8)(vitest@2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8)(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0))':
+  '@cloudflare/vitest-pool-workers@0.5.35(@cloudflare/workers-types@4.20241205.0)(@vitest/runner@2.1.8)(@vitest/snapshot@2.1.8)(vitest@2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8(vitest@2.1.8))(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0))':
     dependencies:
       '@vitest/runner': 2.1.8
       '@vitest/snapshot': 2.1.8
@@ -2576,7 +2582,7 @@ snapshots:
       esbuild: 0.17.19
       miniflare: 3.20241205.0
       semver: 7.6.3
-      vitest: 2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8)(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0)
+      vitest: 2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8(vitest@2.1.8))(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0)
       wrangler: 3.94.0(@cloudflare/workers-types@4.20241205.0)
       zod: 3.24.0
     transitivePeerDependencies:
@@ -2796,6 +2802,8 @@ snapshots:
       levn: 0.4.1
 
   '@fastify/busboy@2.1.1': {}
+
+  '@fontsource-variable/archivo@5.1.0': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -4638,7 +4646,7 @@ snapshots:
     optionalDependencies:
       vite: 5.4.11(@types/node@22.10.1)(sass-embedded@1.81.0)(sass@1.81.0)
 
-  vitest@2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8)(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0):
+  vitest@2.0.5(@types/node@22.10.1)(@vitest/ui@2.1.8(vitest@2.1.8))(jsdom@25.0.1)(sass-embedded@1.81.0)(sass@1.81.0):
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@vitest/expect': 2.0.5

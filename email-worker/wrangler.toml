@@ -13,8 +13,8 @@ MAILGUN_MAILINGLIST = "scuffle.tv@scuffle.tv"
 ALLOWED_ORIGIN_URLS = 'http://localhost:5173,http://www.localhost:5173'
 
 [vars.secrets]
-API_KEY=''
-TURNSTILE_KEY=''
+MAILGUN_API_KEY=''
+TURNSTILE_SECRET_KEY=''
 
 [env.production]
 name = "email-worker-production"
