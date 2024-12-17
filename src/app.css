@@ -50,7 +50,7 @@ p {
 }
 
 a {
-  color: var(--color-theme-1);
+  color: var(--color-text);
   text-decoration: none;
 }
 

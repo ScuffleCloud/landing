@@ -10,9 +10,9 @@
 
 <div class="header-container">
   <header>
-    <div class="corner">
+    <div class="logo-container">
       <img src={tempLogo} alt="GitHub" />
-      SCUFFLE
+      scuffle
     </div>
     <nav>
       <ul>
@@ -27,11 +27,11 @@
         </li>
       </ul>
     </nav>
-    <Flex direction="row" gap={2}>
+    <Flex direction="row" gap={2} alignItems="center">
       <GithubStats />
       <Pill color={theme.colors.orange500}>
-        <Flex direction="row" alignItems="center" gap={1}>
-          <span style="font-weight: 700;">Get a demo</span>
+        <Flex direction="row" alignItems="center">
+          <p class="demo-text">Get a demo</p>
           <img src={backButton} alt="Back" />
         </Flex>
       </Pill>
@@ -46,67 +46,91 @@
     margin: 0 auto;
     padding: 1rem;
     width: 100%;
-  }
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0 auto;
-  }
+    header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0 auto;
 
-  .corner {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    justify-content: center;
-  }
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--brown-800);
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-transform: uppercase;
 
-  nav {
-    flex-grow: 1; /* Allow nav to grow and take available space */
-    display: flex;
-    justify-content: center;
-  }
+        img {
+          filter: drop-shadow(0px 2px 4px 0px rgb(0, 0, 0, 0.05));
+        }
+      }
 
-  ul {
-    position: relative;
-    padding: 0;
-    margin: 0;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    background-size: contain;
-  }
+      nav {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        /* Offset navbar */
+        margin-left: clamp(0rem, calc((100vw - 800px) * 0.2), 4rem);
 
-  li {
-    position: relative;
-    height: 100%;
-  }
+        ul {
+          position: relative;
+          padding: 0;
+          margin: 0;
+          height: 3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          list-style: none;
+          background-size: contain;
 
-  /* Active page indicator */
-  li[aria-current='page']::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 0.1875rem;
-    background-color: var(--color-orange500);
-  }
+          li {
+            position: relative;
+            display: flex;
+            padding: 1rem;
 
-  nav a {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    padding: 0 0.5rem;
-    text-decoration: none;
-    transition: color 0.2s linear;
-  }
+            a {
+              display: flex;
+              height: 100%;
+              align-items: center;
+              font-size: 1rem;
+              font-weight: 500;
+              line-height: 1.5rem;
+              text-transform: capitalize;
+              text-decoration: none;
+            }
 
-  a:hover {
-    color: var(--color-theme-1);
+            &[aria-current='page'] {
+              a {
+                font-weight: 700;
+              }
+            }
+          }
+
+          /* Active page indicator */
+          li[aria-current='page']::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0.5625rem;
+            width: 1.5rem;
+            height: 0.25rem;
+            background-color: var(--color-orange500);
+          }
+        }
+      }
+
+      .demo-text {
+        font-weight: 700;
+        display: flex;
+        padding: 0rem 0.25rem;
+        justify-content: center;
+        align-items: center;
+        gap: 0.625rem;
+      }
+    }
   }
 </style>

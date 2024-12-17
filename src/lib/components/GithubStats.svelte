@@ -14,44 +14,45 @@
   });
 </script>
 
-<a href="https://github.com/ScuffleCloud" class="pill-link">
-  <Pill color="white" borderColor="#00000012">
-    <Flex direction="row" alignItems="center" gap={2}>
-      <span style="font-weight: 700;">Contribute</span>
+<a href="https://github.com/ScuffleCloud/scuffle" class="pill-link">
+  <Pill color="white" borderColor="#EAE2DF">
+    <Flex direction="row" alignItems="center" gap={2.2} class="pill-content">
+      <p class="pill-text">Contribute</p>
       <div class="divider"></div>
-      <Flex direction="row" alignItems="center" gap={2}>
-        <img src={github} alt="GitHub" class="github-icon" />
-        {#if !$query.data}
-          <p class="loading">---</p>
-        {:else}
-          <p>{$query.data.stargazers_count}</p>
-        {/if}
-      </Flex>
+      <img src={github} alt="GitHub" class="github-icon" />
+      {#if !$query.data}
+        <p class="loading">---</p>
+      {:else}
+        <p class="pill-text">{$query.data.stargazers_count}</p>
+      {/if}
     </Flex>
   </Pill>
 </a>
 
 <style>
-  .loading {
-    opacity: 0.3;
-  }
   .pill-link {
     text-decoration: none;
-    height: 100%;
-  }
-  :global(.pill-link > *) {
-    height: 100%;
-  }
 
-  .divider {
-    width: 0.125rem;
-    height: 1.25rem;
-    background-color: #ddd;
-    border-radius: 1px;
-  }
+    .pill-text {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.5rem;
+    }
 
-  .github-icon {
-    width: 1.35rem;
-    height: 1.35rem;
+    .divider {
+      width: 0.125rem;
+      height: 1.25rem;
+      background-color: var(--color-light100);
+      border-radius: 0.6875rem;
+    }
+
+    .github-icon {
+      width: 1.35rem;
+      height: 1.35rem;
+    }
+
+    .loading {
+      opacity: 0.3;
+    }
   }
 </style>
