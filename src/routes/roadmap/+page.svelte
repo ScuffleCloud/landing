@@ -62,6 +62,11 @@
           translateY: anime.path(motionPath)('y'),
           duration: 5000,
           easing: 'easeOutQuad',
+          // To get over sticky nav
+          zIndex: {
+            value: 1000,
+            round: true,
+          },
           // Use update method instead of scroll delay lib so it's smoother (scrolling update rate equalling animation rate)
           update: function (anim) {
             if (scrollComplete) return;
@@ -172,7 +177,7 @@
 <style>
   .page-bg {
     background-color: var(--color-light100);
-    max-width: 64rem;
+    max-width: var(--layout-width);
     margin: 0 auto;
     padding: 1rem;
     width: 100%;

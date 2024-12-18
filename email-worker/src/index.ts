@@ -16,7 +16,7 @@ import { validate } from 'email-validator';
 interface Env {
   MAILGUN_API_KEY: string;
   MAILGUN_MAILINGLIST: string;
-  TURNSTILE_KEY: string;
+  TURNSTILE_SECRET_KEY: string;
   ALLOWED_ORIGIN_URLS: string;
 }
 
@@ -26,7 +26,7 @@ interface TurnstileOutcome {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const { MAILGUN_API_KEY, MAILGUN_MAILINGLIST, TURNSTILE_KEY, ALLOWED_ORIGIN_URLS } = env;
+    const { MAILGUN_API_KEY, MAILGUN_MAILINGLIST, TURNSTILE_SECRET_KEY, ALLOWED_ORIGIN_URLS } = env;
     const ALLOWED_ORIGINS = ALLOWED_ORIGIN_URLS.split(',');
     const origin = request.headers.get('Origin') as string;
     if (!ALLOWED_ORIGINS.includes(origin)) {
@@ -72,7 +72,7 @@ export default {
     try {
       const formData = new FormData();
 
-      formData.append('secret', TURNSTILE_KEY);
+      formData.append('secret', TURNSTILE_SECRET_KEY);
       formData.append('response', token);
       formData.append('remoteip', ip);
 

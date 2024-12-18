@@ -8,6 +8,7 @@
   import TurnstileOverlay from '$lib/components/TurnstileOverlay.svelte';
   import { setContext } from 'svelte';
   import { TURNSTILE_CONTEXT_KEY } from '$lib/design-components/utils';
+  import '@fontsource-variable/archivo';
 
   let { children } = $props();
   const queryClient = new QueryClient({
