@@ -49,7 +49,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, minmax(auto, 14rem));
-    max-width: 64rem;
+    max-width: var(--layout-width);
     padding: 0 1rem;
     justify-content: center;
   }

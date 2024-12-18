@@ -6,6 +6,7 @@
   import { PUBLIC_EMAIL_WORKER_URL } from '$env/static/public';
   import { getContext } from 'svelte';
   import { TURNSTILE_CONTEXT_KEY } from '$lib/design-components/utils';
+  import rectangle from '$lib/images/rectangle.svg';
   import type { TurnstileError } from '../types';
 
   let email = '';
@@ -66,6 +67,7 @@
 </script>
 
 <div class="rectangle">
+  <img src={rectangle} alt="Rectangle" class="rectangle-image" />
   <div class="update-banner">
     <div class="update-banner-container">
       <p class="title">Receive an Update when we&apos;ll go live!</p>
@@ -117,37 +119,48 @@
     align-items: center;
     padding: 3rem;
     border-radius: 1rem;
-    background-color: var(--color-orange500);
+
+    .rectangle-image {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .update-banner {
     display: flex;
     flex-direction: column;
-    padding: 1.25rem;
+    padding: 1.5rem 1rem;
     border-radius: 1rem;
-    gap: 1rem;
     height: 100%;
     width: 100%;
     max-width: 25rem;
     background-color: var(--color-peach600);
+    gap: 1rem;
+    z-index: 5;
   }
 
   .update-banner-container {
+    display: flex;
     padding: 0 0.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .title {
     color: var(--color-brown800);
     font-weight: bold;
     font-size: 1.125rem;
-    line-height: 1.5;
-    margin: 0;
+    line-height: 1rem;
   }
 
   .subtitle {
     color: var(--color-brown600);
-    line-height: 1.5;
-    margin: 0;
+    font-weight: 500;
+    line-height: 1rem;
   }
 
   .button-text {
@@ -185,14 +198,16 @@
   .entry-field {
     padding: 0.75rem 1rem;
     border-radius: 100rem;
-    border: 1px solid #ffdbb9;
+    border: 1px solid #9f9388;
     width: 100%;
     outline: none;
     transition: all 0.2s ease;
     background-color: inherit;
 
     &::placeholder {
-      color: rgba(0, 0, 0, 0.6);
+      color: var(--color-brown600);
+      font-weight: 500;
+      line-height: 1rem;
     }
   }
 

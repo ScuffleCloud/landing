@@ -4,10 +4,19 @@
   import audioVideoTracks from '$lib/images/features-audio-video-tracks.svg';
   import streamHighlights from '$lib/images/features-stream-highlights.svg';
   import vodRecording from '$lib/images/features-vod-recording.svg';
+  import youShouldContribute from '$lib/images/you-should-contribute.svg';
+  import scuffleBear from '$lib/images/scuffle-bear.svg';
+  import accentAddon from '$lib/images/addons-accent.svg';
+  import heartsAddon from '$lib/images/addons-hearts.svg';
 </script>
 
 <div class="hero-section-container">
-  <Flex justifyContent="space-between" alignItems="center" padding={[2, 0]}>
+  <Flex
+    justifyContent="space-between"
+    alignItems="center"
+    padding={[6, 0]}
+    class="hero-section-header"
+  >
     <Flex direction="column" class="hero-section">
       <h1>Scuffle.</h1>
       <h1 class="hero-section-title">
@@ -16,37 +25,38 @@
         cloud provider.
       </h1>
     </Flex>
-
-    <Flex alignItems="center" gap={6}>
-      <div class="github-bubble">
-        <p>you should contribute!</p>
-      </div>
-      <div class="box"></div>
-    </Flex>
+    <div class="header-bubble-container">
+      <img src={youShouldContribute} alt="You should contribute!" />
+    </div>
   </Flex>
   <EmailForm />
-  <Flex direction="row" margin={[2, 0]} width="100%" gap={2}>
-    <Flex justifyContent="center" alignItems="center">
-      <img src="/scuffle-bear.svg" alt="Scuffle Bear" />
-    </Flex>
-    <Flex direction="column" gap={15}>
-      <Flex gap={4} direction="column">
-        <h3>What is Scuffle?</h3>
-        <p>
-          Scuffle is an ambitious, upcoming open-source cloud provider. <br />
-          Our initial focus is on delivering high-quality video streaming solutions for both static and
-          real-time video content.
+  <div class="scuffle-about-container">
+    <div class="content-1">
+      <img src={scuffleBear} alt="Scuffle Bear" />
+    </div>
+    <div class="content-2">
+      <img src={accentAddon} alt="Addons" />
+      <h3 style="white-space: nowrap;">What is Scuffle?</h3>
+      <div class="bear-text-container">
+        <p class="bear-text-1">Scuffle is an ambitious, upcoming open-source cloud provider.</p>
+        <p class="bear-text-2">
+          Our initial focus is on delivering high-quality video streaming solutions for both static
+          and real-time video content.
         </p>
-      </Flex>
-      <Flex gap={4} direction="column">
-        <h3>Open Source - Community driven vision</h3>
-        <p>
-          Scuffle aims to be a community-driven platform, built from the ground up with transparency
-          and openness in mind. Licensed under AGPL3, Apache 2.0, and MIT*.
-        </p>
-      </Flex>
-    </Flex>
-  </Flex>
+      </div>
+    </div>
+    <div class="content-3">
+      <h3>
+        Open Source - Community driven vision
+        <img src={heartsAddon} alt="Addons" />
+      </h3>
+      <p class="bear-text-1">
+        Scuffle aims to be a community-driven platform, built from the ground up with transparency
+        and openness in mind. Licensed under AGPL3, Apache 2.0, and MIT*.
+      </p>
+      <p class="underlined-text">Learn more</p>
+    </div>
+  </div>
 </div>
 
 <div class="features-bg">
@@ -191,73 +201,176 @@
 
 <style>
   .hero-section-container {
+    position: relative;
     background-color: var(--color-light100);
-    max-width: 64rem;
+    max-width: var(--layout-width);
     margin: 0 auto;
     padding: 1rem;
     width: 100%;
 
-    :global {
-      .hero-section {
-        h1 {
-          line-height: 1.2;
-        }
-      }
+    :global(.hero-section-header) {
+      z-index: 1;
+      align-items: center;
+      justify-content: center;
 
+      :global(.header-bubble-container) {
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    :global(.hero-section) {
+      h1 {
+        color: var(--brown-800, #201617);
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: normal;
+      }
       .hero-section-title {
         font-weight: 400;
       }
     }
 
-    /* Will be changed later when picture is added */
-    .github-bubble {
-      background: white;
-      padding: 0.75rem 1rem;
-      border-radius: 1rem;
-      position: relative;
-    }
+    .scuffle-about-container {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 4rem;
+      column-gap: 4rem;
+      width: 100%;
+      margin: 7rem 0;
+      padding: 0 2rem;
+      box-sizing: border-box;
+      z-index: 1;
 
-    /* Will be changed later when picture is added */
-    .github-bubble::after {
-      content: '';
-      position: absolute;
-      right: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-      border-left: 0.625rem solid white;
-      border-top: 0.625rem solid transparent;
-      border-bottom: 0.625rem solid transparent;
-    }
-  }
+      .content-1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: 1 / 1 / 3 / 2;
 
-  /* Will be changed later when picture is added */
-  .box {
-    width: 100px;
-    height: 100px;
-    background: var(--color-light200);
-    border-radius: 0.5rem;
+        img {
+          max-width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          padding: 0 1rem;
+        }
+      }
+
+      .content-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .content-3 {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        row-gap: 2rem;
+        column-gap: 0.5rem;
+        grid-template-columns: 40% 1fr;
+        padding: 0 1rem;
+
+        .content-1 {
+          grid-area: 1 / 2 / 2 / 3;
+          img {
+            padding: 0 clamp(0rem, max(0rem, 7vw - 2rem), 6rem);
+          }
+        }
+        .content-2 {
+          grid-area: 1 / 1 / 2 / 2;
+        }
+        .content-3 {
+          grid-area: 2 / 1 / 3 / 3;
+        }
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .bear-text-1 {
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.75rem;
+      }
+
+      .bear-text-2 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 1.75rem;
+      }
+
+      .content-2 {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        img {
+          position: absolute;
+          top: -18px;
+          left: -25px;
+          z-index: 1;
+        }
+
+        .bear-text-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+
+      .content-3 {
+        h3 {
+          position: relative;
+          z-index: 2;
+          display: inline;
+          img {
+            position: absolute;
+            top: -18px;
+            right: 0;
+            z-index: -1;
+          }
+        }
+
+        .underlined-text {
+          text-decoration: underline;
+          font-weight: 600;
+          padding: 1rem 0rem;
+          font-size: 1rem;
+          font-weight: 600;
+          line-height: 1rem;
+        }
+      }
+    }
   }
 
   .features-bg {
     background-color: var(--color-brown700);
-  }
 
-  .features-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    max-width: 64rem;
-    margin: 0 auto;
-    padding: 4rem 1rem;
-    width: 100%;
-    color: var(--color-light100);
+    .features-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      max-width: var(--layout-width);
+      margin: 0 auto;
+      padding: 4rem 1rem;
+      width: 100%;
+      color: var(--color-light100);
 
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-    }
-    h1 {
-      font-weight: 400;
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      h1 {
+        font-weight: 400;
+      }
     }
   }
 
@@ -278,7 +391,6 @@
     h2 {
       font-size: 2.5rem;
       margin-bottom: 3rem;
-      /* 768px is a common breakpoint for mobile devices so defining it here for now */
       @media (max-width: 768px) {
         font-size: 2rem;
         margin-bottom: 2rem;
@@ -332,14 +444,18 @@
     }
 
     .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(0.5rem, 8vw, 3.75rem);
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(0.5rem, 4vw, 3.75rem);
+      row-gap: 2rem;
+      flex-shrink: 0;
+      width: 100%;
 
       .card {
         padding: 0.5rem;
         border-radius: 0.75rem;
         background-color: #453435;
+        flex: 1 1 15.75rem; /* grow shrink basis */
 
         .image-wrapper {
           padding: 2rem;

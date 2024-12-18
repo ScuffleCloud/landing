@@ -52,6 +52,7 @@
     border-radius: 50rem;
     width: fit-content;
     cursor: pointer;
+    font-size: inherit;
     background-color: var(--pill-background);
     border: 1px solid var(--pill-border-color);
 

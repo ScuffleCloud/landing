@@ -53,6 +53,7 @@
 
     .loading {
       opacity: 0.3;
+      white-space: nowrap;
     }
   }
 </style>

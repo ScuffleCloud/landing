@@ -24,6 +24,7 @@
     "@testing-library/svelte": "^5.2.6",
     "@testing-library/user-event": "^14.5.2",
     "@types/animejs": "^3.1.12",
+    "@types/lodash": "^4.17.13",
     "@vitest/ui": "^2.1.8",
     "eslint": "^9.16.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -33,7 +34,7 @@
     "msw": "^2.6.8",
     "prettier": "^3.4.1",
     "prettier-plugin-svelte": "^3.3.2",
-    "svelte": "^5.0.0",
+    "svelte": "^5.14.4",
     "svelte-check": "^4.0.0",
     "svelte-turnstile": "^0.9.0",
     "typescript": "^5.7.2",
@@ -43,6 +44,7 @@
   },
   "dependencies": {
     "@fontsource-variable/archivo": "^5.1.0",
-    "animejs": "^3.2.2"
+    "animejs": "^3.2.2",
+    "lodash": "^4.17.21"
   }
 }
