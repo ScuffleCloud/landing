@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/svelte';
 import { expect, test, beforeAll, afterAll, afterEach } from 'vitest';
-import TestWrapper from './TestWrapper.svelte';
+import TestWrapper from '../TestWrapper.svelte';
 import { vi } from 'vitest';
 
 import { http, HttpResponse } from 'msw';

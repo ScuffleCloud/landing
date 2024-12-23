@@ -1,34 +1,16 @@
 <script lang="ts">
-  import EmailForm from '$lib/components/Homepage/EmailForm.svelte';
-  import Flex from '$lib/design-components/Flex.svelte';
   import audioVideoTracks from '$lib/images/features-audio-video-tracks.svg';
   import streamHighlights from '$lib/images/features-stream-highlights.svg';
   import vodRecording from '$lib/images/features-vod-recording.svg';
-  import youShouldContribute from '$lib/images/you-should-contribute.svg';
   import scuffleBear from '$lib/images/scuffle-bear.svg';
   import accentAddon from '$lib/images/addons-accent.svg';
   import heartsAddon from '$lib/images/addons-hearts.svg';
+  import Hero from '../components/homepage/Hero.svelte';
+  import EmailForm from '../components/homepage/EmailForm.svelte';
 </script>
 
 <div class="hero-section-container">
-  <Flex
-    justifyContent="space-between"
-    alignItems="center"
-    padding={[6, 0]}
-    class="hero-section-header"
-  >
-    <Flex direction="column" class="hero-section">
-      <h1>Scuffle.</h1>
-      <h1 class="hero-section-title">
-        new up-and-coming.<br />
-        open source.<br />
-        cloud provider.
-      </h1>
-    </Flex>
-    <div class="header-bubble-container">
-      <img src={youShouldContribute} alt="You should contribute!" />
-    </div>
-  </Flex>
+  <Hero />
   <EmailForm />
   <div class="scuffle-about-container">
     <div class="content-1">
@@ -207,29 +189,6 @@
     margin: 0 auto;
     padding: 1rem;
     width: 100%;
-
-    :global(.hero-section-header) {
-      z-index: 1;
-      align-items: center;
-      justify-content: center;
-
-      :global(.header-bubble-container) {
-        position: absolute;
-        right: 0;
-      }
-    }
-
-    :global(.hero-section) {
-      h1 {
-        color: var(--brown-800, #201617);
-        font-size: 4rem;
-        font-weight: 700;
-        line-height: normal;
-      }
-      .hero-section-title {
-        font-weight: 400;
-      }
-    }
 
     .scuffle-about-container {
       display: grid;

@@ -87,6 +87,7 @@
       margin: 0 auto;
       padding: 1rem;
       width: 100%;
+      height: 5rem;
 
       header {
         display: flex;

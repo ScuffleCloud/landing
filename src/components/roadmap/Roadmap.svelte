@@ -72,7 +72,6 @@
     align-items: center;
     align-self: center;
     width: 100%;
-    padding: 0 5rem;
     margin-top: 4rem;
   }
 </style>

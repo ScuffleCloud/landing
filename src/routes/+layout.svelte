@@ -1,14 +1,16 @@
 <script lang="ts">
-  import Navbar from '$lib/components/Navbar.svelte';
-  import Footer from '$lib/components/Homepage/Footer.svelte';
+  import Navbar from '../components/nav/Navbar.svelte';
   import { theme } from '$lib/theme';
   import { browser } from '$app/environment';
   import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
-  import '../app.css';
-  import TurnstileOverlay from '$lib/components/TurnstileOverlay.svelte';
+  import TurnstileOverlay from '../components/TurnstileOverlay.svelte';
   import { setContext } from 'svelte';
   import { TURNSTILE_CONTEXT_KEY } from '$lib/design-components/utils';
   import '@fontsource-variable/archivo';
+  import { beforeNavigate } from '$app/navigation';
+  import { showMobileMenu } from '$lib/layout';
+  import '../styles/global.css';
+  import Footer from '../components/Footer.svelte';
 
   let { children } = $props();
   const queryClient = new QueryClient({
@@ -25,6 +27,13 @@
   let turnstileOverlayComponent: TurnstileOverlay | null = null;
   setContext(TURNSTILE_CONTEXT_KEY, {
     getToken: async () => await turnstileOverlayComponent?.getToken(),
+  });
+
+  beforeNavigate((nav) => {
+    // Hide menu on navigate
+    nav.complete.then(() => {
+      $showMobileMenu = false;
+    });
   });
 </script>
 

@@ -11,6 +11,10 @@
   --mobile-width: 768px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   overscroll-behavior: auto;
