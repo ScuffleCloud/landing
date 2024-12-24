@@ -1,6 +1,5 @@
 <script lang="ts">
   import { PUBLIC_GITHUB_REPO_ID } from '$env/static/public';
-  import Flex from '$lib/design-components/Flex.svelte';
   import Pill from '$lib/design-components/Pill.svelte';
   import github from '$lib/images/github.svg';
   import { createQuery } from '@tanstack/svelte-query';
@@ -16,7 +15,7 @@
 
 <a href="https://github.com/ScuffleCloud/scuffle" class="pill-link">
   <Pill color="white" borderColor="#EAE2DF">
-    <Flex direction="row" alignItems="center" gap={2.2} class="pill-content">
+    <div class="pill-content">
       <p class="pill-text">Contribute</p>
       <div class="divider"></div>
       <img src={github} alt="GitHub" class="github-icon" />
@@ -25,7 +24,7 @@
       {:else}
         <p class="pill-text">{$query.data.stargazers_count}</p>
       {/if}
-    </Flex>
+    </div>
   </Pill>
 </a>
 
@@ -33,27 +32,33 @@
   .pill-link {
     text-decoration: none;
 
-    .pill-text {
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.5rem;
-    }
+    .pill-content {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
 
-    .divider {
-      width: 0.125rem;
-      height: 1.25rem;
-      background-color: var(--color-light100);
-      border-radius: 0.6875rem;
-    }
+      .pill-text {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.5rem;
+      }
 
-    .github-icon {
-      width: 1.35rem;
-      height: 1.35rem;
-    }
+      .divider {
+        width: 0.125rem;
+        height: 1.25rem;
+        background-color: var(--color-light100);
+        border-radius: 0.6875rem;
+      }
 
-    .loading {
-      opacity: 0.3;
-      white-space: nowrap;
+      .github-icon {
+        width: 1.35rem;
+        height: 1.35rem;
+      }
+
+      .loading {
+        opacity: 0.3;
+        white-space: nowrap;
+      }
     }
   }
 </style>
