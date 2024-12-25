@@ -49,7 +49,7 @@
   };
 </script>
 
-<div class="overlay" class:hidden={!showTurnstileOverlay} data-testid="turnstile-overlay">
+<div class={['overlay', { hidden: !showTurnstileOverlay }]} data-testid="turnstile-overlay">
   <div class="turnstile-box">
     <p>One more step before you proceed...</p>
     <div class="turnstile-container">

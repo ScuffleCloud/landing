@@ -27,7 +27,7 @@
   <div class="divider-section">
     <img src={statusIcons[status]} alt={status} />
     {#if showDivider}
-      <div class="divider-line" class:planned={status === 'planned'}></div>
+      <div class={['divider-line', { incomplete: status === 'planned' }]}></div>
     {/if}
   </div>
   <div class="right-section">
@@ -78,10 +78,10 @@
       transform: translateX(-50%);
       height: 86%;
       border-radius: 0.75rem;
-    }
 
-    .divider-line.planned {
-      background-color: var(--color-sand600);
+      &.incomplete {
+        background-color: var(--color-sand600);
+      }
     }
   }
 

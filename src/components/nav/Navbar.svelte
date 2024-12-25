@@ -22,13 +22,13 @@
       <HideOn mobile>
         <nav>
           <ul>
-            <li class:active={pathname === '/'}>
+            <li class={{ active: pathname === '/' }}>
               <a href="/">Homepage</a>
             </li>
-            <li class:active={pathname.startsWith('/roadmap')}>
+            <li class={{ active: pathname.startsWith('/roadmap') }}>
               <a href="/roadmap">Roadmap</a>
             </li>
-            <li class:active={pathname.startsWith('/about')}>
+            <li class={{ active: pathname.startsWith('/about') }}>
               <a href="/about">about</a>
             </li>
           </ul>
@@ -51,19 +51,19 @@
       <div class="mobile-menu">
         <ul>
           <li>
-            <a href="/" class:active={pathname === '/'}>
+            <a href="/" class={{ active: pathname === '/' }}>
               Homepage
               <img src={arrowLineRight} alt="Arrow" />
             </a>
           </li>
           <li>
-            <a href="/roadmap" class:active={pathname.startsWith('/roadmap')}>
+            <a href="/roadmap" class={{ active: pathname.startsWith('/roadmap') }}>
               Roadmap
               <img src={arrowLineRight} alt="Arrow" />
             </a>
           </li>
           <li>
-            <a href="/about" class:active={pathname.startsWith('/about')}>
+            <a href="/about" class={{ active: pathname.startsWith('/about') }}>
               About
               <img src={arrowLineRight} alt="Arrow" />
             </a>

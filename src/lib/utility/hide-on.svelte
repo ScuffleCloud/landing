@@ -8,9 +8,11 @@
   };
 
   let { mobile = false, desktop = false, children }: HideOnProps = $props();
+
+  const className = ['hide-on', { 'hide-on-mobile': mobile, 'hide-on-desktop': desktop }];
 </script>
 
-<div class="hide-on" class:hide-on-mobile={mobile} class:hide-on-desktop={desktop}>
+<div class={className}>
   {@render children()}
 </div>
 
