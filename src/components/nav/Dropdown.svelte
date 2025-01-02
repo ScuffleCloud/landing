@@ -1,6 +1,9 @@
 <script lang="ts">
   import arrowLineRight from '$lib/images/arrow-line-right.svg';
   import { page } from '$app/stores';
+  import GithubStats from './GithubStats.svelte';
+  import DemoPill from './DemoPill.svelte';
+  import HideOn from '$lib/utility/hide-on.svelte';
 
   let pathname = $derived($page?.url?.pathname ?? '/');
 </script>
@@ -26,6 +29,12 @@
       </a>
     </li>
   </ul>
+  <HideOn tablet ds dm dl>
+    <div class="stats-container">
+      <GithubStats useHideOn={false} />
+      <DemoPill />
+    </div>
+  </HideOn>
 </div>
 
 <style>
@@ -62,6 +71,15 @@
           }
         }
       }
+    }
+
+    .stats-container {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1rem 1.5rem 0.75rem;
     }
   }
 </style>

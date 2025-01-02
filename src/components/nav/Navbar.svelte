@@ -1,15 +1,13 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import GithubStats from './GithubStats.svelte';
-  import Pill from '$lib/design-components/Pill.svelte';
   import tempLogo from '$lib/images/temp-logo.svg';
-  import { theme } from '$lib/theme';
-  import backButton from '$lib/images/back-button.svg';
   import Flex from '$lib/design-components/Flex.svelte';
   import { showMobileMenu } from '$lib/layout';
   import HideOn from '$lib/utility/hide-on.svelte';
   import Dropdown from './Dropdown.svelte';
   import menuIcon from '$lib/images/menu-button.svg';
+  import DemoPill from './DemoPill.svelte';
   let pathname = $derived($page?.url?.pathname ?? '/');
 </script>
 
@@ -37,12 +35,7 @@
       </HideOn>
       <Flex direction="row" gap={2} alignItems="center" class="hide-mobile">
         <GithubStats />
-        <Pill color={theme.colors.orange500}>
-          <Flex direction="row" alignItems="center" gap={1}>
-            <p class="demo-text">Get a demo</p>
-            <img src={backButton} alt="Back" />
-          </Flex>
-        </Pill>
+        <DemoPill />
       </Flex>
       <button onclick={() => ($showMobileMenu = !$showMobileMenu)} class="hide-ds hide-dm hide-dl">
         <img src={menuIcon} alt="Menu" />
@@ -142,15 +135,6 @@
               background-color: var(--color-orange500);
             }
           }
-        }
-
-        .demo-text {
-          font-weight: 700;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 0.625rem;
-          white-space: nowrap;
         }
       }
     }

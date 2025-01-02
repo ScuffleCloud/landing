@@ -16,7 +16,7 @@
 </script>
 
 <a href="https://github.com/ScuffleCloud/scuffle" class="pill-link">
-  <Pill color="white" borderColor="#EAE2DF">
+  <Pill color="white" borderColor="#EAE2DF" width="100%">
     <div class="pill-content">
       {#if useHideOn}
         <HideOn mobile tablet ds dm>
@@ -40,6 +40,7 @@
 <style>
   .pill-link {
     text-decoration: none;
+    width: 100%;
 
     .pill-content {
       display: flex;

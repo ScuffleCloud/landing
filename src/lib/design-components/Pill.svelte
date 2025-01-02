@@ -13,6 +13,7 @@
     disabled?: boolean;
     type?: 'button' | 'submit';
     dataTestId?: string;
+    width?: string;
   }
 
   let {
@@ -25,6 +26,7 @@
     disabled = false,
     type = 'button',
     dataTestId,
+    width = 'fit-content',
   }: PillProps = $props();
 </script>
 
@@ -33,6 +35,7 @@
   class="pill ${className}"
   style:--pill-background={getColor(color)}
   style:--pill-border-color={getColor(borderColor)}
+  style:--pill-width={width}
   onclick={onClick}
   {disabled}
   role={as === 'button' ? 'button' : 'div'}
@@ -55,7 +58,7 @@
     font-size: inherit;
     background-color: var(--pill-background);
     border: 1px solid var(--pill-border-color);
-
+    width: var(--pill-width);
     &[disabled] {
       color: var(--color);
     }
