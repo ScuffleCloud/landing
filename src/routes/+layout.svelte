@@ -12,6 +12,16 @@
   import '../styles/global.css';
   import Footer from '../components/Footer.svelte';
 
+  import { MediaQuery } from 'svelte/reactivity';
+
+  const showingMobileMenu = new MediaQuery('min-width: 961px');
+
+  $effect(() => {
+    if (showingMobileMenu.current && $showMobileMenu) {
+      $showMobileMenu = false;
+    }
+  });
+
   let { children } = $props();
   const queryClient = new QueryClient({
     defaultOptions: {

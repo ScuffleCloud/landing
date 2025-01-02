@@ -8,7 +8,8 @@
   import Flex from '$lib/design-components/Flex.svelte';
   import { showMobileMenu } from '$lib/layout';
   import HideOn from '$lib/utility/hide-on.svelte';
-  import arrowLineRight from '$lib/images/arrow-line-right.svg';
+  import Dropdown from './Dropdown.svelte';
+  import menuIcon from '$lib/images/menu-button.svg';
   let pathname = $derived($page?.url?.pathname ?? '/');
 </script>
 
@@ -19,7 +20,7 @@
         <img src={tempLogo} alt="GitHub" />
         scuffle
       </div>
-      <HideOn mobile>
+      <HideOn mobile tablet>
         <nav>
           <ul>
             <li class={{ active: pathname === '/' }}>
@@ -34,7 +35,7 @@
           </ul>
         </nav>
       </HideOn>
-      <Flex direction="row" gap={2} alignItems="center" class="hide-on-small">
+      <Flex direction="row" gap={2} alignItems="center" class="hide-mobile">
         <GithubStats />
         <Pill color={theme.colors.orange500}>
           <Flex direction="row" alignItems="center" gap={1}>
@@ -43,33 +44,12 @@
           </Flex>
         </Pill>
       </Flex>
-      <button onclick={() => ($showMobileMenu = !$showMobileMenu)} class="hide-on-desktop">
-        X
+      <button onclick={() => ($showMobileMenu = !$showMobileMenu)} class="hide-ds hide-dm hide-dl">
+        <img src={menuIcon} alt="Menu" />
       </button>
     </header>
     {#if $showMobileMenu}
-      <div class="mobile-menu">
-        <ul>
-          <li>
-            <a href="/" class={{ active: pathname === '/' }}>
-              Homepage
-              <img src={arrowLineRight} alt="Arrow" />
-            </a>
-          </li>
-          <li>
-            <a href="/roadmap" class={{ active: pathname.startsWith('/roadmap') }}>
-              Roadmap
-              <img src={arrowLineRight} alt="Arrow" />
-            </a>
-          </li>
-          <li>
-            <a href="/about" class={{ active: pathname.startsWith('/about') }}>
-              About
-              <img src={arrowLineRight} alt="Arrow" />
-            </a>
-          </li>
-        </ul>
-      </div>
+      <Dropdown />
     {/if}
   </div>
 </div>
@@ -87,13 +67,13 @@
       margin: 0 auto;
       padding: 1rem;
       width: 100%;
-      height: 5rem;
 
       header {
         display: flex;
         justify-content: space-between;
         width: 100%;
         margin: 0 auto;
+        height: 3rem;
 
         .logo-container {
           display: flex;
@@ -174,41 +154,19 @@
         }
       }
     }
+  }
 
-    .mobile-menu {
-      position: absolute;
-      background: var(--color-light100);
-      padding: 1rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      left: 0;
-      right: 0;
+  button {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
 
-      ul {
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        gap: 0.5rem;
-
-        li {
-          a {
-            padding: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: var(--color-brown700);
-            text-decoration: none;
-            font-weight: 500;
-            line-height: 1.5rem;
-
-            &.active {
-              font-weight: 700;
-            }
-          }
-        }
-      }
+    img {
+      width: 3rem;
+      height: 3rem;
     }
   }
 </style>

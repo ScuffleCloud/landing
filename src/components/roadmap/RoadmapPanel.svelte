@@ -11,6 +11,7 @@
   }[] = [];
   export let status: 'planned' | 'in-progress' | 'completed';
   export let showDivider: boolean = true;
+  const incomplete = status === 'planned';
 
   const statusIcons = {
     planned: plannedIcon,
@@ -27,7 +28,7 @@
   <div class="divider-section">
     <img src={statusIcons[status]} alt={status} />
     {#if showDivider}
-      <div class={['divider-line', { incomplete: status === 'planned' }]}></div>
+      <div class={['divider-line', { incomplete }]}></div>
     {/if}
   </div>
   <div class="right-section">

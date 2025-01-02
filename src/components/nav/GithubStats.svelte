@@ -2,6 +2,7 @@
   import { PUBLIC_GITHUB_REPO_ID } from '$env/static/public';
   import Pill from '$lib/design-components/Pill.svelte';
   import github from '$lib/images/github.svg';
+  import HideOn from '$lib/utility/hide-on.svelte';
   import { createQuery } from '@tanstack/svelte-query';
 
   const query = createQuery({
@@ -11,13 +12,21 @@
         res.json(),
       ),
   });
+  let { useHideOn = true } = $props();
 </script>
 
 <a href="https://github.com/ScuffleCloud/scuffle" class="pill-link">
   <Pill color="white" borderColor="#EAE2DF">
     <div class="pill-content">
-      <p class="pill-text">Contribute</p>
-      <div class="divider"></div>
+      {#if useHideOn}
+        <HideOn mobile tablet ds dm>
+          <p class="pill-text">Contribute</p>
+          <div class="divider"></div>
+        </HideOn>
+      {:else}
+        <p class="pill-text">Contribute</p>
+        <div class="divider"></div>
+      {/if}
       <img src={github} alt="GitHub" class="github-icon" />
       {#if !$query.data}
         <p class="loading">---</p>

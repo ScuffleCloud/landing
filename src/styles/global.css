@@ -73,22 +73,37 @@ button:focus:not(:focus-visible) {
   outline: none;
 }
 
-/* TODO we should constantise them */
-@media screen and (max-width: 960px) {
-  .hide-on-mobile {
-    display: none !important;
-  }
-}
-
-@media screen and (min-width: 961px) {
-  .hide-on-desktop {
-    display: none !important;
-  }
-}
-
 /* Mobile: 0-592px */
 @media screen and (max-width: 592px) {
-  .hide-on-small {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Tablet: 593px-920px */
+@media screen and (min-width: 593px) and (max-width: 920px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+/* Desktop Small: 921px-1016px */
+@media screen and (min-width: 921px) and (max-width: 1016px) {
+  .hide-ds {
+    display: none !important;
+  }
+}
+
+/* Desktop Medium: 1017px-1208px */
+@media screen and (min-width: 1017px) and (max-width: 1208px) {
+  .hide-dm {
+    display: none !important;
+  }
+}
+
+/* Desktop Large: 1209px+ */
+@media screen and (min-width: 1209px) {
+  .hide-dl {
     display: none !important;
   }
 }
