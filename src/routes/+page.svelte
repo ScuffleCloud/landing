@@ -23,7 +23,7 @@
     background-color: var(--color-light100);
     max-width: var(--layout-width);
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2.5rem;
   }
 
   .features-bg {
@@ -37,7 +37,7 @@
       max-width: var(--layout-width);
       margin: 0 auto;
 
-      padding: 4rem 1rem;
+      padding: 4rem 2.5rem;
     }
   }
 </style>

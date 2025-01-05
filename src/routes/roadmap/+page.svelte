@@ -15,7 +15,7 @@
     background-color: var(--color-light100);
     max-width: var(--layout-width);
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2.5rem;
     width: 100%;
   }
 </style>

@@ -270,7 +270,11 @@
 
     .comparison-grid {
       display: grid;
-      grid-template-columns: 30% 1fr;
+      grid-template-columns: minmax(20rem, 30%) minmax(20rem, 1fr);
+
+      @media screen and (max-width: 692px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .solution-card {
@@ -294,7 +298,8 @@
       }
 
       .solution-card-header {
-        padding: 1rem;
+        /* 1px border */
+        padding: calc(1rem - 1px);
 
         &.main {
           background-color: var(--color-orange500);
