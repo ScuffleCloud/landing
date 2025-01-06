@@ -1,4 +1,8 @@
-<footer class="footer">
+<script>
+  import { BLOG_URL, BLUESKY_URL, GITHUB_REPO_URL, TWITTER_URL } from '$lib/consts';
+</script>
+
+<footer class="container">
   <div class="footer-content">
     <div class="footer-section">
       <h3>Company</h3>
@@ -14,8 +18,8 @@
     <div class="footer-section">
       <h3>Resources</h3>
       <nav>
-        <a href="/blog">Blog</a>
-        <a href="https://github.com/ScuffleCloud">GitHub Repository</a>
+        <a href={BLOG_URL}>Blog</a>
+        <a href={GITHUB_REPO_URL}>GitHub Repository</a>
       </nav>
     </div>
 
@@ -31,17 +35,17 @@
     <div class="footer-section">
       <h3>Follow Scuffle</h3>
       <nav>
-        <a href="https://github.com/ScuffleCloud">Github</a>
-        <a href="/twitter">Twitter</a>
-        <a href="/bluesky">Bluesky</a>
+        <a href={GITHUB_REPO_URL}>Github</a>
+        <a href={TWITTER_URL}>Twitter</a>
+        <a href={BLUESKY_URL}>Bluesky</a>
       </nav>
     </div>
   </div>
 </footer>
 
 <style>
-  .footer {
-    padding: 3rem 0;
+  .container {
+    padding: 3rem var(--layout-padding);
     background-color: var(--color-white);
   }
 
@@ -52,11 +56,9 @@
     max-width: var(--layout-width);
     padding: 0 1rem;
     justify-content: center;
-  }
 
-  /* for gap in 2x2 layout */
-  @media (max-width: 768px) {
-    .footer-content {
+    /* for gap in 2x2 layout */
+    @media (max-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
     }

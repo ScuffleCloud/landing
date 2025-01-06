@@ -32,7 +32,7 @@
     .features-container {
       display: flex;
       flex-direction: column;
-      gap: 4rem;
+      gap: 8rem;
       color: var(--color-light100);
       max-width: var(--layout-width);
       margin: 0 auto;

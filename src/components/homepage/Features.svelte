@@ -6,9 +6,13 @@
 </script>
 
 <section class="features-main">
-  <div class="features-pill">Coming Soon</div>
-  <h1>Scuffle&apos;s</h1>
-  <h1 class="solution-title">Video Streaming Solution</h1>
+  <div class="title-container">
+    <div class="features-pill">Coming Soon</div>
+    <div class="title-wrapper">
+      <h1>Scuffle&apos;s</h1>
+      <h1 class="solution-title">Video Streaming Solution</h1>
+    </div>
+  </div>
   <p class="feature-description">
     We&apos;re on a mission to revolutionize video streaming solutions with cutting-edge tools and
     libraries.<br /><br />
@@ -141,11 +145,36 @@
 <EmailForm />
 
 <style>
-  .solution-title {
-    font-weight: 400;
-    margin-bottom: 2rem;
+  h1 {
     font-size: 4rem;
     line-height: 4.4rem;
+    @media (max-width: 1208px) {
+      font-size: 3rem;
+      line-height: 3.3rem;
+    }
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    @media (max-width: 1208px) {
+      font-size: 2rem;
+    }
+  }
+
+  .solution-title {
+    font-weight: 400;
+  }
+
+  .features-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .title-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
   }
 
   .feature-description {
@@ -156,14 +185,10 @@
   }
 
   .features-performance {
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      @media (max-width: 768px) {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
@@ -196,6 +221,7 @@
     font-weight: 700;
     font-size: 0.75rem;
     color: var(--color-orange500);
+    width: fit-content;
   }
 
   .features-pill.filled {
@@ -206,10 +232,9 @@
   }
 
   .features-management {
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 
     .grid {
       display: flex;
@@ -256,16 +281,15 @@
   }
 
   .features-solutions {
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
     .solution-description {
       font-size: 1.125rem;
       opacity: 0.8;
       line-height: 1.5;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     .comparison-grid {
