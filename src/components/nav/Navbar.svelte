@@ -2,7 +2,6 @@
   import { page } from '$app/stores';
   import GithubStats from './GithubStats.svelte';
   import tempLogo from '$lib/images/temp-logo.svg';
-  import Flex from '$lib/design-components/Flex.svelte';
   import { showMobileMenu } from '$lib/layout';
   import HideOn from '$lib/utility/hide-on.svelte';
   import Dropdown from './Dropdown.svelte';
@@ -33,13 +32,19 @@
           </ul>
         </nav>
       </HideOn>
-      <Flex direction="row" gap={2} alignItems="center" class="hide-mobile">
+      <div class="pill-options-container hide-mobile hide-tablet">
         <GithubStats />
         <DemoPill />
-      </Flex>
-      <button onclick={() => ($showMobileMenu = !$showMobileMenu)} class="hide-ds hide-dm hide-dl">
-        <img src={menuIcon} alt="Menu" />
-      </button>
+      </div>
+      <div class="button-container hide-ds hide-dm hide-dl">
+        <div class="pill-options-container hide-mobile">
+          <GithubStats />
+          <DemoPill />
+        </div>
+        <button onclick={() => ($showMobileMenu = !$showMobileMenu)}>
+          <img src={menuIcon} alt="Menu" />
+        </button>
+      </div>
     </header>
     {#if $showMobileMenu}
       <Dropdown />
@@ -140,17 +145,29 @@
     }
   }
 
-  button {
-    border: none;
-    cursor: pointer;
+  .pill-options-container {
     display: flex;
-    padding: 0;
-    justify-content: center;
     align-items: center;
+    gap: 0.5rem;
+  }
 
-    img {
-      width: 3rem;
-      height: 3rem;
+  .button-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    button {
+      border: none;
+      cursor: pointer;
+      display: flex;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
     }
   }
 </style>
