@@ -1,9 +1,9 @@
 <script lang="ts">
-    import arrowLineRight from '$lib/images/arrow-line-right.svg';
     import { page } from '$app/stores';
     import GithubStats from './GithubStats.svelte';
     import DemoPill from './DemoPill.svelte';
     import HideOn from '$lib/utility/hide-on.svelte';
+    import ArrowLineRight from '$lib/images/ArrowLineRight.svelte';
 
     let pathname = $derived($page?.url?.pathname ?? '/');
 </script>
@@ -13,19 +13,19 @@
         <li>
             <a href="/" class={{ active: pathname === '/' }}>
                 Homepage
-                <img src={arrowLineRight} alt="Arrow" />
+                <ArrowLineRight />
             </a>
         </li>
         <li>
             <a href="/roadmap" class={{ active: pathname.startsWith('/roadmap') }}>
                 Roadmap
-                <img src={arrowLineRight} alt="Arrow" />
+                <ArrowLineRight />
             </a>
         </li>
         <li>
             <a href="/about" class={{ active: pathname.startsWith('/about') }}>
                 About
-                <img src={arrowLineRight} alt="Arrow" />
+                <ArrowLineRight />
             </a>
         </li>
     </ul>

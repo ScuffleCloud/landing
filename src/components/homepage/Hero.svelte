@@ -1,6 +1,6 @@
 <script lang="ts">
-    import youShouldContribute from '$lib/images/you-should-contribute.svg';
-    import youShouldContributeMobile from '$lib/images/you-should-contribute-mobile.svg';
+    import YouShouldContribute from '$lib/images/YouShouldContribute.svelte';
+    import YouShouldContributeMobile from '$lib/images/YouShouldContributeMobile.svelte';
 </script>
 
 <div class="hero-section-header">
@@ -13,10 +13,12 @@
         </h1>
     </div>
     <div class="header-bubble-container hide-tablet hide-mobile">
-        <img src={youShouldContribute} alt="You should contribute!" />
+        <div class="you-should-contribute-container">
+            <YouShouldContribute />
+        </div>
     </div>
     <div class="header-bubble-container-mobile hide-ds hide-dm hide-dl">
-        <img src={youShouldContributeMobile} alt="You should contribute!" />
+        <YouShouldContributeMobile />
     </div>
 </div>
 
@@ -32,7 +34,7 @@
         align-items: flex-start;
 
         @media (max-width: 920px) {
-            padding: 2rem 0 13rem 0;
+            padding: 2rem 0 2rem 0;
             text-align: center;
             align-items: center;
         }
@@ -63,7 +65,7 @@
             translate: 0 -50%;
             top: 50%;
 
-            img {
+            .you-should-contribute-container {
                 height: auto;
                 /* Can fix these later or move to media queries */
                 width: clamp(500px, 47vw, 635px);
@@ -71,13 +73,8 @@
         }
 
         .header-bubble-container-mobile {
-            position: absolute;
-            bottom: 0;
-            img {
-                height: auto;
-                width: 100%;
-                min-width: 500px;
-            }
+            width: max(500px, min(700px, 100%));
+            margin-top: -5rem;
         }
     }
 </style>

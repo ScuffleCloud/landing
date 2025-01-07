@@ -1,7 +1,7 @@
 <script lang="ts">
-    import plannedIcon from '$lib/images/roadmap-dot-planned.svg';
-    import inProgressIcon from '$lib/images/roadmap-dot-in-progress.svg';
-    import completedIcon from '$lib/images/roadmap-dot-completed.svg';
+    import RoadmapDotPlanned from '$lib/images/RoadmapDotPlanned.svelte';
+    import RoadmapDotInProgress from '$lib/images/RoadmapDotInProgress.svelte';
+    import RoadmapDotCompleted from '$lib/images/RoadmapDotCompleted.svelte';
 
     export let title: string;
     export let year: string;
@@ -13,11 +13,13 @@
     export let showDivider: boolean = true;
     const incomplete = status === 'planned';
 
-    const statusIcons = {
-        planned: plannedIcon,
-        'in-progress': inProgressIcon,
-        completed: completedIcon,
+    const statusIcon = {
+        planned: RoadmapDotPlanned,
+        'in-progress': RoadmapDotInProgress,
+        completed: RoadmapDotCompleted,
     };
+
+    const IconComponent = statusIcon[status];
 </script>
 
 <div class="panel">
@@ -26,7 +28,9 @@
         <p class="year">{year}</p>
     </div>
     <div class="divider-section">
-        <img src={statusIcons[status]} alt={status} />
+        <div class="status-icon">
+            <IconComponent />
+        </div>
         {#if showDivider}
             <div class={['divider-line', { incomplete }]}></div>
         {/if}
@@ -68,7 +72,9 @@
 
     .divider-section {
         margin-top: 0.125rem;
-        img {
+
+        .status-icon {
+            width: 1.5rem;
             transform: translateX(-50%);
         }
 

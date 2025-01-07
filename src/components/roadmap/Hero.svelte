@@ -1,13 +1,15 @@
 <script lang="ts">
     import Pill from '$lib/design-components/Pill.svelte';
-    import roadmap from '$lib/images/roadmap.svg';
     import { theme } from '$lib/theme';
-    import backButton from '$lib/images/back-button.svg';
     import { PUBLIC_JIRA_URL } from '$env/static/public';
+    import BackButton from '$lib/images/BackButton.svelte';
+    import RoadmapIcon from '$lib/images/RoadmapIcon.svelte';
 </script>
 
 <div class="roadmap-header-container">
-    <img src={roadmap} alt="Scuffle Roadmap" />
+    <div class="roadmap-icon-container">
+        <RoadmapIcon />
+    </div>
     <div class="header-overlay">
         <div class="header-overlay-content">
             <h1>Scuffle's Roadmap</h1>
@@ -19,7 +21,9 @@
         <a href={PUBLIC_JIRA_URL} class="pill-link">
             <Pill color={theme.colors.orange500}>
                 <p>Detailed Kanban Board</p>
-                <img src={backButton} alt="Back" />
+                <div class="pill-back-button">
+                    <BackButton />
+                </div>
             </Pill>
         </a>
     </div>
@@ -33,7 +37,7 @@
         align-items: center;
         position: relative;
 
-        img {
+        .roadmap-icon-container {
             width: 100%;
             height: auto;
             display: block;
@@ -70,6 +74,7 @@
                 text-decoration: none;
             }
 
+            /* This will be changed pending design updates */
             :global(.pill) {
                 font-weight: 700;
                 height: clamp(2rem, 6vw, 3rem);
@@ -84,6 +89,12 @@
 
                 p {
                     font-size: clamp(0.75rem, 2.3vw, 1rem);
+                }
+
+                .pill-back-button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
             }
         }

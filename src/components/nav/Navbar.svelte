@@ -5,8 +5,8 @@
     import { showMobileMenu } from '$lib/layout';
     import HideOn from '$lib/utility/hide-on.svelte';
     import Dropdown from './Dropdown.svelte';
-    import menuIcon from '$lib/images/menu-button.svg';
     import DemoPill from './DemoPill.svelte';
+    import MenuButton from '$lib/images/MenuButton.svelte';
     let pathname = $derived($page?.url?.pathname ?? '/');
 </script>
 
@@ -42,7 +42,7 @@
                     <DemoPill />
                 </div>
                 <button onclick={() => ($showMobileMenu = !$showMobileMenu)}>
-                    <img src={menuIcon} alt="Menu" />
+                    <MenuButton />
                 </button>
             </div>
         </header>

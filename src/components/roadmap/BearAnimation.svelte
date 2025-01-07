@@ -1,9 +1,9 @@
 <script lang="ts">
     import Pill from '$lib/design-components/Pill.svelte';
+    import BackButton from '$lib/images/BackButton.svelte';
     import { theme } from '$lib/theme';
     import anime from 'animejs';
     import { tick } from 'svelte';
-    import backButton from '$lib/images/back-button.svg';
     import { Spring } from 'svelte/motion';
     let animatedObject: SVGElement;
     let motionPath: SVGPathElement;
@@ -113,7 +113,9 @@
         disabled={isAnimating}
     >
         <p>Go Back</p>
-        <img src={backButton} alt="Back" style="transform: rotate(-90deg);" />
+        <div style="transform: rotate(-90deg); display: flex; align-items: center;">
+            <BackButton />
+        </div>
     </Pill>
     <div class="flying-object-container">
         <svg

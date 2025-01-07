@@ -1,7 +1,7 @@
 <script lang="ts">
     import scuffleBear from '$lib/images/scuffle-bear.svg';
-    import accentAddon from '$lib/images/addons-accent.svg';
-    import heartsAddon from '$lib/images/addons-hearts.svg';
+    import AddonHearts from '$lib/images/AddonHearts.svelte';
+    import AddonAccent from '$lib/images/AddonAccent.svelte';
 </script>
 
 <div class="scuffle-about-container">
@@ -9,7 +9,9 @@
         <img src={scuffleBear} alt="Scuffle Bear" />
     </div>
     <div class="content-2">
-        <img src={accentAddon} alt="Addons" />
+        <div class="addon-accent">
+            <AddonAccent />
+        </div>
         <h3 style="white-space: nowrap;">What is Scuffle?</h3>
         <div class="bear-text-container">
             <p class="bear-text-1">Scuffle is an ambitious, upcoming open-source cloud provider.</p>
@@ -22,7 +24,9 @@
     <div class="content-3">
         <h3>
             Open Source - Community driven vision
-            <img src={heartsAddon} alt="Addons" />
+            <div class="addon-hearts">
+                <AddonHearts />
+            </div>
         </h3>
         <p class="bear-text-1">
             Scuffle aims to be a community-driven platform, built from the ground up with
@@ -114,7 +118,7 @@
             flex-direction: column;
             gap: 0.5rem;
 
-            img {
+            .addon-accent {
                 position: absolute;
                 top: -18px;
                 left: -25px;
@@ -133,7 +137,8 @@
                 position: relative;
                 z-index: 2;
                 display: inline;
-                img {
+
+                .addon-hearts {
                     position: absolute;
                     top: -18px;
                     right: 0;

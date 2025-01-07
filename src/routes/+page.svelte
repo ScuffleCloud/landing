@@ -27,6 +27,10 @@
         max-width: var(--layout-width);
         margin: 0 auto;
         padding: 2.5rem;
+
+        @media (max-width: 592px) {
+            padding: 1.25rem;
+        }
     }
 
     .features-bg {
