@@ -1,4 +1,4 @@
 export type TurnstileError = {
-  wasCaptcha: boolean;
-  message: string;
+    wasCaptcha: boolean;
+    message: string;
 };
