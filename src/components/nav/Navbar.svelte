@@ -1,12 +1,12 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import GithubStats from './GithubStats.svelte';
-    import tempLogo from '$lib/images/temp-logo.svg';
     import { showMobileMenu } from '$lib/layout';
     import HideOn from '$lib/utility/hide-on.svelte';
     import Dropdown from './Dropdown.svelte';
     import DemoPill from './DemoPill.svelte';
     import MenuButton from '$lib/images/MenuButton.svelte';
+    import ScuffleLogo from '$lib/images/ScuffleLogo.svelte';
     let pathname = $derived($page?.url?.pathname ?? '/');
 </script>
 
@@ -14,7 +14,9 @@
     <div class="header-container">
         <header>
             <div class="logo-container">
-                <img src={tempLogo} alt="GitHub" />
+                <div class="logo-container-image">
+                    <ScuffleLogo />
+                </div>
                 scuffle
             </div>
             <HideOn mobile tablet>
@@ -82,7 +84,10 @@
                     font-weight: 800;
                     text-transform: uppercase;
 
-                    img {
+                    .logo-container-image {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         filter: drop-shadow(0px 2px 4px 0px rgb(0, 0, 0, 0.05));
                     }
                 }
@@ -163,11 +168,6 @@
             padding: 0;
             justify-content: center;
             align-items: center;
-
-            img {
-                width: 3rem;
-                height: 3rem;
-            }
         }
     }
 </style>

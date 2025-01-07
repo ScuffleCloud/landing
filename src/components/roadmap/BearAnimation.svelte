@@ -186,11 +186,6 @@
             white-space: nowrap;
             padding: 0 clamp(0.75rem, 2vw, 1rem);
 
-            img {
-                width: clamp(1rem, 3vw, 1.5rem);
-                height: auto;
-            }
-
             p {
                 font-size: clamp(0.75rem, 2.3vw, 1rem);
             }

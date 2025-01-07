@@ -47,7 +47,7 @@
                 color: var(--brown-800, #201617);
                 line-height: 110%;
                 /* Can fix these later */
-                font-size: clamp(3rem, calc(1.5rem + 2.5vw), 4rem);
+                font-size: clamp(3rem, calc(1.5rem + 2.5vw), 3.5rem);
             }
 
             .hero-section-title-1 {
@@ -62,13 +62,13 @@
         .header-bubble-container {
             position: absolute;
             right: 0;
-            translate: 0 -50%;
+            translate: 4% -50%;
             top: 50%;
 
             .you-should-contribute-container {
                 height: auto;
                 /* Can fix these later or move to media queries */
-                width: clamp(500px, 47vw, 635px);
+                width: clamp(500px, 47vw, 615px);
             }
         }
 
