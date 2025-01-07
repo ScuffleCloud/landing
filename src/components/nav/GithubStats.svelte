@@ -1,6 +1,5 @@
 <script lang="ts">
-    import { GITHUB_REPO_URL } from '$lib/consts';
-    import { PUBLIC_GITHUB_REPO_ID } from '$env/static/public';
+    import { PUBLIC_GITHUB_REPO_ID, PUBLIC_GITHUB_REPO_URL } from '$env/static/public';
     import Pill from '$lib/design-components/Pill.svelte';
     import github from '$lib/images/github.svg';
     import HideOn from '$lib/utility/hide-on.svelte';
@@ -16,7 +15,7 @@
     let { useHideOn = true } = $props();
 </script>
 
-<a href={GITHUB_REPO_URL} class="pill-link">
+<a href={PUBLIC_GITHUB_REPO_URL} class="pill-link">
     <Pill color="white" borderColor="#EAE2DF" width="100%">
         <div class="pill-content">
             {#if useHideOn}

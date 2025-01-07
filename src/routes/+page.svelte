@@ -5,6 +5,9 @@
     import Features from '../components/homepage/Features.svelte';
 </script>
 
+<svelte:head>
+    <title>Scuffle</title>
+</svelte:head>
 <div class="hero-section-bg">
     <Hero />
     <EmailForm />

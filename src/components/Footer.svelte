@@ -1,5 +1,10 @@
 <script>
-    import { BLOG_URL, BLUESKY_URL, GITHUB_REPO_URL, TWITTER_URL } from '$lib/consts';
+    import {
+        PUBLIC_BLOG_URL,
+        PUBLIC_BLUESKY_URL,
+        PUBLIC_GITHUB_REPO_URL,
+        PUBLIC_TWITTER_URL,
+    } from '$env/static/public';
 </script>
 
 <footer class="container">
@@ -18,8 +23,8 @@
         <div class="footer-section">
             <h3>Resources</h3>
             <nav>
-                <a href={BLOG_URL}>Blog</a>
-                <a href={GITHUB_REPO_URL}>GitHub Repository</a>
+                <a href={PUBLIC_BLOG_URL}>Blog</a>
+                <a href={PUBLIC_GITHUB_REPO_URL}>GitHub Repository</a>
             </nav>
         </div>
 
@@ -35,9 +40,9 @@
         <div class="footer-section">
             <h3>Follow Scuffle</h3>
             <nav>
-                <a href={GITHUB_REPO_URL}>Github</a>
-                <a href={TWITTER_URL}>Twitter</a>
-                <a href={BLUESKY_URL}>Bluesky</a>
+                <a href={PUBLIC_GITHUB_REPO_URL}>Github</a>
+                <a href={PUBLIC_TWITTER_URL}>Twitter</a>
+                <a href={PUBLIC_BLUESKY_URL}>Bluesky</a>
             </nav>
         </div>
     </div>

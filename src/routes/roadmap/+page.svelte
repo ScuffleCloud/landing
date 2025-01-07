@@ -4,6 +4,9 @@
     import Hero from '../../components/roadmap/Hero.svelte';
 </script>
 
+<svelte:head>
+    <title>Scuffle - Roadmap</title>
+</svelte:head>
 <div class="page-bg">
     <Hero />
     <Timeline />
