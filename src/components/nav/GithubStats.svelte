@@ -1,8 +1,8 @@
 <script lang="ts">
     import { PUBLIC_GITHUB_REPO_ID, PUBLIC_GITHUB_REPO_URL } from '$env/static/public';
     import Pill from '$lib/design-components/Pill.svelte';
-    import github from '$lib/images/github.svg';
     import HideOn from '$lib/utility/hide-on.svelte';
+    import GithubIcon from '$lib/images/GithubIcon.svelte';
     import { createQuery } from '@tanstack/svelte-query';
 
     const query = createQuery({
@@ -27,7 +27,7 @@
                 <p class="pill-text">Contribute</p>
                 <div class="divider"></div>
             {/if}
-            <img src={github} alt="GitHub" class="github-icon" />
+            <GithubIcon size={1.35} />
             {#if !$query.data}
                 <p class="loading">---</p>
             {:else}
@@ -58,11 +58,6 @@
                 height: 1.25rem;
                 background-color: var(--color-light100);
                 border-radius: 0.6875rem;
-            }
-
-            .github-icon {
-                width: 1.35rem;
-                height: 1.35rem;
             }
 
             .loading {

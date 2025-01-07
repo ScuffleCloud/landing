@@ -1,8 +1,8 @@
 <script lang="ts">
     import EmailForm from './EmailForm.svelte';
-    import audioVideoTracks from '$lib/images/features-audio-video-tracks.svg';
-    import streamHighlights from '$lib/images/features-stream-highlights.svg';
-    import vodRecording from '$lib/images/features-vod-recording.svg';
+    import FeaturesAudioVideoTracks from '$lib/images/FeaturesAudioVideoTracks.svelte';
+    import FeaturesStreamHighlights from '$lib/images/FeaturesStreamHighlights.svelte';
+    import FeaturesVodRecordings from '$lib/images/FeaturesVodRecordings.svelte';
 </script>
 
 <section class="features-main">
@@ -74,8 +74,8 @@
     <h2>Content Management and Enhancement Features</h2>
     <div class="grid">
         <div class="card">
-            <div class="image-wrapper">
-                <img src={audioVideoTracks} alt="Multiple Audio & Video Tracks" />
+            <div class="image-wrapper audio-video-tracks">
+                <FeaturesAudioVideoTracks />
             </div>
             <div class="content-wrapper">
                 <h3>Multiple Audio & Video Tracks</h3>
@@ -87,8 +87,8 @@
         </div>
 
         <div class="card">
-            <div class="image-wrapper">
-                <img src={vodRecording} alt="Multiple Audio & Video Tracks" />
+            <div class="image-wrapper vod-recordings">
+                <FeaturesVodRecordings />
             </div>
             <div class="content-wrapper">
                 <h3>VOD Recording - DVR</h3>
@@ -100,8 +100,8 @@
         </div>
 
         <div class="card">
-            <div class="image-wrapper">
-                <img src={streamHighlights} alt="Stream Highlights" />
+            <div class="image-wrapper highlights">
+                <FeaturesStreamHighlights />
             </div>
             <div class="content-wrapper">
                 <h3>Stream Highlights</h3>
@@ -245,7 +245,7 @@
         .grid {
             display: flex;
             flex-wrap: wrap;
-            gap: clamp(0.5rem, 4vw, 3.75rem);
+            gap: clamp(0.5rem, 4.5vw, 3.75rem);
             row-gap: 2rem;
             flex-shrink: 0;
             width: 100%;
@@ -260,11 +260,21 @@
                     padding: 2rem;
                     background-color: #4f3f40;
                     border-radius: 0.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
-                    img {
-                        width: 100%;
-                        height: auto;
-                        display: block;
+                    /* Custom padding since svg container padding isn't identical */
+                    &.audio-video-tracks {
+                        padding: 1.9rem 2.2rem 2.2rem 2.2rem;
+                    }
+
+                    &.vod-recordings {
+                        padding: 1.81rem 2.5rem 2.2rem 2.4rem;
+                    }
+
+                    &.highlights {
+                        padding: 1.25rem 2.3rem 1.62rem 2.3rem;
                     }
                 }
                 .content-wrapper {
