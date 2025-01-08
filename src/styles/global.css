@@ -1,0 +1,110 @@
+/* Put */
+:root {
+    --font-body: 'Archivo Variable', sans-serif;
+    font-size: 16px;
+
+    /* Default font */
+    font-family: var(--font-body);
+    color: var(--color-text);
+    --layout-width: 70rem;
+    --layout-padding: 2rem;
+
+    --mobile-width: 768px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overscroll-behavior: auto;
+    background: var(--color-light100);
+}
+
+h1,
+h2,
+h3,
+hr,
+p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-light100);
+    background-size: 100vw 100vh;
+    overflow: auto;
+    height: 100%;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input,
+button {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+/* Preserve focus outline when the button is focused via keyboard navigation but not on click */
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Mobile: 0-592px */
+@media screen and (max-width: 592px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Tablet: 593px-920px */
+@media screen and (min-width: 593px) and (max-width: 920px) {
+    .hide-tablet {
+        display: none !important;
+    }
+}
+
+/* Desktop Small: 921px-1016px */
+@media screen and (min-width: 921px) and (max-width: 1016px) {
+    .hide-ds {
+        display: none !important;
+    }
+}
+
+/* Desktop Medium: 1017px-1208px */
+@media screen and (min-width: 1017px) and (max-width: 1208px) {
+    .hide-dm {
+        display: none !important;
+    }
+}
+
+/* Desktop Large: 1209px+ */
+@media screen and (min-width: 1209px) {
+    .hide-dl {
+        display: none !important;
+    }
+}
