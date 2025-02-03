@@ -1,17 +1,17 @@
 <script lang="ts">
-    import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
+  import { QueryClient, QueryClientProvider } from "@tanstack/svelte-query";
 
-    let { children } = $props();
+  let { children } = $props();
 
-    const queryClient = new QueryClient({
-        defaultOptions: {
-            queries: {
-                retry: false,
-            },
-        },
-    });
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
 </script>
 
 <QueryClientProvider client={queryClient}>
-    {@render children()}
+  {@render children()}
 </QueryClientProvider>
