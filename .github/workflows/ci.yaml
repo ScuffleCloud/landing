@@ -38,7 +38,7 @@ jobs:
                 cache: 'pnpm'
     
             - name: Install dependencies
-              run: pnpm install
+              run: pnpm install --frozen-lockfile
 
             - name: Make sure code is linted
               run: pnpm lint
@@ -68,7 +68,7 @@ jobs:
                 cache: 'pnpm'
 
             - name: Install dependencies
-              run: pnpm install
+              run: pnpm install --frozen-lockfile
 
             - name: Codecov Override
               if: ${{ startsWith(github.ref, 'refs/heads/automation/brawl/try/') }}
@@ -117,7 +117,7 @@ jobs:
                 cache: 'pnpm'
 
             - name: Install dependencies
-              run: pnpm install
+              run: pnpm install --frozen-lockfile
 
             - name: Build
               run: |
