@@ -6,8 +6,6 @@ settings:
 
 overrides:
   cookie@<0.7.0: '>=0.7.0'
-  undici@>=4.5.0 <5.28.5: '>=5.28.5'
-  vite@>=5.0.0 <=5.4.11: '>=5.4.12'
 
 importers:
 
@@ -95,7 +93,7 @@ importers:
         specifier: ^8.17.0
         version: 8.17.0(eslint@9.16.0)(typescript@5.7.2)
       vite:
-        specifier: '>=5.4.12'
+        specifier: ^5.0.3
         version: 5.4.14(@types/node@22.10.1)(sass-embedded@1.81.0)(sass@1.81.0)
       vitest:
         specifier: ^2.1.8
@@ -833,7 +831,7 @@ packages:
     peerDependencies:
       '@sveltejs/vite-plugin-svelte': ^3.0.0 || ^4.0.0-next.1
       svelte: ^4.0.0 || ^5.0.0-next.0
-      vite: '>=5.4.12'
+      vite: ^5.0.3
 
   '@sveltejs/vite-plugin-svelte-inspector@3.0.1':
     resolution: {integrity: sha512-2CKypmj1sM4GE7HjllT7UKmo4Q6L5xFRd7VMGEWhYnZ+wc6AUVU01IBd7yUi6WnFndEwWoMNOd6e8UjoN0nbvQ==}
@@ -841,14 +839,14 @@ packages:
     peerDependencies:
       '@sveltejs/vite-plugin-svelte': ^4.0.0-next.0||^4.0.0
       svelte: ^5.0.0-next.96 || ^5.0.0
-      vite: '>=5.4.12'
+      vite: ^5.0.0
 
   '@sveltejs/vite-plugin-svelte@4.0.2':
     resolution: {integrity: sha512-Y9r/fWy539XlAC7+5wfNJ4zH6TygUYoQ0Eegzp0zDDqhJ54+92gOyOX1l4MO1cJSx0O+Gp13YePT5XEa3+kX0w==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22}
     peerDependencies:
       svelte: ^5.0.0-next.96 || ^5.0.0
-      vite: '>=5.4.12'
+      vite: ^5.0.0
 
   '@tanstack/query-core@5.62.2':
     resolution: {integrity: sha512-LcwVcC5qpsDpHcqlXUUL5o9SaOBwhNkGeV+B06s0GBoyBr8FqXPuXT29XzYXR36lchhnerp6XO+CWc84/vh7Zg==}
@@ -871,7 +869,7 @@ packages:
     engines: {node: '>= 10'}
     peerDependencies:
       svelte: ^3 || ^4 || ^5 || ^5.0.0-next.0
-      vite: '>=5.4.12'
+      vite: '*'
       vitest: '*'
     peerDependenciesMeta:
       vite:
@@ -993,7 +991,7 @@ packages:
     resolution: {integrity: sha512-7guJ/47I6uqfttp33mgo6ga5Gr1VnL58rcqYKyShoRK9ebu8T5Rs6HN3s1NABiBeVTdWNrwUMcHH54uXZBN4zA==}
     peerDependencies:
       msw: ^2.4.9
-      vite: '>=5.4.12'
+      vite: ^5.0.0
     peerDependenciesMeta:
       msw:
         optional: true
@@ -2507,7 +2505,7 @@ packages:
   vitefu@1.0.4:
     resolution: {integrity: sha512-y6zEE3PQf6uu/Mt6DTJ9ih+kyJLr4XcSgHR2zUkM8SWDhuixEJxfJ6CZGMHh1Ec3vPLoEA0IHU5oWzVqw8ulow==}
     peerDependencies:
-      vite: '>=5.4.12'
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
     peerDependenciesMeta:
       vite:
         optional: true
