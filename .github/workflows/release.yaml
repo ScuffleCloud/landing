@@ -1,0 +1,32 @@
+name: Docs Release
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    docs:
+        name: Docs
+        runs-on: ubuntu-24.04
+        environment: scuffle.cloud
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Download Artifact
+              id: download-artifact
+              uses: dawidd6/action-download-artifact@v7
+              with:
+                  workflow: ci.yaml
+                  workflow_conclusion: success
+                  commit: ${{ github.sha }}
+                  name: landing-page
+                  path: build
+
+            - name: Deploy
+              id: deploy
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CF_LANDING_PAGE_API_KEY }}
+                  accountId: ${{ secrets.CF_LANDING_PAGE_ACCOUNT_ID }}
+                  command: pages deploy --project-name=scuffle-landing-page --branch=main --commit-hash=${{ github.sha }} --commit-dirty=true ./build
