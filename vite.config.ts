@@ -9,11 +9,11 @@ export default defineConfig({
         setupFiles: ['./vitest-setup.js'],
         reporters: ['junit'],
         outputFile: {
-            junit: './test-reports/junit.xml'
+            junit: './test-reports/junit.xml',
         },
         coverage: {
             reporter: ['lcov', 'json'],
-            reportsDirectory: './test-reports'
-        }
+            reportsDirectory: './test-reports',
+        },
     },
 });

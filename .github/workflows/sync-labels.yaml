@@ -1,32 +1,32 @@
 name: Sync Labels
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/labels.yml"
-  pull_request:
-    branches:
-      - main
+    schedule:
+        - cron: '0 0 * * *'
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+        paths:
+            - '.github/labels.yml'
+    pull_request:
+        branches:
+            - main
 
 jobs:
-  synclabels:
-    name: Sync Labels
-    runs-on: ubuntu-24.04
+    synclabels:
+        name: Sync Labels
+        runs-on: ubuntu-24.04
 
-    permissions: write-all
+        permissions: write-all
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
 
-      - name: Sync labels
-        uses: crazy-max/ghaction-github-labeler@v5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          dry-run: ${{ github.event_name == 'pull_request' }}
-          yaml-file: .github/labels.yaml
+            - name: Sync labels
+              uses: crazy-max/ghaction-github-labeler@v5
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  dry-run: ${{ github.event_name == 'pull_request' }}
+                  yaml-file: .github/labels.yaml

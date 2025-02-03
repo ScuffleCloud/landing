@@ -1,114 +1,120 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - automation/brawl/try/*
-      - automation/brawl/merge/*
+    push:
+        branches:
+            - automation/brawl/try/*
+            - automation/brawl/merge/*
 
-  pull_request:
+    pull_request:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 env:
-  # By default, when a action is run against a PR it will use a merge commit from the target branch & the PR branch. We want to use just the PR branch.
-  # So this changes the SHA to the PR branch SHA or falls back to the current SHA (if its not a PR)
-  # https://github.com/actions/checkout/issues/426
-  SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    # By default, when a action is run against a PR it will use a merge commit from the target branch & the PR branch. We want to use just the PR branch.
+    # So this changes the SHA to the PR branch SHA or falls back to the current SHA (if its not a PR)
+    # https://github.com/actions/checkout/issues/426
+    SHA: ${{ github.event.pull_request.head.sha || github.sha }}
 
 jobs:
-  lint:
-    name: Lint
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ env.SHA }}
+    lint:
+        name: Lint
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ env.SHA }}
 
-      - uses: pnpm/action-setup@v4
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
 
-      - name: Make sure code is linted
-        run: pnpm lint
+            - name: Make sure code is linted
+              run: pnpm lint
 
-      - name: Make sure code is checked
-        run: pnpm check
+            - name: Make sure code is checked
+              run: pnpm check
 
-      - name: Make sure code is formatted
-        run: pnpm format:check
+            - name: Make sure code is formatted
+              run: pnpm format:check
 
-  test:
-    name: Test
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ env.SHA }}
+    test:
+        name: Test
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ env.SHA }}
 
-      - uses: pnpm/action-setup@v4
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
 
-      - name: Codecov Override
-        if: ${{ startsWith(github.ref, 'refs/heads/automation/brawl/try/') }}
-        run: |
-          PR_NUMBER=$(echo ${{ github.ref }} | sed -n 's/^refs\/heads\/automation\/brawl\/try\/\([0-9]*\)$/\1/p')
-          echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
-          RUN_COMMIT_SHA=$(git log -1 --pretty=format:%H)
-          echo "RUN_COMMIT_SHA=$RUN_COMMIT_SHA" >> $GITHUB_ENV
+            - name: Codecov Override
+              if: ${{ startsWith(github.ref, 'refs/heads/automation/brawl/try/') }}
+              run: |
+                  PR_NUMBER=$(echo ${{ github.ref }} | sed -n 's/^refs\/heads\/automation\/brawl\/try\/\([0-9]*\)$/\1/p')
+                  echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
+                  RUN_COMMIT_SHA=$(git log -1 --pretty=format:%H)
+                  echo "RUN_COMMIT_SHA=$RUN_COMMIT_SHA" >> $GITHUB_ENV
 
-      - uses: codecov/codecov-action@v5
-        with:
-          fail_ci_if_error: true
-          files: ./test-reports/lcov.info
-          token: ${{ secrets.CODECOV_TOKEN }}
-          override_pr: ${{ env.PR_NUMBER || github.event.pull_request.number || '' }}
-          override_commit: ${{ env.RUN_COMMIT_SHA || env.SHA }}
-          verbose: true
+            - uses: codecov/codecov-action@v5
+              with:
+                  fail_ci_if_error: true
+                  files: ./test-reports/lcov.info
+                  token: ${{ secrets.CODECOV_TOKEN }}
+                  override_pr: ${{ env.PR_NUMBER || github.event.pull_request.number || '' }}
+                  override_commit: ${{ env.RUN_COMMIT_SHA || env.SHA }}
+                  verbose: true
 
-      - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
-        with:
-          files: ./test-reports/junit.xml
-          override_pr: ${{ env.PR_NUMBER || github.event.pull_request.number || '' }}
-          override_commit: ${{ env.RUN_COMMIT_SHA || env.SHA }}
-          token: ${{ secrets.CODECOV_TOKEN }}
+            - name: Upload test results to Codecov
+              if: ${{ !cancelled() }}
+              uses: codecov/test-results-action@v1
+              with:
+                  files: ./test-reports/junit.xml
+                  override_pr: ${{ env.PR_NUMBER || github.event.pull_request.number || '' }}
+                  override_commit: ${{ env.RUN_COMMIT_SHA || env.SHA }}
+                  token: ${{ secrets.CODECOV_TOKEN }}
 
-  landing_page:
-    name: Landing Page
-    runs-on: ubuntu-24.04
-    permissions:
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ env.SHA }}
+    landing_page:
+        name: Landing Page
+        runs-on: ubuntu-24.04
+        permissions:
+            pull-requests: write
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ env.SHA }}
 
-      - uses: pnpm/action-setup@v4
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
 
-      - name: Build
-        run: |
-          pnpm build
+            - name: Build
+              run: |
+                  pnpm build
 
-      - name: Upload Build
-        uses: actions/upload-artifact@v4
-        with:
-          name: landing-page
-          path: build
+            - name: Upload Build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: landing-page
+                  path: build
 
-      - name: Deploy
-        if: ${{ startsWith(github.ref, 'refs/heads/automation/brawl/try/') || github.event.pull_request.head.repo.full_name == github.repository }}
-        id: deploy
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CF_LANDING_PAGE_API_KEY }}
-          accountId: ${{ secrets.CF_LANDING_PAGE_ACCOUNT_ID }}
-          command: pages deploy --project-name=scuffle-landing-page --branch=pr/${{ env.PR_NUMBER || github.event.pull_request.number }} --commit-hash=${{ env.SHA }} --commit-dirty=true ./build
+            - name: Deploy
+              if: ${{ startsWith(github.ref, 'refs/heads/automation/brawl/try/') || github.event.pull_request.head.repo.full_name == github.repository }}
+              id: deploy
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CF_LANDING_PAGE_API_KEY }}
+                  accountId: ${{ secrets.CF_LANDING_PAGE_ACCOUNT_ID }}
+                  command: pages deploy --project-name=scuffle-landing-page --branch=pr/${{ env.PR_NUMBER || github.event.pull_request.number }} --commit-hash=${{ env.SHA }} --commit-dirty=true ./build
 
-  brawl-done:
-    runs-on: ubuntu-24.04
-    needs: [lint, test, landing_page]
-    if: ${{ !cancelled() && github.event_name == 'push' }}
-    steps:
-      - name: calculate the correct exit status
-        run: jq --exit-status 'all(.result == "success" or .result == "skipped")' <<< '${{ toJson(needs) }}'
+    brawl-done:
+        runs-on: ubuntu-24.04
+        needs: [lint, test, landing_page]
+        if: ${{ !cancelled() && github.event_name == 'push' }}
+        steps:
+            - name: calculate the correct exit status
+              run: jq --exit-status 'all(.result == "success" or .result == "skipped")' <<< '${{ toJson(needs) }}'
