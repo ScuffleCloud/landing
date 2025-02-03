@@ -22,7 +22,7 @@
         }
     });
 
-    let { children } = $props();
+    const { children } = $props();
     const queryClient = new QueryClient({
         defaultOptions: {
             queries: {

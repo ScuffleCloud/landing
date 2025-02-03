@@ -13,10 +13,10 @@
             <h3>Company</h3>
             <nav>
                 <a href="/about">About</a>
-                <a href="/contact">Contact</a>
-                <a href="/brand">Brand</a>
-                <a href="/partner">Partner</a>
-                <a href="/contribute">Contribute</a>
+                <!-- <a href="/contact">Contact</a> -->
+                <!-- <a href="/brand">Brand</a> -->
+                <!-- <a href="/partner">Partner</a> -->
+                <!-- <a href="/contribute">Contribute</a> -->
             </nav>
         </div>
 
@@ -31,9 +31,9 @@
         <div class="footer-section">
             <h3>Legal</h3>
             <nav>
-                <a href="/licenses">Licenses</a>
-                <a href="/terms">Term & Conditions</a>
-                <a href="/sla">Service Level Agreement</a>
+                <!-- <a href="/licenses">Licenses</a> -->
+                <!-- <a href="/terms">Term & Conditions</a> -->
+                <!-- <a href="/sla">Service Level Agreement</a> -->
             </nav>
         </div>
 

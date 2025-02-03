@@ -7,5 +7,13 @@ export default defineConfig({
     test: {
         environment: 'jsdom',
         setupFiles: ['./vitest-setup.js'],
+        reporters: ['junit'],
+        outputFile: {
+            junit: './test-reports/junit.xml'
+        },
+        coverage: {
+            reporter: ['lcov', 'json'],
+            reportsDirectory: './test-reports'
+        }
     },
 });

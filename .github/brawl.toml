@@ -1,0 +1,17 @@
+enabled = true
+
+branches = [
+    "main",
+]
+
+merge_permissions = [
+    "role:write",
+]
+
+[labels]
+on_merge_queued = "B-brawl-queued"
+on_merge_in_progress = "B-brawl-merging"
+on_merge_failure = "B-brawl-failed"
+on_merge_success = "B-brawl-merged"
+on_try_in_progress = "B-brawl-try"
+on_try_failure = "B-brawl-try-failed"
