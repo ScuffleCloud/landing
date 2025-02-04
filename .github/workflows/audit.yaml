@@ -1,27 +1,27 @@
 name: Security audit
 on:
-  push:
-    branches-ignore:
-      - "automation/**"
-    paths:
-      - ".github/workflows/audit.yaml"
-      - "**/package.json"
-      - "**/pnpm-lock.yaml"
-  schedule:
-    - cron: "0 0 * * *"
+    push:
+        branches-ignore:
+            - 'automation/**'
+        paths:
+            - '.github/workflows/audit.yaml'
+            - '**/package.json'
+            - '**/pnpm-lock.yaml'
+    schedule:
+        - cron: '0 0 * * *'
 
 jobs:
-  audit:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      issues: write
-    steps:
-      - uses: actions/checkout@v4
+    audit:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            issues: write
+        steps:
+            - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
 
-      - name: Audit
-        run: pnpm audit
+            - name: Audit
+              run: pnpm audit
