@@ -1,4 +1,4 @@
-name: Docs Release
+name: Release
 
 on:
     push:
@@ -6,8 +6,8 @@ on:
             - main
 
 jobs:
-    docs:
-        name: Docs
+    landing_page:
+        name: Landing Page
         runs-on: ubuntu-24.04
         environment: scuffle.cloud
         steps:
@@ -22,6 +22,11 @@ jobs:
                   commit: ${{ github.sha }}
                   name: landing-page
                   path: build
+
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
+                  run_install: false
 
             - name: Deploy
               id: deploy
