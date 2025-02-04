@@ -26,10 +26,10 @@
         background-color: var(--color-light100);
         max-width: var(--layout-width);
         margin: 0 auto;
-        padding: 2.5rem;
-
+        padding: 2.5rem 2.5rem;
+        width: 100%;
         @media (max-width: 592px) {
-            padding: 1.25rem;
+            padding: 2.5rem 1.25rem;
         }
     }
 
@@ -45,6 +45,10 @@
             margin: 0 auto;
 
             padding: 4rem 2.5rem;
+
+            @media (max-width: 592px) {
+                padding: 4rem 1.25rem;
+            }
         }
     }
 </style>

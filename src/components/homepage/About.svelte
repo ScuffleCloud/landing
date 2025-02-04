@@ -93,6 +93,26 @@
             }
         }
 
+        @media (max-width: 592px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            row-gap: 2rem;
+            padding: 0 1rem;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+
+            .content-1 {
+                grid-area: 1 / 1 / 2 / 2;
+                padding: 2rem;
+            }
+            .content-2 {
+                grid-area: 2 / 1 / 3 / 2;
+            }
+            .content-3 {
+                grid-area: 3 / 1 / 4 / 2;
+            }
+        }
+
         h3 {
             font-size: 1.5rem;
             font-weight: 700;

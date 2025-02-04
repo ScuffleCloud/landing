@@ -18,14 +18,14 @@
             <YouShouldContribute />
         </div>
     </div>
-    <div class="header-bubble-container-mobile hide-ds hide-dm hide-dl">
+    <!-- <div class="header-bubble-container-mobile hide-ds hide-dm hide-dl">
         <div class="left-bubble">
             <YouShouldContributeMobileLeft />
         </div>
         <div class="right-bubble">
             <YouShouldContributeMobileRight />
         </div>
-    </div>
+    </div> -->
 </div>
 
 <style>
@@ -82,15 +82,20 @@
             justify-content: space-between;
             width: 100%;
             align-items: center;
-            margin-top: -5rem;
 
             /* Light overlapping */
-            .left-bubble {
-                margin-right: -0.5rem;
+            /* .left-bubble {
+                margin-right: -5rem;
             }
 
             .right-bubble {
-                margin-left: -0.5rem;
+                margin-left: -5rem;
+            } */
+
+            @media (max-width: 592px) {
+                :global(svg) {
+                    transform: scale(0.8); /* Adjust this value as needed */
+                }
             }
         }
     }
