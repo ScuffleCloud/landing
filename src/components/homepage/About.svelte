@@ -1,12 +1,12 @@
 <script lang="ts">
-    import scuffleBear from '$lib/images/scuffle-bear.svg';
     import AddonHearts from '$lib/images/AddonHearts.svelte';
     import AddonAccent from '$lib/images/AddonAccent.svelte';
+    import ScuffleBear from '$lib/images/ScuffleBear.svelte';
 </script>
 
 <div class="scuffle-about-container">
     <div class="content-1">
-        <img src={scuffleBear} alt="Scuffle Bear" />
+        <ScuffleBear />
     </div>
     <div class="content-2">
         <div class="addon-accent">
@@ -55,11 +55,12 @@
             align-items: center;
             grid-area: 1 / 1 / 3 / 2;
 
-            img {
-                max-width: 100%;
+            :global(svg) {
+                width: 100%;
                 height: 100%;
-                box-sizing: border-box;
-                padding: 0 1rem;
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
             }
         }
 
@@ -83,9 +84,6 @@
 
             .content-1 {
                 grid-area: 1 / 2 / 2 / 3;
-                img {
-                    padding: 0 clamp(0rem, max(0rem, 7vw - 2rem), 6rem);
-                }
             }
             .content-2 {
                 grid-area: 1 / 1 / 2 / 2;

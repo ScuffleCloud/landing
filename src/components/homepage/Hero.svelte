@@ -1,6 +1,7 @@
 <script lang="ts">
     import YouShouldContribute from '$lib/images/YouShouldContribute.svelte';
-    import YouShouldContributeMobile from '$lib/images/YouShouldContributeMobile.svelte';
+    import YouShouldContributeMobileLeft from '$lib/images/YouShouldContributeMobileLeft.svelte';
+    import YouShouldContributeMobileRight from '$lib/images/YouShouldContributeMobileRight.svelte';
 </script>
 
 <div class="hero-section-header">
@@ -18,7 +19,12 @@
         </div>
     </div>
     <div class="header-bubble-container-mobile hide-ds hide-dm hide-dl">
-        <YouShouldContributeMobile />
+        <div class="left-bubble">
+            <YouShouldContributeMobileLeft />
+        </div>
+        <div class="right-bubble">
+            <YouShouldContributeMobileRight />
+        </div>
     </div>
 </div>
 
@@ -68,13 +74,24 @@
             .you-should-contribute-container {
                 height: auto;
                 /* Can fix these later or move to media queries */
-                width: clamp(500px, 47vw, 615px);
             }
         }
 
         .header-bubble-container-mobile {
-            width: max(500px, min(700px, 100%));
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
             margin-top: -5rem;
+
+            /* Light overlapping */
+            .left-bubble {
+                margin-right: -0.5rem;
+            }
+
+            .right-bubble {
+                margin-left: -0.5rem;
+            }
         }
     }
 </style>
