@@ -1,37 +1,37 @@
-name: Docs Release
+name: Release
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  landing_page:
-    name: Landing Page
-    runs-on: ubuntu-24.04
-    environment: scuffle.cloud
-    steps:
-      - uses: actions/checkout@v4
+    landing_page:
+        name: Landing Page
+        runs-on: ubuntu-24.04
+        environment: scuffle.cloud
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Download Artifact
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v7
-        with:
-          workflow: ci.yaml
-          workflow_conclusion: success
-          commit: ${{ github.sha }}
-          name: landing-page
-          path: build
+            - name: Download Artifact
+              id: download-artifact
+              uses: dawidd6/action-download-artifact@v7
+              with:
+                  workflow: ci.yaml
+                  workflow_conclusion: success
+                  commit: ${{ github.sha }}
+                  name: landing-page
+                  path: build
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
-          run_install: false
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
+                  run_install: false
 
-      - name: Deploy
-        id: deploy
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CF_LANDING_PAGE_API_KEY }}
-          accountId: ${{ secrets.CF_LANDING_PAGE_ACCOUNT_ID }}
-          command: pages deploy --project-name=scuffle-landing-page --branch=main --commit-hash=${{ github.sha }} --commit-dirty=true ./build
+            - name: Deploy
+              id: deploy
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CF_LANDING_PAGE_API_KEY }}
+                  accountId: ${{ secrets.CF_LANDING_PAGE_ACCOUNT_ID }}
+                  command: pages deploy --project-name=scuffle-landing-page --branch=main --commit-hash=${{ github.sha }} --commit-dirty=true ./build
