@@ -1,6 +1,10 @@
 <script lang="ts">
     import Pill from '$lib/design-components/Pill.svelte';
     import BackButton from '$lib/images/BackButton.svelte';
+    import RoadmapFooter1 from '$lib/images/RoadmapFooter1.svelte';
+    import RoadmapFooter2 from '$lib/images/RoadmapFooter2.svelte';
+    import RoadmapFooter3 from '$lib/images/RoadmapFooter3.svelte';
+    import RoadmapFooterBear from '$lib/images/RoadmapFooterBear.svelte';
     import { theme } from '$lib/theme';
     import anime from 'animejs';
     import { tick } from 'svelte';
@@ -106,47 +110,45 @@
 </script>
 
 <div class="animation-container">
-    <Pill
-        color={theme.colors.orange500}
-        as="button"
-        onClick={startAnimation}
-        disabled={isAnimating}
-    >
-        <p>Go Back</p>
-        <div style="transform: rotate(-90deg); display: flex; align-items: center;">
-            <BackButton />
-        </div>
-    </Pill>
-    <div class="flying-object-container">
-        <svg
-            bind:this={animatedObject}
-            width="300"
-            height="300"
-            viewBox="-500 -500 1500 2000"
-            onmouseenter={handleMouseEnter}
-            onmouseleave={handleMouseLeave}
-            style="transform: translateY({springPosition.current.y}px);"
-            class="flying-svg"
-            role="img"
-            aria-label="Animated launch button"
+    <div class="back-button-container">
+        <Pill
+            color={theme.colors.orange500}
+            as="button"
+            onClick={startAnimation}
+            disabled={isAnimating}
         >
-            <!-- Replace with item to fly -->
-            <path
-                d="m832 928v352q0 22-20 30-8 2-12 2-12 0-23-9l-93-93q-119 143-318.5 226.5t-429.5 83.5-429.5-83.5-318.5-226.5l-93 93q-9 9-23 9-4 0-12-2-20-8-20-30v-352q0-14 9-23t23-9h352q22 0 30 20 8 19-7 35l-100 100q67 91 189.5 153.5t271.5 82.5v-647h-192q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h192v-163q-58-34-93-92.5t-35-128.5q0-106 75-181t181-75 181 75 75 181q0 70-35 128.5t-93 92.5v163h192q26 0 45 19t19 45v128q0 26-19 45t-45 19h-192v647q149-20 271.5-82.5t189.5-153.5l-100-100q-15-16-7-35 8-20 30-20h352q14 0 23 9t9 23z"
-                fill="none"
-                stroke="black"
-                stroke-width="20"
-            />
-            <!-- Replace with balloon path object -->
-            <path
-                opacity={0}
-                d="M 100 100 l 0 100 l 200 0 l 0 -200 z"
-                fill="none"
-                stroke="black"
-                stroke-width="20"
-                bind:this={balloonPath}
-            />
-        </svg>
+            <p>Go Back</p>
+            <BackButton />
+        </Pill>
+    </div>
+    <div class="footer-container">
+        <RoadmapFooter1 />
+        <RoadmapFooter2 />
+        <RoadmapFooter3 />
+        <div class="flying-object-container">
+            <svg
+                bind:this={animatedObject}
+                width="252"
+                height="197"
+                viewBox="0 0 252 197"
+                onmouseenter={handleMouseEnter}
+                onmouseleave={handleMouseLeave}
+                style="transform: translateY({springPosition.current.y}px);"
+                class="flying-svg"
+                role="img"
+                aria-label="Animated launch button"
+            >
+                <RoadmapFooterBear />
+                <path
+                    opacity={0}
+                    d="M 100 100 l 0 100 l 200 0 l 0 -200 z"
+                    fill="none"
+                    stroke="black"
+                    stroke-width="20"
+                    bind:this={balloonPath}
+                />
+            </svg>
+        </div>
     </div>
 </div>
 <div style="display: none">
@@ -163,19 +165,37 @@
         margin-top: 2rem;
         margin-bottom: 2rem;
         gap: 10rem;
+        position: relative;
 
-        .flying-object-container {
+        .back-button-container {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .footer-container {
             display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            width: 100%;
 
-            .flying-svg {
-                cursor: pointer;
-                will-change: transform;
-                width: 100px;
-                height: auto;
-                user-select: none;
+            .footer-bear-group {
+                position: relative;
+                display: flex;
+                align-items: flex-end;
+
+                .flying-object-container {
+                    position: absolute;
+                    bottom: 0;
+                    transform: translateX(25%);
+                    width: 100%;
+                    height: 100%;
+
+                    .flying-svg {
+                        cursor: pointer;
+                        will-change: transform;
+                        height: auto;
+                        user-select: none;
+                    }
+                }
             }
         }
 
