@@ -113,7 +113,6 @@
                         li {
                             position: relative;
                             display: flex;
-                            padding: 1rem;
 
                             a {
                                 display: flex;
@@ -124,6 +123,7 @@
                                 line-height: 1.5rem;
                                 text-transform: capitalize;
                                 text-decoration: none;
+                                padding: 1rem;
                             }
 
                             &.active {

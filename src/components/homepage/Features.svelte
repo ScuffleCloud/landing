@@ -220,7 +220,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.5rem 1rem;
+        padding: 0.375rem 0.5rem;
         border: 1px solid var(--color-orange500);
         border-radius: 0.5rem;
         color: var(--color-orange500);
