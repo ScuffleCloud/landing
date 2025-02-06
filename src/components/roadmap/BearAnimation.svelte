@@ -122,32 +122,39 @@
         </Pill>
     </div>
     <div class="footer-container">
-        <RoadmapFooter1 />
-        <RoadmapFooter2 />
-        <RoadmapFooter3 />
-        <div class="flying-object-container">
-            <svg
-                bind:this={animatedObject}
-                width="252"
-                height="197"
-                viewBox="0 0 252 197"
-                onmouseenter={handleMouseEnter}
-                onmouseleave={handleMouseLeave}
-                style="transform: translateY({springPosition.current.y}px);"
-                class="flying-svg"
-                role="img"
-                aria-label="Animated launch button"
-            >
-                <RoadmapFooterBear />
-                <path
-                    opacity={0}
-                    d="M 100 100 l 0 100 l 200 0 l 0 -200 z"
-                    fill="none"
-                    stroke="black"
-                    stroke-width="20"
-                    bind:this={balloonPath}
-                />
-            </svg>
+        <div class="a-container">
+            <RoadmapFooter1 />
+        </div>
+        <div class="b-container">
+            <div class="line"></div>
+            <RoadmapFooter2 />
+        </div>
+        <div class="c-container">
+            <div class="flying-object-container">
+                <svg
+                    bind:this={animatedObject}
+                    width="252"
+                    height="197"
+                    viewBox="0 0 252 197"
+                    onmouseenter={handleMouseEnter}
+                    onmouseleave={handleMouseLeave}
+                    style="transform: translateY({springPosition.current.y}px);"
+                    class="flying-svg"
+                    role="img"
+                    aria-label="Animated launch button"
+                >
+                    <RoadmapFooterBear />
+                    <path
+                        opacity={0}
+                        d="M 100 100 l 0 100 l 200 0 l 0 -200 z"
+                        fill="none"
+                        stroke="black"
+                        stroke-width="20"
+                        bind:this={balloonPath}
+                    />
+                </svg>
+            </div>
+            <RoadmapFooter3 />
         </div>
     </div>
 </div>
@@ -159,13 +166,12 @@
 
 <style>
     .animation-container {
+        width: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
         margin-top: 2rem;
         margin-bottom: 2rem;
-        gap: 10rem;
         position: relative;
+        padding: 0 2.5rem;
 
         .back-button-container {
             position: absolute;
@@ -174,20 +180,42 @@
         }
 
         .footer-container {
-            display: flex;
             width: 100%;
+            background: gray;
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
 
-            .footer-bear-group {
-                position: relative;
+            .b-container {
+                flex-shrink: 1;
+                flex-grow: 1;
+                overflow: hidden;
                 display: flex;
-                align-items: flex-end;
+                justify-content: center;
+                position: relative;
+                height: 100%;
+
+                .line {
+                    height: 0.1875rem;
+                    background: red;
+                    width: 100%;
+                    position: absolute;
+                    bottom: 114px;
+                }
+            }
+
+            :global(.b-container > svg) {
+                width: auto;
+                flex-shrink: 0;
+            }
+
+            .c-container {
+                flex-shrink: 0;
 
                 .flying-object-container {
                     position: absolute;
-                    bottom: 0;
-                    transform: translateX(25%);
-                    width: 100%;
-                    height: 100%;
+                    transform: translatex(150px);
 
                     .flying-svg {
                         cursor: pointer;

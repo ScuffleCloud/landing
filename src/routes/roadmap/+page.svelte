@@ -10,8 +10,8 @@
 <div class="page-bg">
     <Hero />
     <Timeline />
-    <BearAnimation />
 </div>
+<BearAnimation />
 
 <style>
     .page-bg {
