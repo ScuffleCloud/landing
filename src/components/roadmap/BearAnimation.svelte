@@ -117,8 +117,10 @@
             onClick={startAnimation}
             disabled={isAnimating}
         >
-            <p>Go Back</p>
-            <BackButton />
+            <div class="pill-content">
+                <p>Go Back</p>
+                <BackButton />
+            </div>
         </Pill>
     </div>
     <div class="footer-container">
@@ -171,12 +173,13 @@
         margin-top: 2rem;
         margin-bottom: 2rem;
         position: relative;
-        padding: 0 2.5rem;
+        padding: 0 2rem;
 
         .back-button-container {
             position: absolute;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 1000;
         }
 
         .footer-container {
@@ -206,7 +209,6 @@
             }
 
             :global(.b-container > svg) {
-                width: auto;
                 flex-shrink: 0;
             }
 
@@ -227,16 +229,12 @@
             }
         }
 
-        :global(.pill) {
+        .pill-content {
+            display: flex;
+            align-items: center;
             font-weight: 700;
-            height: clamp(2rem, 6vw, 3rem);
             gap: 0.25rem;
             white-space: nowrap;
-            padding: 0 clamp(0.75rem, 2vw, 1rem);
-
-            p {
-                font-size: clamp(0.75rem, 2.3vw, 1rem);
-            }
         }
     }
 </style>
