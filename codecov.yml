@@ -1,19 +1,19 @@
 coverage:
-  status:
-    project: off
-    patch: off
+    status:
+        project: off
+        patch: off
 
 github_checks:
-  annotations: false
+    annotations: false
 
 codecov:
-  require_ci_to_pass: false
-  notify:
-    wait_for_ci: false
+    require_ci_to_pass: false
+    notify:
+        wait_for_ci: false
 
 comment:
-  layout: "header, diff, files, components"
-  behavior: default
-  require_changes: false
-  require_head: false
-  require_base: false
+    layout: 'header, diff, files, components'
+    behavior: default
+    require_changes: false
+    require_head: false
+    require_base: false
