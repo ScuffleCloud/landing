@@ -31,7 +31,7 @@
     </ul>
     <HideOn tablet ds dm dl>
         <div class="stats-container">
-            <GithubStats useHideOn={true} />
+            <GithubStats />
             <DemoPill />
         </div>
     </HideOn>
@@ -79,7 +79,7 @@
             flex-direction: row;
             justify-content: space-between;
             gap: 1.5rem;
-            padding: 1.5rem 1rem 1.5rem 0.75rem;
+            padding: 1.5rem 0.5rem 1.5rem 0.5rem;
         }
     }
 </style>

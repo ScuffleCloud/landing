@@ -12,21 +12,17 @@
                 (res) => res.json(),
             ),
     });
-    let { useHideOn = true } = $props();
 </script>
 
 <a href={PUBLIC_GITHUB_REPO_URL} class="pill-link">
     <Pill color="white" borderColor="#EAE2DF" width="100%">
         <div class="pill-content">
-            {#if useHideOn}
-                <HideOn mobile tablet ds dm>
-                    <p class="pill-text">Contribute</p>
-                    <div class="divider"></div>
-                </HideOn>
-            {:else}
+            <HideOn mobile tablet ds dm>
                 <p class="pill-text">Contribute</p>
                 <div class="divider"></div>
-            {/if}
+            </HideOn>
+            <!-- <p class="pill-text">Contribute</p>
+                <div class="divider"></div> -->
             <GithubIcon size={1.35} />
             {#if !$query.data}
                 <p class="loading">---</p>
