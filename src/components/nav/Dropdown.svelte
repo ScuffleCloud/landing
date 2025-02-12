@@ -31,7 +31,7 @@
     </ul>
     <HideOn tablet ds dm dl>
         <div class="stats-container">
-            <GithubStats useHideOn={false} />
+            <GithubStats useHideOn={true} />
             <DemoPill />
         </div>
     </HideOn>

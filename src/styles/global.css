@@ -20,7 +20,7 @@
 html,
 body {
     overscroll-behavior: auto;
-    background: var(--color-light100);
+    background-color: #fcf3f0;
 }
 
 h1,
@@ -45,7 +45,6 @@ h3 {
 
 body {
     margin: 0;
-    background-color: var(--color-light100);
     background-size: 100vw 100vh;
     overflow: auto;
     height: 100%;
