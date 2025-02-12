@@ -13,7 +13,6 @@
     let scrollComplete = false;
 
     let pathData = $state('');
-    import { scrollY } from 'svelte/reactivity/window';
     let isAnimating = $state(false);
 
     function fadeIntoViewPostAnimation() {
@@ -88,11 +87,8 @@
                     },
                     // Use update method instead of scroll delay lib so it's smoother (scrolling update rate equalling animation rate)
                     update: function (anim) {
+                        // anim.completed to prevent race condition on updating scrollComplete in complete callback
                         if (scrollComplete || anim.completed) return;
-                        console.log("test'");
-                        console.log(window.scrollY);
-                        console.log(scrollY.current);
-
                         const progress = anim.progress / 100;
                         const scrollProgress = Math.max(0, 1 - progress * 5); // minus/add to 6 for faster scroll
                         const targetScroll = startScrollY * scrollProgress;
@@ -100,7 +96,7 @@
                             top: targetScroll,
                             behavior: 'auto',
                         });
-                        // When target is reached then stop scrolling so user can navigate
+                        // Stop scrolling when target is reached so user can navigate
                         if (window.scrollY <= 0) {
                             scrollComplete = true;
                         }
