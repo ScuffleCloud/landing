@@ -134,6 +134,10 @@
 
         .divider-section {
             grid-column: 1 / 2;
+
+            .divider-line {
+                height: calc(100% - 0.2rem);
+            }
         }
 
         .title-section,

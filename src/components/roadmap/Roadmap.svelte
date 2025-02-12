@@ -73,5 +73,8 @@
         align-self: center;
         width: 100%;
         margin-top: 4rem;
+        @media (max-width: 768px) {
+            gap: 2rem;
+        }
     }
 </style>

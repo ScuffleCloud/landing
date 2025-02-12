@@ -74,6 +74,18 @@
                     },
                     '-=500',
                 )
+                // Rebuilding this for mobile since the translate is working weirdly
+                .add(
+                    {
+                        targets: document.getElementsByClassName('animate-bear-object-mobile'),
+                        rotate: 12.081,
+                        duration: 300,
+                        easing: 'easeOutQuad',
+                        transformOrigin: '30% 60%', // Rotate around center
+                        translateY: -60,
+                    },
+                    '-=500',
+                )
                 .add({
                     targets: document.getElementsByClassName('animate-flying-object'),
                     translateX: anime.path(motionPath)('x'),
@@ -150,14 +162,13 @@
 
 <style>
     .mobile-container {
-        position: relative;
         background: gray;
         justify-content: center;
         overflow: hidden;
         margin: 0 auto;
 
         @media (max-width: 592px) {
-            margin-left: -60px;
+            margin-left: -80px;
         }
     }
 
@@ -171,7 +182,7 @@
         max-width: 2000px;
         margin: 0 auto;
 
-        @media (max-width: 592px) {
+        @media (max-width: 768px) {
             padding: 0;
         }
 
@@ -189,6 +200,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            overflow: hidden;
 
             .b-container {
                 flex-shrink: 1;
@@ -216,13 +228,13 @@
                 flex-shrink: 0;
             }
         }
-
-        .pill-content {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            gap: 0.25rem;
-            white-space: nowrap;
-        }
+    }
+    .pill-content {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        gap: 0.25rem;
+        white-space: nowrap;
+        z-index: 1000;
     }
 </style>
