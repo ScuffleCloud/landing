@@ -177,7 +177,7 @@
         margin-bottom: 2rem;
         position: relative;
         padding: 0 2rem;
-        max-width: 2000px;
+        max-width: 125rem;
         margin: 0 auto;
         overflow-x: clip;
 
@@ -194,7 +194,7 @@
 
         .footer-container {
             width: 100%;
-            height: 400px;
+            height: 25rem;
 
             @media (max-width: 1016px) {
                 height: auto;
@@ -219,7 +219,7 @@
                     background: #201617;
                     width: 100%;
                     position: absolute;
-                    bottom: 164px;
+                    bottom: 10.25rem;
                 }
             }
 
