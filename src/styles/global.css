@@ -76,14 +76,14 @@ button:focus:not(:focus-visible) {
 }
 
 /* Mobile: 0-592px */
-@media screen and (max-width: 592px) {
+@media screen and (max-width: 591px) {
     .hide-mobile {
         display: none !important;
     }
 }
 
 /* Tablet: 593px-920px */
-@media screen and (min-width: 592px) and (max-width: 921px) {
+@media screen and (min-width: 592px) and (max-width: 920px) {
     .hide-tablet {
         display: none !important;
     }
@@ -97,14 +97,14 @@ button:focus:not(:focus-visible) {
 }
 
 /* Desktop Medium: 1017px-1208px */
-@media screen and (min-width: 1016px) and (max-width: 1208px) {
+@media screen and (min-width: 1017px) and (max-width: 1208px) {
     .hide-dm {
         display: none !important;
     }
 }
 
 /* Desktop Large: 1209px+ */
-@media screen and (min-width: 1208px) {
+@media screen and (min-width: 1209px) {
     .hide-dl {
         display: none !important;
     }

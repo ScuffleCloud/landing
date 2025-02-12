@@ -1,25 +1,7 @@
 <script lang="ts">
-    import { Spring } from 'svelte/motion';
-    let isAnimating = $state(false);
+    import { createSpringAnimation } from '$lib/utility/springAnimation';
 
-    // Spring animation on hover
-    const springPosition = new Spring(
-        { x: 0, y: 0 },
-        {
-            stiffness: 0.2,
-            damping: 0.4,
-        },
-    );
-
-    function handleMouseEnter() {
-        if (isAnimating) return;
-        springPosition.target = { x: 0, y: -5 };
-    }
-
-    function handleMouseLeave() {
-        if (isAnimating) return;
-        springPosition.target = { x: 0, y: 0 };
-    }
+    const { springPosition, handleMouseEnter, handleMouseLeave } = createSpringAnimation();
 </script>
 
 <svg

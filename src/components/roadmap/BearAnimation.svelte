@@ -61,7 +61,7 @@
                     duration: 500,
                     delay: function (el, i) {
                         // Add delay for each path
-                        return i * 250; // Each path starts after the previous one finishes
+                        return i * 200; // Each path starts after the previous one finishes
                     },
                 })
                 .add(
@@ -162,13 +162,11 @@
 
 <style>
     .mobile-container {
-        background: gray;
-        justify-content: center;
         overflow: hidden;
         margin: 0 auto;
 
         @media (max-width: 592px) {
-            margin-left: -80px;
+            margin-left: -5rem;
         }
     }
 
@@ -181,6 +179,7 @@
         padding: 0 2rem;
         max-width: 2000px;
         margin: 0 auto;
+        overflow-x: clip;
 
         @media (max-width: 768px) {
             padding: 0;
@@ -195,8 +194,12 @@
 
         .footer-container {
             width: 100%;
-            background: gray;
             height: 400px;
+
+            @media (max-width: 1016px) {
+                height: auto;
+            }
+
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -221,7 +224,9 @@
             }
 
             :global(.b-container > svg) {
+                width: auto;
                 flex-shrink: 0;
+                height: 100%;
             }
 
             .c-container {
