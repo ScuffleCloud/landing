@@ -13,7 +13,7 @@
             cloud provider.
         </h1>
     </div>
-    <div class="header-bubble-container hide-tablet hide-mobile">
+    <div class="header-bubble-container hide-tablet hide-mobile hide-mobile-xs">
         <div class="you-should-contribute-container">
             <YouShouldContribute />
         </div>

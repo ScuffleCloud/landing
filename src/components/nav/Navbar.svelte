@@ -19,7 +19,7 @@
                 </div>
                 scuffle
             </a>
-            <HideOn mobile tablet>
+            <HideOn mobileXS mobile tablet>
                 <nav>
                     <ul>
                         <li class={{ active: pathname === '/' }}>
@@ -34,12 +34,12 @@
                     </ul>
                 </nav>
             </HideOn>
-            <div class="pill-options-container hide-mobile hide-tablet">
+            <div class="pill-options-container hide-mobile-xs hide-mobile hide-tablet">
                 <GithubStats />
                 <DemoPill />
             </div>
             <div class="button-container hide-ds hide-dm hide-dl">
-                <div class="pill-options-container hide-mobile">
+                <div class="pill-options-container hide-mobile hide-mobile-xs">
                     <GithubStats />
                     <DemoPill />
                 </div>

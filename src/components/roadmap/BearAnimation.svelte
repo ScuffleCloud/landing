@@ -126,7 +126,7 @@
         </Pill>
     </div>
     <div class="footer-container">
-        <HideOn mobile tablet ds>
+        <HideOn mobileXS mobile tablet ds>
             <div class="a-container">
                 <RoadmapFooter1 />
             </div>
@@ -140,13 +140,13 @@
                 <RoadmapFooterMobileXS />
             </div>
         </HideOn>
-        <HideOn mobile dm dl>
+        <HideOn mobileXS mobile dm dl>
             <div class="mobile-container">
                 <RoadmapFooterMobile />
             </div>
         </HideOn>
         <div class="c-container">
-            <HideOn mobile tablet ds>
+            <HideOn mobileXS mobile tablet ds>
                 <RoadmapFooter3 />
             </HideOn>
         </div>

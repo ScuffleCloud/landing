@@ -17,12 +17,10 @@
 <a href={PUBLIC_GITHUB_REPO_URL} class="pill-link">
     <Pill color="white" borderColor="#EAE2DF" width="100%">
         <div class="pill-content">
-            <HideOn mobile tablet ds dm>
+            <HideOn mobileXS tablet ds dm>
                 <p class="pill-text">Contribute</p>
                 <div class="divider"></div>
             </HideOn>
-            <!-- <p class="pill-text">Contribute</p>
-                <div class="divider"></div> -->
             <GithubIcon size={1.35} />
             {#if !$query.data}
                 <p class="loading">---</p>
