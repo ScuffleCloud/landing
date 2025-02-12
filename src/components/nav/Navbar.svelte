@@ -13,12 +13,12 @@
 <div class="header-container-wrapper">
     <div class="header-container">
         <header>
-            <div class="logo-container">
+            <a class="logo-container" href="/">
                 <div class="logo-container-image">
                     <ScuffleLogo />
                 </div>
                 scuffle
-            </div>
+            </a>
             <HideOn mobile tablet>
                 <nav>
                     <ul>
@@ -83,6 +83,7 @@
                     font-size: 1.5rem;
                     font-weight: 800;
                     text-transform: uppercase;
+                    text-decoration: none;
 
                     .logo-container-image {
                         display: flex;

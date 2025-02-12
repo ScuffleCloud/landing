@@ -5,10 +5,16 @@
     import RoadmapFooter2 from '$lib/images/RoadmapFooter2.svelte';
     import RoadmapFooter3 from '$lib/images/RoadmapFooter3.svelte';
     import RoadmapFooterMobile from '$lib/images/RoadmapFooterMobile.svelte';
+    import RoadmapFooterMobileXS from '$lib/images/RoadmapFooterMobileXS.svelte';
     import { theme } from '$lib/theme';
     import HideOn from '$lib/utility/hide-on.svelte';
     import anime from 'animejs';
     import { tick } from 'svelte';
+    import {
+        bearAnimationConfig,
+        bearAnimationConfigMobile,
+        bearAnimationConfigMobileXS,
+    } from './bearAnimationConfig';
     let motionPath: SVGPathElement;
     let scrollComplete = false;
 
@@ -33,11 +39,17 @@
 
         // Tick to wait for path state update depending on user screen size
         tick().then(() => {
+            // Needed so "Go Back" button is clickable on mobile despite animation viewbox
+            const backButton = document.querySelector('.back-button-container');
             const animation = anime.timeline({
+                begin: () => {
+                    if (backButton) (backButton as HTMLElement).style.zIndex = '1';
+                },
                 complete: (anim) => {
                     scrollComplete = false;
                     anim.seek(0);
                     isAnimating = false;
+                    if (backButton) (backButton as HTMLElement).style.zIndex = '5';
                 },
                 changeComplete: () => {
                     fadeIntoViewPostAnimation();
@@ -61,31 +73,12 @@
                     duration: 500,
                     delay: function (el, i) {
                         // Add delay for each path
-                        return i * 200; // Each path starts after the previous one finishes
+                        return i * 100; // Each path starts after the previous one finishes
                     },
                 })
-                .add(
-                    {
-                        targets: document.getElementsByClassName('animate-bear-object'),
-                        rotate: 12.081,
-                        duration: 300,
-                        easing: 'easeOutQuad',
-                        transformOrigin: '30% 60%', // Rotate around center
-                    },
-                    '-=500',
-                )
-                // Rebuilding this for mobile since the translate is working weirdly
-                .add(
-                    {
-                        targets: document.getElementsByClassName('animate-bear-object-mobile'),
-                        rotate: 12.081,
-                        duration: 300,
-                        easing: 'easeOutQuad',
-                        transformOrigin: '30% 60%', // Rotate around center
-                        translateY: -60,
-                    },
-                    '-=500',
-                )
+                .add(bearAnimationConfig, '-=500')
+                .add(bearAnimationConfigMobile, '-=500')
+                .add(bearAnimationConfigMobileXS, '-=500')
                 .add({
                     targets: document.getElementsByClassName('animate-flying-object'),
                     translateX: anime.path(motionPath)('x'),
@@ -142,7 +135,12 @@
                 <RoadmapFooter2 />
             </div>
         </HideOn>
-        <HideOn dm dl>
+        <HideOn tablet ds dm dl>
+            <div class="mobile-container-xs">
+                <RoadmapFooterMobileXS />
+            </div>
+        </HideOn>
+        <HideOn mobile dm dl>
             <div class="mobile-container">
                 <RoadmapFooterMobile />
             </div>
@@ -162,12 +160,12 @@
 
 <style>
     .mobile-container {
-        overflow: hidden;
         margin: 0 auto;
+    }
 
-        @media (max-width: 592px) {
-            margin-left: -5rem;
-        }
+    .mobile-container-xs {
+        margin: 0 auto;
+        margin-top: 2rem;
     }
 
     .animation-container {
@@ -186,10 +184,11 @@
         }
 
         .back-button-container {
+            margin-top: 2rem;
             position: absolute;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 1000;
+            z-index: 5;
         }
 
         .footer-container {
@@ -203,6 +202,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            justify-content: center;
             overflow: hidden;
 
             .b-container {

@@ -184,7 +184,7 @@
     }
 
     .feature-description {
-        font-size: 1rem;
+        font-size: 1.125rem;
         opacity: 0.8;
         max-width: 75ch;
         line-height: 1.5;
@@ -209,7 +209,7 @@
                 p {
                     opacity: 0.8;
                     margin: 0;
-                    font-size: 0.875rem;
+                    font-size: 1.125rem;
                     line-height: 1.5;
                 }
             }
