@@ -54,11 +54,11 @@
             justify-content: center;
             align-items: center;
             grid-area: 1 / 1 / 3 / 2;
-
+            /* align-self: center;
             :global(.content-1 > svg) {
                 width: 100%;
                 height: 100%;
-            }
+            } */
         }
 
         .content-2 {
@@ -75,7 +75,7 @@
 
         @media (max-width: 768px) {
             row-gap: 2rem;
-            column-gap: 0.5rem;
+            column-gap: 2rem;
             grid-template-columns: 40% 1fr;
             padding: 0 1rem;
 
@@ -153,11 +153,15 @@
                 z-index: 2;
                 display: inline;
 
+                @media (max-width: 768px) {
+                    max-width: 300px;
+                }
+
                 .addon-hearts {
                     position: absolute;
-                    top: -18px;
-                    right: 0;
-                    z-index: -1;
+                    top: -25px;
+                    right: -33px;
+                    z-index: 1;
                 }
             }
 
