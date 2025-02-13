@@ -14,7 +14,6 @@
 >
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <g
-        filter="url(#filter0_d_1237_9502)"
         class="animate-bear-object-mobile-xs"
         onmouseenter={handleMouseEnter}
         onmouseleave={handleMouseLeave}

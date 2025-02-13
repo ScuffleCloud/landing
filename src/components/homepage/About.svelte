@@ -54,6 +54,11 @@
             justify-content: center;
             align-items: center;
             grid-area: 1 / 1 / 3 / 2;
+
+            :global(.content-1 > svg) {
+                width: 100%;
+                height: 100%;
+            }
         }
 
         .content-2 {

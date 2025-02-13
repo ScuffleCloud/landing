@@ -15,7 +15,6 @@
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <g
         class="animate-bear-object"
-        filter="url(#filter0_d_1042_9902)"
         onmouseenter={handleMouseEnter}
         onmouseleave={handleMouseLeave}
         style="transform: translateY({springPosition.current.y}px);"
