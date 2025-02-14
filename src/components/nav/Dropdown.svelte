@@ -3,7 +3,6 @@
     import GithubStats from './GithubStats.svelte';
     import DemoPill from './DemoPill.svelte';
     import HideOn from '$lib/utility/hide-on.svelte';
-    import ArrowLineRight from '$lib/images/ArrowLineRight.svelte';
 
     let pathname = $derived($page?.url?.pathname ?? '/');
 </script>
@@ -11,28 +10,23 @@
 <div class="mobile-menu">
     <ul>
         <li>
-            <a href="/" class={{ active: pathname === '/' }}>
-                Homepage
-                <ArrowLineRight />
-            </a>
+            <a href="/" class={{ active: pathname === '/' }}> Homepage </a>
         </li>
         <li>
-            <a href="/roadmap" class={{ active: pathname.startsWith('/roadmap') }}>
-                Roadmap
-                <ArrowLineRight />
-            </a>
+            <a href="/roadmap" class={{ active: pathname.startsWith('/roadmap') }}> Roadmap </a>
         </li>
         <li>
-            <a href="/about" class={{ active: pathname.startsWith('/about') }}>
-                About
-                <ArrowLineRight />
-            </a>
+            <a href="/about" class={{ active: pathname.startsWith('/about') }}> About </a>
         </li>
     </ul>
     <HideOn tablet ds dm dl>
         <div class="stats-container">
-            <GithubStats />
-            <DemoPill />
+            <div class="stats-container-item">
+                <GithubStats />
+            </div>
+            <div class="stats-container-item">
+                <DemoPill />
+            </div>
         </div>
     </HideOn>
 </div>
@@ -80,6 +74,11 @@
             justify-content: space-between;
             gap: 1.5rem;
             padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+
+            .stats-container-item {
+                flex: 1;
+                min-width: 100px;
+            }
         }
     }
 </style>

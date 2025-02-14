@@ -194,16 +194,18 @@
         .footer-container {
             width: 100%;
             height: 25rem;
-
-            @media (max-width: 1016px) {
-                height: auto;
-            }
-
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+
+            @media (max-width: 1016px) {
+                height: auto;
+                /* For safari */
+                display: grid;
+                place-items: center;
+            }
 
             .b-container {
                 flex-shrink: 1;

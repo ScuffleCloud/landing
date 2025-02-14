@@ -75,14 +75,14 @@ button:focus:not(:focus-visible) {
 }
 
 /* Mobile XS: 0-430px */
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 470px) {
     .hide-mobile-xs {
         display: none !important;
     }
 }
 
 /* Mobile: 0-592px */
-@media screen and (min-width: 431px) and (max-width: 591px) {
+@media screen and (min-width: 471px) and (max-width: 591px) {
     .hide-mobile {
         display: none !important;
     }

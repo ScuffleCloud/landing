@@ -84,7 +84,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.2);
+        background: rgba(112, 80, 72, 0.4);
         z-index: 50;
         pointer-events: none;
     }

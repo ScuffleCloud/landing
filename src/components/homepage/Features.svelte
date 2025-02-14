@@ -260,9 +260,8 @@
                     padding: 2rem;
                     background-color: #4f3f40;
                     border-radius: 0.5rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                    display: grid;
+                    place-items: center;
 
                     /* Custom padding since svg container padding isn't identical */
                     &.audio-video-tracks {

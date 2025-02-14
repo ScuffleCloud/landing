@@ -50,15 +50,10 @@
         z-index: 1;
 
         .content-1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            /* Using grid instead of flex so the image renders in safari */
+            display: grid;
+            place-items: center;
             grid-area: 1 / 1 / 3 / 2;
-            /* align-self: center;
-            :global(.content-1 > svg) {
-                width: 100%;
-                height: 100%;
-            } */
         }
 
         .content-2 {
