@@ -146,13 +146,25 @@
         }
 
         .title-section {
-            grid-template-columns: 3.5rem 1fr;
-            grid-template-areas: 'year title';
-            align-items: center;
+            grid-template-areas:
+                'year'
+                'title';
+
+            h2 {
+                color: var(--color-brown600);
+                font-size: 1.25rem;
+                line-height: 2rem;
+            }
+
+            .year {
+                line-height: normal;
+            }
         }
 
         .content-section {
-            padding-left: 3rem;
+            .content-card {
+                padding: 1.5rem 1.5rem 1.5rem 0;
+            }
         }
     }
 </style>

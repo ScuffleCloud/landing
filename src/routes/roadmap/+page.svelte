@@ -21,8 +21,9 @@
         padding: 2.5rem 2.5rem;
         width: 100%;
 
-        @media (max-width: 592px) {
-            padding: 2.5rem 1.25rem;
+        @media (max-width: 768px) {
+            /* left/right padding to align roadmap circles with header logo */
+            padding: 2.5rem 2.2rem;
         }
     }
 </style>
