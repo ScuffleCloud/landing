@@ -176,7 +176,6 @@
         margin-top: 2rem;
         margin-bottom: 2rem;
         position: relative;
-        padding: 0 2rem;
         max-width: 125rem;
         margin: 0 auto;
         overflow-x: clip;

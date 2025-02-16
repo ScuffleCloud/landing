@@ -73,7 +73,10 @@
         align-self: center;
         width: 100%;
         margin-top: 4rem;
+        padding: 2.5rem 2.5rem;
+
         @media (max-width: 768px) {
+            padding: 2.5rem 2.2rem;
             gap: 2rem;
         }
     }

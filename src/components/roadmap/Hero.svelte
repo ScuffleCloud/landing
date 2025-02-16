@@ -36,9 +36,11 @@
         justify-content: center;
         align-items: center;
         position: relative;
+        overflow: hidden;
 
         .roadmap-icon-container {
-            width: 100%;
+            width: 67.25rem;
+            min-width: 67.25rem;
             height: auto;
             display: block;
         }
@@ -60,13 +62,20 @@
                 gap: 0.5rem;
 
                 h1 {
-                    font-size: clamp(1.5rem, 4.6vw, 4rem);
+                    font-kerning: none;
+                    font-feature-settings:
+                        'cpsp' on,
+                        'liga' off;
+                    font-size: 3rem;
+                    font-weight: 700;
+                    line-height: normal;
                 }
 
                 p {
-                    font-size: clamp(0.75rem, 2.3vw, 1.5rem);
-                    line-height: clamp(1.2rem, 3.7vw, 2rem);
+                    font-size: 1.5rem;
+                    text-align: center;
                     font-weight: 400;
+                    line-height: 2rem;
                 }
             }
 
@@ -77,14 +86,8 @@
             /* This will be changed pending design updates */
             :global(.pill) {
                 font-weight: 700;
-                height: clamp(2rem, 6vw, 3rem);
                 gap: 0.25rem;
                 white-space: nowrap;
-                padding: 0 clamp(0.75rem, 2vw, 1rem);
-
-                p {
-                    font-size: clamp(0.75rem, 2.3vw, 1rem);
-                }
 
                 .pill-back-button {
                     display: flex;

@@ -18,12 +18,6 @@
         background-color: var(--color-light100);
         max-width: var(--layout-width);
         margin: 0 auto;
-        padding: 2.5rem 2.5rem;
         width: 100%;
-
-        @media (max-width: 768px) {
-            /* left/right padding to align roadmap circles with header logo */
-            padding: 2.5rem 2.2rem;
-        }
     }
 </style>
