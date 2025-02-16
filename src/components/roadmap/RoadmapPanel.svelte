@@ -146,6 +146,7 @@
         }
 
         .title-section {
+            margin-top: 0.25rem;
             grid-template-areas:
                 'year'
                 'title';

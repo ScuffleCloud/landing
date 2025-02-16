@@ -22,9 +22,9 @@
             </p>
             <p class="feature-description">
                 Explore our comprehensive suite of features and discover how we can help you elevate
-                your digital presence and achieve your business goals.<br />
-                Dive in and explore what we have to offer!
+                your digital presence and achieve your business goals.
             </p>
+            <p class="feature-description">Dive in and explore what we have to offer!</p>
         </div>
     </div>
     <div class="image-wrapper">

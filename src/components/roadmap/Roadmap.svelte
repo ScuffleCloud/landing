@@ -76,6 +76,7 @@
         padding: 2.5rem 2.5rem;
 
         @media (max-width: 768px) {
+            /* Align with header icon */
             padding: 2.5rem 2.23rem;
             gap: 2rem;
         }
