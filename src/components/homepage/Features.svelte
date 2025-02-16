@@ -15,13 +15,17 @@
                 <h1 class="solution-title">Video Streaming Solution</h1>
             </div>
         </div>
-        <p class="feature-description">
-            We&apos;re on a mission to revolutionize video streaming solutions with cutting-edge
-            tools and libraries.<br /><br />
-            Explore our comprehensive suite of features and discover how we can help you elevate your
-            digital presence and achieve your business goals.<br />
-            Dive in and explore what we have to offer!
-        </p>
+        <div class="feature-description-wrapper">
+            <p class="feature-description">
+                We&apos;re on a mission to revolutionize video streaming solutions with cutting-edge
+                tools and libraries.
+            </p>
+            <p class="feature-description">
+                Explore our comprehensive suite of features and discover how we can help you elevate
+                your digital presence and achieve your business goals.<br />
+                Dive in and explore what we have to offer!
+            </p>
+        </div>
     </div>
     <div class="image-wrapper">
         <img src={streamingSolution} alt="streaming-solution" class="streaming-solution-image" />
@@ -207,11 +211,16 @@
                 gap: 0.5rem;
             }
 
-            .feature-description {
-                font-size: 1.125rem;
-                opacity: 0.8;
-                max-width: 75ch;
-                line-height: 1.5;
+            .feature-description-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                .feature-description {
+                    font-size: 1.125rem;
+                    opacity: 0.8;
+                    max-width: 75ch;
+                    line-height: 1.5;
+                }
             }
         }
 
