@@ -198,7 +198,7 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
-            gap: 2rem;
+            gap: 3rem;
 
             .card {
                 h3 {

@@ -121,7 +121,9 @@
         >
             <div class="pill-content">
                 <p>Go Back</p>
-                <BackButton />
+                <div class="back-icon-container">
+                    <BackButton />
+                </div>
             </div>
         </Pill>
     </div>
@@ -243,5 +245,9 @@
         gap: 0.25rem;
         white-space: nowrap;
         z-index: 1000;
+
+        .back-icon-container {
+            transform: rotate(270deg);
+        }
     }
 </style>
