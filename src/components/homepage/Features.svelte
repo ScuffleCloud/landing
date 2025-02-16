@@ -218,6 +218,7 @@
         .image-wrapper {
             position: relative;
             overflow: hidden; /* Clip the image */
+            border-radius: 1rem;
 
             @media (max-width: 728px) {
                 grid-area: image;
@@ -234,10 +235,12 @@
                 }
 
                 @media (max-width: 728px) {
-                    width: 100%;
-                    max-width: 100%;
+                    width: 500px;
+                    min-width: 500px;
                     height: 23rem;
                     object-fit: cover;
+                    /* To maintain aspect ratio */
+                    transform: scaleX(1.5);
                 }
             }
         }
