@@ -3,23 +3,29 @@
     import FeaturesAudioVideoTracks from '$lib/images/FeaturesAudioVideoTracks.svelte';
     import FeaturesStreamHighlights from '$lib/images/FeaturesStreamHighlights.svelte';
     import FeaturesVodRecordings from '$lib/images/FeaturesVodRecordings.svelte';
+    import streamingSolution from '$lib/images/streaming-solution.png';
 </script>
 
 <section class="features-main">
-    <div class="title-container">
-        <div class="features-pill">Coming Soon</div>
-        <div class="title-wrapper">
-            <h1>Scuffle&apos;s</h1>
-            <h1 class="solution-title">Video Streaming Solution</h1>
+    <div class="content-wrapper">
+        <div class="title-container">
+            <div class="features-pill">Coming Soon</div>
+            <div class="title-wrapper">
+                <h1>Scuffle&apos;s</h1>
+                <h1 class="solution-title">Video Streaming Solution</h1>
+            </div>
         </div>
+        <p class="feature-description">
+            We&apos;re on a mission to revolutionize video streaming solutions with cutting-edge
+            tools and libraries.<br /><br />
+            Explore our comprehensive suite of features and discover how we can help you elevate your
+            digital presence and achieve your business goals.<br />
+            Dive in and explore what we have to offer!
+        </p>
     </div>
-    <p class="feature-description">
-        We&apos;re on a mission to revolutionize video streaming solutions with cutting-edge tools
-        and libraries.<br /><br />
-        Explore our comprehensive suite of features and discover how we can help you elevate your digital
-        presence and achieve your business goals.<br />
-        Dive in and explore what we have to offer!
-    </p>
+    <div class="image-wrapper">
+        <img src={streamingSolution} alt="streaming-solution" class="streaming-solution-image" />
+    </div>
 </section>
 <section class="features-performance">
     <h2>Technical and Performance Features</h2>
@@ -154,6 +160,9 @@
     h1 {
         font-size: 4rem;
         line-height: 4.4rem;
+        font-feature-settings:
+            'cpsp' on,
+            'liga' off;
         @media (max-width: 1208px) {
             font-size: 3rem;
             line-height: 3.3rem;
@@ -172,22 +181,66 @@
     }
 
     .features-main {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 24.375rem;
         gap: 2rem;
 
-        .title-container {
+        @media (max-width: 728px) {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                'image'
+                'content';
+        }
+
+        .content-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-        }
-    }
+            gap: 2rem;
 
-    .feature-description {
-        font-size: 1.125rem;
-        opacity: 0.8;
-        max-width: 75ch;
-        line-height: 1.5;
+            @media (max-width: 728px) {
+                grid-area: content;
+            }
+
+            .title-container {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .feature-description {
+                font-size: 1.125rem;
+                opacity: 0.8;
+                max-width: 75ch;
+                line-height: 1.5;
+            }
+        }
+
+        .image-wrapper {
+            position: relative;
+            overflow: hidden; /* Clip the image */
+
+            @media (max-width: 728px) {
+                grid-area: image;
+                width: 100%;
+            }
+            .streaming-solution-image {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 1rem;
+
+                @media (max-width: 1208px) {
+                    width: 18.75rem;
+                    max-width: 18.75rem;
+                }
+
+                @media (max-width: 728px) {
+                    width: 100%;
+                    max-width: 100%;
+                    height: 23rem;
+                    object-fit: cover;
+                }
+            }
+        }
     }
 
     .features-performance {
