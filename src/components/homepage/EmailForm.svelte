@@ -6,7 +6,7 @@
     import { PUBLIC_EMAIL_WORKER_URL } from '$env/static/public';
     import { getContext } from 'svelte';
     import { TURNSTILE_CONTEXT_KEY } from '$lib/design-components/utils';
-    import rectangle from '$lib/images/rectangle.svg';
+    import rectangle from '$lib/images/rectangle.png';
     import type { TurnstileError } from '../types';
 
     let email = '';
@@ -124,8 +124,11 @@
         padding: 3rem;
         border-radius: 1rem;
 
+        @media (max-width: 592px) {
+            padding: 1.75rem;
+        }
+
         .rectangle-image {
-            display: block;
             position: absolute;
             z-index: 0;
             top: 0;

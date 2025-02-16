@@ -1,12 +1,12 @@
 <script lang="ts">
-    import scuffleBear from '$lib/images/scuffle-bear.svg';
     import AddonHearts from '$lib/images/AddonHearts.svelte';
     import AddonAccent from '$lib/images/AddonAccent.svelte';
+    import ScuffleBear from '$lib/images/ScuffleBear.svelte';
 </script>
 
 <div class="scuffle-about-container">
     <div class="content-1">
-        <img src={scuffleBear} alt="Scuffle Bear" />
+        <ScuffleBear />
     </div>
     <div class="content-2">
         <div class="addon-accent">
@@ -50,17 +50,10 @@
         z-index: 1;
 
         .content-1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            /* Using grid instead of flex so the image renders in safari */
+            display: grid;
+            place-items: center;
             grid-area: 1 / 1 / 3 / 2;
-
-            img {
-                max-width: 100%;
-                height: 100%;
-                box-sizing: border-box;
-                padding: 0 1rem;
-            }
         }
 
         .content-2 {
@@ -77,21 +70,38 @@
 
         @media (max-width: 768px) {
             row-gap: 2rem;
-            column-gap: 0.5rem;
+            column-gap: 2rem;
             grid-template-columns: 40% 1fr;
             padding: 0 1rem;
 
             .content-1 {
                 grid-area: 1 / 2 / 2 / 3;
-                img {
-                    padding: 0 clamp(0rem, max(0rem, 7vw - 2rem), 6rem);
-                }
             }
             .content-2 {
                 grid-area: 1 / 1 / 2 / 2;
             }
             .content-3 {
                 grid-area: 2 / 1 / 3 / 3;
+            }
+        }
+
+        @media (max-width: 592px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            row-gap: 2rem;
+            padding: 0 1rem;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+
+            .content-1 {
+                grid-area: 1 / 1 / 2 / 2;
+                padding: 2rem;
+            }
+            .content-2 {
+                grid-area: 2 / 1 / 3 / 2;
+            }
+            .content-3 {
+                grid-area: 3 / 1 / 4 / 2;
             }
         }
 
@@ -138,11 +148,15 @@
                 z-index: 2;
                 display: inline;
 
+                @media (max-width: 768px) {
+                    max-width: 300px;
+                }
+
                 .addon-hearts {
                     position: absolute;
-                    top: -18px;
-                    right: 0;
-                    z-index: -1;
+                    top: -25px;
+                    right: -33px;
+                    z-index: 1;
                 }
             }
 

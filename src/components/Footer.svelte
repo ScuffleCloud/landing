@@ -50,39 +50,42 @@
 
 <style>
     .container {
-        padding: 3rem var(--layout-padding);
-        background-color: var(--color-white);
-    }
-
-    .footer-content {
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(auto, 14rem));
+        padding: 6rem var(--layout-padding);
         max-width: var(--layout-width);
-        padding: 0 1rem;
-        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
 
-        /* for gap in 2x2 layout */
-        @media (max-width: 768px) {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(auto, 14rem));
+            max-width: var(--layout-width);
+            padding: 0 1rem;
+            justify-content: space-between;
+
+            /* for gap in 2x2 layout */
+            @media (max-width: 768px) {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
         }
     }
 
     .footer-section {
         h3 {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
         }
 
         nav {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.5rem;
+            line-height: 2rem;
 
             a {
-                font-size: 0.875rem;
+                font-size: 1.125rem;
+                padding: 0.5rem 0;
             }
         }
     }
