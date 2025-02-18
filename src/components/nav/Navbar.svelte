@@ -22,13 +22,13 @@
             <HideOn mobileXS mobile tablet>
                 <nav>
                     <ul>
-                        <li class={{ active: pathname === '/' }}>
+                        <li class:active={pathname === '/'}>
                             <a href="/">Homepage</a>
                         </li>
-                        <li class={{ active: pathname.startsWith('/roadmap') }}>
+                        <li class:active={pathname.startsWith('/roadmap')}>
                             <a href="/roadmap">Roadmap</a>
                         </li>
-                        <li class={{ active: pathname.startsWith('/about') }}>
+                        <li class:active={pathname.startsWith('/about')}>
                             <a href="/about">about</a>
                         </li>
                     </ul>

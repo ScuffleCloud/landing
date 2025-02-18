@@ -74,21 +74,21 @@ button:focus:not(:focus-visible) {
     outline: none;
 }
 
-/* Mobile XS: 0-430px */
+/* Mobile XS: 0-470px */
 @media screen and (max-width: 470px) {
     .hide-mobile-xs {
         display: none !important;
     }
 }
 
-/* Mobile: 0-592px */
+/* Mobile: 471px-591px */
 @media screen and (min-width: 471px) and (max-width: 591px) {
     .hide-mobile {
         display: none !important;
     }
 }
 
-/* Tablet: 593px-920px */
+/* Tablet: 592px-920px */
 @media screen and (min-width: 592px) and (max-width: 920px) {
     .hide-tablet {
         display: none !important;

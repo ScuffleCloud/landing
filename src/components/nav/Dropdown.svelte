@@ -10,13 +10,13 @@
 <div class="mobile-menu">
     <ul>
         <li>
-            <a href="/" class={{ active: pathname === '/' }}> Homepage </a>
+            <a href="/" class:active={pathname === '/'}> Homepage </a>
         </li>
         <li>
-            <a href="/roadmap" class={{ active: pathname.startsWith('/roadmap') }}> Roadmap </a>
+            <a href="/roadmap" class:active={pathname.startsWith('/roadmap')}> Roadmap </a>
         </li>
         <li>
-            <a href="/about" class={{ active: pathname.startsWith('/about') }}> About </a>
+            <a href="/about" class:active={pathname.startsWith('/about')}> About </a>
         </li>
     </ul>
     <HideOn tablet ds dm dl>
