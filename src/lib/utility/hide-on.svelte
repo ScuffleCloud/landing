@@ -2,6 +2,7 @@
     import type { Snippet } from 'svelte';
 
     type HideOnProps = {
+        mobileXS?: boolean;
         mobile?: boolean;
         tablet?: boolean;
         ds?: boolean;
@@ -11,6 +12,7 @@
     };
 
     let {
+        mobileXS = false,
         mobile = false,
         tablet = false,
         ds = false,
@@ -19,9 +21,11 @@
         children,
     }: HideOnProps = $props();
 
+    // Add derived if this function becomes used for non-static props
     const className = [
         'hide-on',
         {
+            'hide-mobile-xs': mobileXS,
             'hide-mobile': mobile,
             'hide-tablet': tablet,
             'hide-ds': ds,

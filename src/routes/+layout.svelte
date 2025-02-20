@@ -51,16 +51,19 @@
     <QueryClientProvider client={queryClient}>
         <Navbar />
         <TurnstileOverlay bind:this={turnstileOverlayComponent} />
+        {#if $showMobileMenu}
+            <div class="overlay"></div>
+        {/if}
         <main>
             {@render children()}
         </main>
-
         <Footer />
     </QueryClientProvider>
 </div>
 
 <style>
     .app {
+        position: relative;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -68,9 +71,21 @@
     }
 
     main {
+        position: relative;
         flex: 1;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(112, 80, 72, 0.4);
+        z-index: 50;
+        pointer-events: none;
     }
 </style>

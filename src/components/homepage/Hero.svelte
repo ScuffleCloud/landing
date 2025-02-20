@@ -1,6 +1,7 @@
 <script lang="ts">
     import YouShouldContribute from '$lib/images/YouShouldContribute.svelte';
-    import YouShouldContributeMobile from '$lib/images/YouShouldContributeMobile.svelte';
+    import YouShouldContributeMobileLeft from '$lib/images/YouShouldContributeMobileLeft.svelte';
+    import YouShouldContributeMobileRight from '$lib/images/YouShouldContributeMobileRight.svelte';
 </script>
 
 <div class="hero-section-header">
@@ -12,13 +13,18 @@
             cloud provider.
         </h1>
     </div>
-    <div class="header-bubble-container hide-tablet hide-mobile">
+    <div class="header-bubble-container hide-tablet hide-mobile hide-mobile-xs">
         <div class="you-should-contribute-container">
             <YouShouldContribute />
         </div>
     </div>
     <div class="header-bubble-container-mobile hide-ds hide-dm hide-dl">
-        <YouShouldContributeMobile />
+        <div class="left-bubble">
+            <YouShouldContributeMobileLeft />
+        </div>
+        <div class="right-bubble">
+            <YouShouldContributeMobileRight />
+        </div>
     </div>
 </div>
 
@@ -68,13 +74,40 @@
             .you-should-contribute-container {
                 height: auto;
                 /* Can fix these later or move to media queries */
-                width: clamp(500px, 47vw, 615px);
             }
         }
 
         .header-bubble-container-mobile {
-            width: max(500px, min(700px, 100%));
+            display: flex;
+            width: 100%;
+            align-items: center;
             margin-top: -5rem;
+            position: relative;
+            min-height: 20rem;
+
+            .left-bubble {
+                position: absolute;
+                left: 0;
+                transform-origin: left center; /* Scale from left side */
+            }
+
+            .right-bubble {
+                position: absolute;
+                right: 0;
+                transform-origin: right center; /* Scale from right side */
+            }
+            @media (max-width: 592px) {
+                margin-top: 0rem;
+                min-height: 12rem;
+
+                .left-bubble {
+                    transform: scale(0.72);
+                }
+
+                .right-bubble {
+                    transform: scale(0.72);
+                }
+            }
         }
     }
 </style>

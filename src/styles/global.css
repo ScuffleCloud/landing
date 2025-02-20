@@ -1,6 +1,7 @@
 /* Put */
 :root {
     --font-body: 'Archivo Variable', sans-serif;
+    --color-text: var(--color-brown800);
     font-size: 16px;
 
     /* Default font */
@@ -19,7 +20,7 @@
 html,
 body {
     overscroll-behavior: auto;
-    background: var(--color-light100);
+    background-color: #fcf3f0;
 }
 
 h1,
@@ -44,7 +45,6 @@ h3 {
 
 body {
     margin: 0;
-    background-color: var(--color-light100);
     background-size: 100vw 100vh;
     overflow: auto;
     height: 100%;
@@ -74,15 +74,22 @@ button:focus:not(:focus-visible) {
     outline: none;
 }
 
-/* Mobile: 0-592px */
-@media screen and (max-width: 592px) {
+/* Mobile XS: 0-470px */
+@media screen and (max-width: 470px) {
+    .hide-mobile-xs {
+        display: none !important;
+    }
+}
+
+/* Mobile: 471px-591px */
+@media screen and (min-width: 471px) and (max-width: 591px) {
     .hide-mobile {
         display: none !important;
     }
 }
 
-/* Tablet: 593px-920px */
-@media screen and (min-width: 593px) and (max-width: 920px) {
+/* Tablet: 592px-920px */
+@media screen and (min-width: 592px) and (max-width: 920px) {
     .hide-tablet {
         display: none !important;
     }

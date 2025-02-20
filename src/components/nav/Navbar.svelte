@@ -13,33 +13,33 @@
 <div class="header-container-wrapper">
     <div class="header-container">
         <header>
-            <div class="logo-container">
+            <a class="logo-container" href="/">
                 <div class="logo-container-image">
                     <ScuffleLogo />
                 </div>
                 scuffle
-            </div>
-            <HideOn mobile tablet>
+            </a>
+            <HideOn mobileXS mobile tablet>
                 <nav>
                     <ul>
-                        <li class={{ active: pathname === '/' }}>
+                        <li class:active={pathname === '/'}>
                             <a href="/">Homepage</a>
                         </li>
-                        <li class={{ active: pathname.startsWith('/roadmap') }}>
+                        <li class:active={pathname.startsWith('/roadmap')}>
                             <a href="/roadmap">Roadmap</a>
                         </li>
-                        <li class={{ active: pathname.startsWith('/about') }}>
+                        <li class:active={pathname.startsWith('/about')}>
                             <a href="/about">about</a>
                         </li>
                     </ul>
                 </nav>
             </HideOn>
-            <div class="pill-options-container hide-mobile hide-tablet">
+            <div class="pill-options-container hide-mobile-xs hide-mobile hide-tablet">
                 <GithubStats />
                 <DemoPill />
             </div>
             <div class="button-container hide-ds hide-dm hide-dl">
-                <div class="pill-options-container hide-mobile">
+                <div class="pill-options-container hide-mobile hide-mobile-xs">
                     <GithubStats />
                     <DemoPill />
                 </div>
@@ -83,6 +83,7 @@
                     font-size: 1.5rem;
                     font-weight: 800;
                     text-transform: uppercase;
+                    text-decoration: none;
 
                     .logo-container-image {
                         display: flex;
@@ -113,7 +114,6 @@
                         li {
                             position: relative;
                             display: flex;
-                            padding: 1rem;
 
                             a {
                                 display: flex;
@@ -124,6 +124,7 @@
                                 line-height: 1.5rem;
                                 text-transform: capitalize;
                                 text-decoration: none;
+                                padding: 1rem;
                             }
 
                             &.active {
