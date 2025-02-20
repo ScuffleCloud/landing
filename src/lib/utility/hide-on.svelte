@@ -21,6 +21,7 @@
         children,
     }: HideOnProps = $props();
 
+    // Add derived if this function becomes used for non-static props
     const className = [
         'hide-on',
         {
