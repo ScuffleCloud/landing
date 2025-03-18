@@ -29,7 +29,7 @@
                             <a href="/roadmap">Roadmap</a>
                         </li>
                         <li class:active={pathname.startsWith('/about')}>
-                            <a href="/about">about</a>
+                            <a href="/about">About</a>
                         </li>
                     </ul>
                 </nav>
