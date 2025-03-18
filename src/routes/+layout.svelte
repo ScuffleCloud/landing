@@ -11,6 +11,7 @@
     import { showMobileMenu } from '$lib/layout';
     import '../styles/global.css';
     import Footer from '../components/Footer.svelte';
+    import { PUBLIC_WEBSITE_HOSTED_URL, PUBLIC_TWITTER_HANDLE } from '$env/static/public';
 
     import { MediaQuery } from 'svelte/reactivity';
 
@@ -45,7 +46,28 @@
             $showMobileMenu = false;
         });
     });
+
+    const metaDescription =
+        'Scuffle is an open-source cloud provider focused on high-quality video streaming solutions for both static and real-time video content.';
 </script>
+
+<svelte:head>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={PUBLIC_WEBSITE_HOSTED_URL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Scuffle" />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={PUBLIC_WEBSITE_HOSTED_URL} />
+    <meta property="og:image" content={PUBLIC_WEBSITE_HOSTED_URL + '/scuffle_logo.svg'} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags-->
+    <meta name="twitter:site" content={PUBLIC_TWITTER_HANDLE} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content={PUBLIC_WEBSITE_HOSTED_URL + '/scuffle_logo.svg'} />
+    <meta name="twitter:description" content={metaDescription} />
+</svelte:head>
 
 <div class="app" style={cssVariables}>
     <QueryClientProvider client={queryClient}>
