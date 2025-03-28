@@ -81,6 +81,7 @@
             transform 0.3s ease,
             opacity 0.3s ease;
         opacity: 1;
+
         &.hide {
             transform: translateY(-100%);
             opacity: 0;
