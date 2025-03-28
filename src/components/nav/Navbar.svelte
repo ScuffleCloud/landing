@@ -8,22 +8,25 @@
     import MenuButton from '$lib/images/MenuButton.svelte';
     import ScuffleLogo from '$lib/images/ScuffleLogo.svelte';
     let pathname = $derived($page?.url?.pathname ?? '/');
-    import { browser } from '$app/environment';
 
     let lastScrollY = 0;
     let hideNav = $state(false);
 
     $effect.root(() => {
-        if (!browser) return;
+        // Avoid race condition on setting state with previous scroll position with timeout
+        setTimeout(() => {
+            lastScrollY = window.scrollY;
+            hideNav = lastScrollY > 50;
 
-        function handleScroll() {
-            const currentScrollY = window.scrollY;
-            hideNav = currentScrollY > lastScrollY && currentScrollY > 50;
-            lastScrollY = currentScrollY;
-        }
+            function handleScroll() {
+                const currentScrollY = window.scrollY;
+                hideNav = currentScrollY > lastScrollY && currentScrollY > 50;
+                lastScrollY = currentScrollY;
+            }
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            return () => window.removeEventListener('scroll', handleScroll);
+        }, 50);
     });
 </script>
 
