@@ -8,9 +8,29 @@
     import MenuButton from '$lib/images/MenuButton.svelte';
     import ScuffleLogo from '$lib/images/ScuffleLogo.svelte';
     let pathname = $derived($page?.url?.pathname ?? '/');
+
+    let lastScrollY = 0;
+    let hideNav = $state(false);
+
+    $effect.root(() => {
+        // Avoid race condition on setting state with previous scroll position with timeout
+        setTimeout(() => {
+            lastScrollY = window.scrollY;
+            hideNav = lastScrollY > 50;
+
+            function handleScroll() {
+                const currentScrollY = window.scrollY;
+                hideNav = currentScrollY > lastScrollY && currentScrollY > 50;
+                lastScrollY = currentScrollY;
+            }
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            return () => window.removeEventListener('scroll', handleScroll);
+        }, 50);
+    });
 </script>
 
-<div class="header-container-wrapper">
+<div class="header-container-wrapper" class:hide={hideNav}>
     <div class="header-container">
         <header>
             <a class="logo-container" href="/">
@@ -60,6 +80,15 @@
         position: sticky;
         top: 0;
         z-index: 100;
+        transition:
+            transform 0.3s ease,
+            opacity 0.3s ease;
+        opacity: 1;
+
+        &.hide {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
 
         .header-container {
             background-color: var(--color-light100);
