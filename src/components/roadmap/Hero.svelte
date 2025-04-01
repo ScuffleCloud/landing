@@ -64,7 +64,7 @@
                 h1 {
                     font-kerning: none;
                     font-size: 3rem;
-                    font-weight: 700;
+                    font-weight: 600;
                     line-height: normal;
                 }
 
@@ -82,7 +82,7 @@
 
             /* This will be changed pending design updates */
             :global(.pill) {
-                font-weight: 700;
+                font-weight: 600;
                 gap: 0.25rem;
                 white-space: nowrap;
 

@@ -107,7 +107,7 @@
 
         h3 {
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         .bear-text-1 {

@@ -240,7 +240,7 @@
     .pill-content {
         display: flex;
         align-items: center;
-        font-weight: 700;
+        font-weight: 600;
         gap: 0.25rem;
         white-space: nowrap;
         z-index: 1000;

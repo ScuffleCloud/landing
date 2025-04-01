@@ -164,6 +164,7 @@
     h1 {
         font-size: 4rem;
         line-height: 4.4rem;
+        font-weight: 600;
         @media (max-width: 1208px) {
             font-size: 3rem;
             line-height: 3.3rem;
@@ -286,7 +287,7 @@
         border: 1px solid var(--color-orange500);
         border-radius: 0.5rem;
         color: var(--color-orange500);
-        font-weight: 700;
+        font-weight: 600;
         font-size: 0.75rem;
         color: var(--color-orange500);
         width: fit-content;

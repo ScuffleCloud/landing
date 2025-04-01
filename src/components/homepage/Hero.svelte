@@ -57,7 +57,7 @@
             }
 
             .hero-section-title-1 {
-                font-weight: 700;
+                font-weight: 600;
             }
 
             .hero-section-title-2 {

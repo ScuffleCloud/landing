@@ -19,7 +19,7 @@
         gap: 0.25rem;
 
         .demo-text {
-            font-weight: 700;
+            font-weight: 600;
             white-space: nowrap;
         }
     }
