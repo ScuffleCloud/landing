@@ -118,7 +118,7 @@
             p {
                 font-size: 1.125rem;
                 line-height: 1.75rem;
-                font-weight: 500;
+                font-weight: 400;
             }
         }
     }
