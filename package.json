@@ -17,6 +17,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.16.0",
+        "@fontsource-variable/rubik": "^5.2.5",
         "@sveltejs/adapter-static": "^3.0.8",
         "@sveltejs/kit": "^2.0.0",
         "@sveltejs/vite-plugin-svelte": "^4.0.0",
@@ -51,8 +52,5 @@
             "esbuild@<=0.24.2": ">=0.25.0",
             "vitest@>=2.0.0 <2.1.9": ">=2.1.9"
         }
-    },
-    "dependencies": {
-        "@fontsource-variable/rubik": "^5.2.5"
     }
 }
