@@ -52,5 +52,8 @@
             "esbuild@<=0.24.2": ">=0.25.0",
             "vitest@>=2.0.0 <2.1.9": ">=2.1.9"
         }
+    },
+    "dependencies": {
+        "@fontsource-variable/rubik": "^5.2.5"
     }
 }
