@@ -112,7 +112,7 @@
 
         .bear-text-1 {
             font-size: 1.125rem;
-            font-weight: 500;
+            font-weight: 400;
             line-height: 1.75rem;
         }
 

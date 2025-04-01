@@ -9,7 +9,7 @@
 <section class="features-main">
     <div class="content-wrapper">
         <div class="title-container">
-            <div class="features-pill">Coming Soon</div>
+            <div class="features-pill">COMING SOON</div>
             <div class="title-wrapper">
                 <h1>Scuffle&apos;s</h1>
                 <h1 class="solution-title">Video Streaming Solution</h1>
@@ -287,7 +287,7 @@
         border: 1px solid var(--color-orange500);
         border-radius: 0.5rem;
         color: var(--color-orange500);
-        font-weight: 600;
+        font-weight: 400;
         font-size: 0.75rem;
         color: var(--color-orange500);
         width: fit-content;
@@ -297,7 +297,7 @@
         background-color: var(--color-orange500);
         color: var(--color-brown700);
         border: 1px solid var(--color-orange500);
-        font-weight: 800;
+        font-weight: 700;
     }
 
     .features-management {

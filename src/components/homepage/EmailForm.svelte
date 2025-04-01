@@ -157,7 +157,7 @@
 
                 .title {
                     color: var(--color-brown800);
-                    font-weight: bold;
+                    font-weight: 600;
                     font-size: 1.125rem;
                     line-height: 1rem;
                 }
@@ -199,7 +199,7 @@
 
                 .button-text {
                     color: var(--color-light100);
-                    font-weight: bold;
+                    font-weight: 500;
                     margin: 0;
                 }
             }
