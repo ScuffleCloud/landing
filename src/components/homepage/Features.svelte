@@ -164,9 +164,6 @@
     h1 {
         font-size: 4rem;
         line-height: 4.4rem;
-        font-feature-settings:
-            'cpsp' on,
-            'liga' off;
         @media (max-width: 1208px) {
             font-size: 3rem;
             line-height: 3.3rem;
