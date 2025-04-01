@@ -131,7 +131,7 @@
             .addon-accent {
                 position: absolute;
                 top: -18px;
-                left: -25px;
+                left: -20px;
                 z-index: 1;
             }
 
