@@ -58,9 +58,6 @@
 
             .hero-section-title-1 {
                 font-weight: 700;
-                font-feature-settings:
-                    'cpsp' on,
-                    'liga' off;
             }
 
             .hero-section-title-2 {

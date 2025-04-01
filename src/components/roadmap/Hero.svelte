@@ -63,9 +63,6 @@
 
                 h1 {
                     font-kerning: none;
-                    font-feature-settings:
-                        'cpsp' on,
-                        'liga' off;
                     font-size: 3rem;
                     font-weight: 700;
                     line-height: normal;

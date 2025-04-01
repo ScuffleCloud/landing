@@ -11,6 +11,9 @@
     --layout-padding: 2rem;
 
     --mobile-width: 768px;
+    font-feature-settings:
+        'cpsp' on,
+        'liga' off;
 }
 
 * {

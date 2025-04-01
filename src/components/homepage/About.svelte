@@ -108,9 +108,6 @@
         h3 {
             font-size: 1.5rem;
             font-weight: 700;
-            font-feature-settings:
-                'cpsp' on,
-                'liga' off;
         }
 
         .bear-text-1 {
