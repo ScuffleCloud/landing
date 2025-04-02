@@ -6,7 +6,7 @@
     import TurnstileOverlay from '../components/TurnstileOverlay.svelte';
     import { setContext } from 'svelte';
     import { TURNSTILE_CONTEXT_KEY } from '$lib/design-components/utils';
-    import '@fontsource-variable/archivo';
+    import '@fontsource-variable/rubik';
     import { beforeNavigate } from '$app/navigation';
     import { showMobileMenu } from '$lib/layout';
     import '../styles/global.css';

@@ -43,7 +43,7 @@
 
             .pill-text {
                 font-size: 1rem;
-                font-weight: 700;
+                font-weight: 600;
                 line-height: 1.5rem;
             }
 

@@ -73,14 +73,13 @@
     .footer-section {
         h3 {
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
 
         nav {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
             line-height: 2rem;
 
             a {

@@ -61,7 +61,7 @@
                     line-height: 1.5rem;
 
                     &.active {
-                        font-weight: 700;
+                        font-weight: 600;
                     }
                 }
             }

@@ -65,7 +65,7 @@
         h2 {
             grid-area: title;
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 2rem;
         }
 
@@ -112,13 +112,13 @@
             padding: 1.5rem;
             h3 {
                 font-size: 1.5rem;
-                font-weight: 700;
+                font-weight: 600;
             }
 
             p {
                 font-size: 1.125rem;
                 line-height: 1.75rem;
-                font-weight: 500;
+                font-weight: 400;
             }
         }
     }
