@@ -135,12 +135,18 @@
                 <h3 class="our-solution">Video Streaming Solution</h3>
             </div>
             <div class="row-wrapper">
+                <div class="row">AV1 Encoding</div>
+                <div class="row">True Sub-Second Latency</div>
+                <!-- <div class="row">Zero-Drop Transcoding</div> -->
+                <!-- <div class="row">10x More Affordable.</div> -->
+                <!-- <div class="row">Budget Friendly Pricing.</div> Idk about this one makes us sound cheap?
+                 We'd charge somewhat close to cost though is what they should believe-->
+                <div class="row">At-Cost Pricing</div>
                 <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
+                <div class="row">Fully Open Source Freedom</div>
+                <!-- Not sure here. something related to us being reliable and evolving -->
+                <!-- Cutting-Edge Technology Platform? idk -->
+                <div class="row">Actively Evolving Infrastructure</div>
             </div>
         </div>
         <div class="solution-card">
@@ -148,12 +154,15 @@
                 <h3>Other<br />Video Streaming Solutions</h3>
             </div>
             <div class="row-wrapper">
+                <!-- <div class="row">H.264 Only: Double the bandwidth, half the quality</div> -->
+                <div class="row">Outdated H.264: Wasting your bandwidth, comprimising quality</div>
+                <div class="row">Faster use</div>
+                <div class="row">Traditional inflated pricing models with hidden costs</div>
                 <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
+                <div class="row">Closed-source black boxes with limited customization</div>
+                <!-- <div class="row">Legacy platforms invested in maintaining premium pricing</div> -->
+                <!-- <div class="row">Legacy infrastructure with uncertain development plans/roadmap</div> -->
+                <div class="row">Legacy infrastructure with no plans to reduce consumer costs</div>
             </div>
         </div>
     </div>
@@ -420,6 +429,11 @@
                 .row {
                     height: 3.2rem;
                     background-color: #564546;
+                    display: flex;
+                    align-items: center;
+                    font-size: 1.3rem;
+                    padding: 0 1rem;
+                    opacity: 0.8;
 
                     &:nth-child(even) {
                         background-color: inherit;
