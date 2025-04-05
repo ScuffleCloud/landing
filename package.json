@@ -34,7 +34,6 @@
         "eslint-plugin-svelte": "^3.5.0",
         "globals": "^16.0.0",
         "lucide-svelte": "^0.487.0",
-        "msw": "^2.6.8",
         "prettier": "^3.4.1",
         "prettier-plugin-svelte": "^3.3.2",
         "svelte": "^5.16.0",
