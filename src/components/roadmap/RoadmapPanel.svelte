@@ -36,7 +36,7 @@
         {/if}
     </div>
     <div class="content-section">
-        {#each content as item}
+        {#each content as item, index (`content-${index}`)}
             <div class="content-card">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
