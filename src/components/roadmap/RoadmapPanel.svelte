@@ -3,14 +3,20 @@
     import RoadmapDotInProgress from '$lib/images/RoadmapDotInProgress.svelte';
     import RoadmapDotCompleted from '$lib/images/RoadmapDotCompleted.svelte';
 
-    export let title: string;
-    export let year: string;
-    export let content: {
+    export type RoadmapPanelProps = {
+        key: string;
         title: string;
-        description: string;
-    }[] = [];
-    export let status: 'planned' | 'in-progress' | 'completed';
-    export let showDivider: boolean = true;
+        year: string;
+        content: {
+            title: string;
+            description: string;
+        }[];
+        status: 'planned' | 'in-progress' | 'completed';
+        showDivider?: boolean;
+    };
+
+    let { key, title, year, content, status, showDivider }: RoadmapPanelProps = $props();
+
     const incomplete = status === 'planned';
 
     const statusIcon = {
@@ -36,7 +42,7 @@
         {/if}
     </div>
     <div class="content-section">
-        {#each content as item, index (`content-${index}`)}
+        {#each content as item, i (`${key}-content-${i}`)}
             <div class="content-card">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
