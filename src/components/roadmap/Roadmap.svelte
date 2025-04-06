@@ -69,7 +69,7 @@
 </script>
 
 <div class="roadmap-timeline-container">
-    {#each roadmapItems as panel, i (`panel-${i}`)}
+    {#each roadmapItems as panel (panel.key)}
         <RoadmapPanel
             key={panel.key}
             title={panel.title}
