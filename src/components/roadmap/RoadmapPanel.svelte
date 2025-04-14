@@ -125,6 +125,7 @@
                 font-size: 1.125rem;
                 line-height: 1.75rem;
                 font-weight: 400;
+                white-space: pre-line;
             }
         }
     }

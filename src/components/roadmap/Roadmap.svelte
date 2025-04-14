@@ -5,16 +5,17 @@
         {
             key: 'panel-0',
             title: 'First step',
-            year: '2025',
+            year: 'Q2 2025',
             content: [
                 {
-                    title: 'Scuffle Introduction',
-                    description: 'Scuffle is an ambitious, upcoming open-source cloud provider.',
+                    title: 'Building Essential Video Stack',
+                    description:
+                        'Core video infrastucture (injest, transcoding, edge content delivery) with authentication, metrics tracking and billing',
                 },
                 {
-                    title: 'Video Streaming Solution',
+                    title: 'Initial Development Tools',
                     description:
-                        "We're on a mission to revolutionize video streaming solutions with cutting-edge tools and libraries.",
+                        'SDK and API documentation, dashboard and monitoring tools for stream performance, viewer analytics and stream health',
                 },
             ],
             status: 'in-progress',
@@ -22,44 +23,28 @@
         {
             key: 'panel-1',
             title: 'Second step',
-            year: 'TBA',
+            year: 'Q3 2025',
             content: [
                 {
-                    title: 'Scuffle Introduction',
-                    description: 'Scuffle is an ambitious, upcoming open-source cloud provider.',
+                    title: 'Platform Optimization',
+                    description: 'Comprehensive performance testing and security validation',
                 },
                 {
-                    title: 'Video Streaming Solution',
+                    title: 'Beta Release',
                     description:
-                        "We're on a mission to revolutionize video streaming solutions with cutting-edge tools and libraries.",
+                        'Limited internal release within the community for testing and feedback',
                 },
             ],
             status: 'planned',
         },
         {
             key: 'panel-2',
-            title: 'Third step',
-            year: '',
-            content: [
-                {
-                    title: 'Buh',
-                    description: 'Scuffle is an ambitious, upcoming open-source cloud provider.',
-                },
-                {
-                    title: 'Buh2',
-                    description: 'Scuffle is an ambitious, upcoming open-source cloud provider.',
-                },
-            ],
-            status: 'planned',
-        },
-        {
-            key: 'panel-3',
             title: 'Final step',
-            year: '',
+            year: 'Q4 2025',
             content: [
                 {
-                    title: 'Buh3',
-                    description: 'Scuffle is an ambitious, upcoming open-source cloud provider.',
+                    title: 'Market Launch',
+                    description: 'Opening up to the public',
                 },
             ],
             status: 'planned',

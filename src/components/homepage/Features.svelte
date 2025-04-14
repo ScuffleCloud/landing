@@ -72,7 +72,7 @@
 
         <div class="card">
             <div class="features-pill filled">HOSTING</div>
-            <h3>Encrypted Broadcasts</h3>
+            <h3>Self Hosting</h3>
             <p>
                 Host the video stack on your own infrastructure, giving you the full control over
                 your data and resources.
