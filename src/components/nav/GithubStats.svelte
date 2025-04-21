@@ -14,7 +14,7 @@
     });
 </script>
 
-<a href={PUBLIC_GITHUB_REPO_URL} class="pill-link">
+<a href={PUBLIC_GITHUB_REPO_URL} class="pill-link" target="_blank">
     <Pill color="white" borderColor="#EAE2DF" width="100%">
         <div class="pill-content">
             <HideOn mobileXS tablet ds dm>
