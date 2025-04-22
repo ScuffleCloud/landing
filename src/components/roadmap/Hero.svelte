@@ -18,7 +18,7 @@
                 developing, along with the progress made so far.<br />
             </p>
         </div>
-        <a href={PUBLIC_JIRA_URL} class="pill-link">
+        <a href={PUBLIC_JIRA_URL} class="pill-link" target="_blank">
             <Pill color={theme.colors.orange500}>
                 <p>Detailed Kanban Board</p>
                 <div class="pill-back-button">

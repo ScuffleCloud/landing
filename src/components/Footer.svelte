@@ -23,8 +23,8 @@
         <div class="footer-section">
             <h3>Resources</h3>
             <nav>
-                <a href={PUBLIC_BLOG_URL}>Blog</a>
-                <a href={PUBLIC_GITHUB_REPO_URL}>GitHub Repository</a>
+                <a href={PUBLIC_BLOG_URL} target="_blank">Blog</a>
+                <a href={PUBLIC_GITHUB_REPO_URL} target="_blank">GitHub Repository</a>
             </nav>
         </div>
 
@@ -40,9 +40,9 @@
         <div class="footer-section">
             <h3>Follow Scuffle</h3>
             <nav>
-                <a href={PUBLIC_GITHUB_REPO_URL}>Github</a>
-                <a href={PUBLIC_TWITTER_URL}>Twitter</a>
-                <a href={PUBLIC_BLUESKY_URL}>Bluesky</a>
+                <a href={PUBLIC_GITHUB_REPO_URL} target="_blank">Github</a>
+                <a href={PUBLIC_TWITTER_URL} target="_blank">Twitter</a>
+                <a href={PUBLIC_BLUESKY_URL} target="_blank">Bluesky</a>
             </nav>
         </div>
     </div>
