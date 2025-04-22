@@ -9,8 +9,6 @@
     };
 
     const { data: pageData }: Props = $props();
-
-    console.log(pageData);
 </script>
 
 <svelte:head>
