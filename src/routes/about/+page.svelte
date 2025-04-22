@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type { Streamed } from '$lib/types';
+    import type { Contributor, Streamed } from '$lib/types';
     import AboutContent from '../../components/about/AboutContent.svelte';
 
     type Props = {
         data: {
-            contributors: Streamed<any[]>;
+            contributors: Streamed<Contributor[]>;
         };
     };
 

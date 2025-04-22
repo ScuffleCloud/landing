@@ -1,9 +1,9 @@
 <script lang="ts">
     import PointingBear from '$lib/images/PointingBear.svelte';
-    import type { Streamed } from '$lib/types';
+    import type { Contributor, Streamed } from '$lib/types';
 
     type Props = {
-        streamedData: Streamed<any[]>;
+        streamedData: Streamed<Contributor[]>;
     };
 
     const { streamedData }: Props = $props();
@@ -33,7 +33,7 @@
                 {#await streamedData}
                     <p>Loading contributors...</p>
                 {:then resolvedContributors}
-                    {#each resolvedContributors as contributor}
+                    {#each resolvedContributors as contributor (contributor.id)}
                         <a
                             href={contributor.html_url}
                             target="_blank"
@@ -45,7 +45,7 @@
                             </div>
                         </a>
                     {/each}
-                {:catch error}
+                {:catch}
                     <p>Error loading contributors</p>
                 {/await}
             </div>

@@ -137,15 +137,9 @@
             <div class="row-wrapper">
                 <div class="row">AV1 Encoding</div>
                 <div class="row">True Sub-Second Latency</div>
-                <!-- <div class="row">Zero-Drop Transcoding</div> -->
-                <!-- <div class="row">10x More Affordable.</div> -->
-                <!-- <div class="row">Budget Friendly Pricing.</div> Idk about this one makes us sound cheap?
-                 We'd charge somewhat close to cost though is what they should believe-->
                 <div class="row">At-Cost Pricing</div>
                 <div class="row">Developer-friendly API</div>
                 <div class="row">Open Source Freedom</div>
-                <!-- Not sure here. something related to us being reliable and evolving -->
-                <!-- Cutting-Edge Technology Platform? idk -->
                 <div class="row">Actively Evolving Infrastructure</div>
             </div>
         </div>
@@ -154,14 +148,11 @@
                 <h3>Other<br />Video Streaming Solutions</h3>
             </div>
             <div class="row-wrapper">
-                <!-- <div class="row">H.264 Only: Double the bandwidth, half the quality</div> -->
                 <div class="row">Not available</div>
                 <div class="row">Low-latency only on premium plans</div>
                 <div class="row">Inflated pricing models with hidden costs</div>
                 <div class="row">Complex integration requirements</div>
                 <div class="row">Closed-source with limited customization</div>
-                <!-- <div class="row">Legacy platforms invested in maintaining premium pricing</div> -->
-                <!-- <div class="row">Legacy infrastructure with uncertain development plans/roadmap</div> -->
                 <div class="row">Stagnant features with no clear roadmap</div>
             </div>
         </div>
