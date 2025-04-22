@@ -72,7 +72,7 @@
 
         <div class="card">
             <div class="features-pill filled">HOSTING</div>
-            <h3>Encrypted Broadcasts</h3>
+            <h3>Self Hosting</h3>
             <p>
                 Host the video stack on your own infrastructure, giving you the full control over
                 your data and resources.
@@ -135,12 +135,12 @@
                 <h3 class="our-solution">Video Streaming Solution</h3>
             </div>
             <div class="row-wrapper">
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
+                <div class="row">AV1 Encoding</div>
+                <div class="row">True Sub-Second Latency</div>
+                <div class="row">At-Cost Pricing</div>
+                <div class="row">Developer-friendly API</div>
+                <div class="row">Open Source Freedom</div>
+                <div class="row">Actively Evolving Infrastructure</div>
             </div>
         </div>
         <div class="solution-card">
@@ -148,12 +148,12 @@
                 <h3>Other<br />Video Streaming Solutions</h3>
             </div>
             <div class="row-wrapper">
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
+                <div class="row">Not available</div>
+                <div class="row">Low-latency only on premium plans</div>
+                <div class="row">Inflated pricing models with hidden costs</div>
+                <div class="row">Complex integration requirements</div>
+                <div class="row">Closed-source with limited customization</div>
+                <div class="row">Stagnant features with no clear roadmap</div>
             </div>
         </div>
     </div>
@@ -403,8 +403,22 @@
                 /* 1px border */
                 padding: calc(1rem - 1px);
 
+                h3 {
+                    white-space: nowrap;
+
+                    @media (max-width: 685px) {
+                        white-space: normal;
+                    }
+                }
+
                 &.main {
                     background-color: var(--color-orange500);
+                }
+            }
+
+            @media (max-width: 685px) {
+                &:last-child .row-wrapper {
+                    font-size: 1rem;
                 }
             }
 
@@ -413,6 +427,7 @@
                 flex-direction: column;
                 gap: 0.5rem;
                 padding: 0.4rem;
+                font-size: 1.3rem;
 
                 &:last-child {
                     border-top: 1px solid #564546;
@@ -420,6 +435,10 @@
                 .row {
                     height: 3.2rem;
                     background-color: #564546;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 1rem;
+                    opacity: 0.8;
 
                     &:nth-child(even) {
                         background-color: inherit;

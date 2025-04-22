@@ -1,8 +1,23 @@
+<script lang="ts">
+    import type { Contributor, Streamed } from '$lib/types';
+    import AboutContent from '../../components/about/AboutContent.svelte';
+
+    type Props = {
+        data: {
+            contributors: Streamed<Contributor[]>;
+        };
+    };
+
+    const { data: pageData }: Props = $props();
+</script>
+
 <svelte:head>
     <title>Scuffle - About</title>
 </svelte:head>
 
-<div class="page-bg"><div>about page</div></div>
+<div class="page-bg">
+    <AboutContent streamedData={pageData.contributors} />
+</div>
 
 <style>
     .page-bg {
