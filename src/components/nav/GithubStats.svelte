@@ -1,17 +1,11 @@
 <script lang="ts">
-    import { PUBLIC_GITHUB_REPO_ID, PUBLIC_GITHUB_REPO_URL } from '$env/static/public';
+    import { PUBLIC_GITHUB_REPO_URL } from '$env/static/public';
     import Pill from '$lib/design-components/Pill.svelte';
     import HideOn from '$lib/utility/hide-on.svelte';
     import GithubIcon from '$lib/images/GithubIcon.svelte';
-    import { createQuery } from '@tanstack/svelte-query';
+    import type { GithubQueryProps } from './types';
 
-    const query = createQuery({
-        queryKey: ['stargazers-count'],
-        queryFn: async () =>
-            await fetch(`https://api.github.com/repositories/${PUBLIC_GITHUB_REPO_ID}`).then(
-                (res) => res.json(),
-            ),
-    });
+    const { query }: GithubQueryProps = $props();
 </script>
 
 <a href={PUBLIC_GITHUB_REPO_URL} class="pill-link">

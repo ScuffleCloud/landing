@@ -7,10 +7,20 @@
     import DemoPill from './DemoPill.svelte';
     import MenuButton from '$lib/images/MenuButton.svelte';
     import ScuffleLogo from '$lib/images/ScuffleLogo.svelte';
+    import { createQuery } from '@tanstack/svelte-query';
+    import { PUBLIC_GITHUB_REPO_ID } from '$env/static/public';
     let pathname = $derived($page?.url?.pathname ?? '/');
 
     let lastScrollY = 0;
     let hideNav = $state(false);
+
+    const query = createQuery({
+        queryKey: ['github-repo-info'],
+        queryFn: async () =>
+            await fetch(`https://api.github.com/repositories/${PUBLIC_GITHUB_REPO_ID}`).then(
+                (res) => res.json(),
+            ),
+    });
 
     $effect.root(() => {
         // Avoid race condition on setting state with previous scroll position with timeout
@@ -55,12 +65,12 @@
                 </nav>
             </HideOn>
             <div class="pill-options-container hide-mobile-xs hide-mobile hide-tablet">
-                <GithubStats />
+                <GithubStats {query} />
                 <DemoPill />
             </div>
             <div class="button-container hide-ds hide-dm hide-dl">
                 <div class="pill-options-container hide-mobile hide-mobile-xs">
-                    <GithubStats />
+                    <GithubStats {query} />
                     <DemoPill />
                 </div>
                 <button onclick={() => ($showMobileMenu = !$showMobileMenu)}>
@@ -69,7 +79,7 @@
             </div>
         </header>
         {#if $showMobileMenu}
-            <Dropdown />
+            <Dropdown {query} />
         {/if}
     </div>
 </div>

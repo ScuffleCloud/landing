@@ -1,8 +1,14 @@
+<script>
+    import AboutContent from '../../components/about/AboutContent.svelte';
+</script>
+
 <svelte:head>
     <title>Scuffle - About</title>
 </svelte:head>
 
-<div class="page-bg"><div>about page</div></div>
+<div class="page-bg">
+    <AboutContent />
+</div>
 
 <style>
     .page-bg {
