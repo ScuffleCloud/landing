@@ -20,7 +20,7 @@
 
             function handleScroll() {
                 const currentScrollY = window.scrollY;
-                hideNav = currentScrollY > lastScrollY && currentScrollY > 50;
+                hideNav = !$showMobileMenu && currentScrollY > lastScrollY && currentScrollY > 50;
                 lastScrollY = currentScrollY;
             }
 
