@@ -3,11 +3,8 @@
     import GithubStats from './GithubStats.svelte';
     import DemoPill from './DemoPill.svelte';
     import HideOn from '$lib/utility/hide-on.svelte';
-    import type { GithubQueryProps } from './types';
 
     let pathname = $derived($page?.url?.pathname ?? '/');
-
-    const { query }: GithubQueryProps = $props();
 </script>
 
 <div class="mobile-menu">
@@ -25,7 +22,7 @@
     <HideOn tablet ds dm dl>
         <div class="stats-container">
             <div class="stats-container-item">
-                <GithubStats {query} />
+                <GithubStats />
             </div>
             <div class="stats-container-item">
                 <DemoPill />

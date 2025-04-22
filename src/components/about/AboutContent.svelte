@@ -1,23 +1,12 @@
-<script>
+<script lang="ts">
     import PointingBear from '$lib/images/PointingBear.svelte';
-    import { createQuery, useQueryClient } from '@tanstack/svelte-query';
+    import type { Streamed } from '$lib/types';
 
-    // Use the query from the Navbar component
+    type Props = {
+        streamedData: Streamed<any[]>;
+    };
 
-    // get query at github-repo-info query key
-    const queryClient = useQueryClient();
-    // const repoQuery = queryClient.getQueryData(['github-repo-info']);
-
-    // log repo query
-    // console.log(repoQuery);
-    // const contributorsQuery = createQuery({
-    //     queryKey: ['github-contributors'],
-    //     enabled: $repoQuery.data?.contributors_url,
-    //     queryFn: async () => {
-    //         const response = await fetch($repoQuery.data.contributors_url);
-    //         return response.json();
-    //     },
-    // });
+    const { streamedData }: Props = $props();
 </script>
 
 <div class="about-container">
@@ -74,6 +63,32 @@
                     Building bridges with our community and ensuring we stay true to our open-source
                     roots.
                 </p>
+            </div>
+        </div>
+    </div>
+    <div class="contributors">
+        <h2>Our Team</h2>
+        <div class="contributors-section">
+            <h3>Contributors</h3>
+            <div class="contributors-grid">
+                {#await streamedData}
+                    <p>Loading contributors...</p>
+                {:then resolvedContributors}
+                    {#each resolvedContributors as contributor}
+                        <a
+                            href={contributor.html_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contributor"
+                        >
+                            <div class="contributor-image">
+                                <img src={contributor.avatar_url} alt={contributor.login} />
+                            </div>
+                        </a>
+                    {/each}
+                {:catch error}
+                    <p>Error loading contributors</p>
+                {/await}
             </div>
         </div>
     </div>
@@ -143,49 +158,52 @@
         }
     }
 
-    .about-team {
+    .contributors {
         margin-top: 2rem;
-    }
 
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        font-weight: 600;
-    }
-
-    .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 2rem;
-    }
-
-    .team-member {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-
-        .team-member-image {
-            width: 80px;
-            height: 80px;
-            aspect-ratio: 1;
-            background-color: var(--color-brown400);
-            border-radius: 50%;
-            margin-bottom: 0.5rem;
-        }
-
-        h3 {
-            font-size: 1.25rem;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
             font-weight: 600;
-            margin: 0;
         }
 
-        p {
-            margin: 0;
-            font-size: 1rem;
+        .contributors-section {
+            margin: 2rem 0;
 
-            &.team-member-bio {
-                color: var(--color-brown600);
-                margin-top: 0.5rem !important;
+            .contributors-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: 1rem;
+
+                .contributor {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.5rem;
+                    padding: 0.25rem;
+                    border-radius: 0.5rem;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.03);
+                        transform: translateY(-2px);
+                    }
+
+                    .contributor-image {
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        flex-shrink: 0;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
             }
         }
     }

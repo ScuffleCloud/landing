@@ -1,5 +1,16 @@
-<script>
+<script lang="ts">
+    import type { Streamed } from '$lib/types';
     import AboutContent from '../../components/about/AboutContent.svelte';
+
+    type Props = {
+        data: {
+            contributors: Streamed<any[]>;
+        };
+    };
+
+    const { data: pageData }: Props = $props();
+
+    console.log(pageData);
 </script>
 
 <svelte:head>
@@ -7,7 +18,7 @@
 </svelte:head>
 
 <div class="page-bg">
-    <AboutContent />
+    <AboutContent streamedData={pageData.contributors} />
 </div>
 
 <style>

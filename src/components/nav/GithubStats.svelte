@@ -1,14 +1,20 @@
 <script lang="ts">
-    import { PUBLIC_GITHUB_REPO_URL } from '$env/static/public';
+    import { PUBLIC_GITHUB_REPO_ID, PUBLIC_GITHUB_REPO_URL } from '$env/static/public';
     import Pill from '$lib/design-components/Pill.svelte';
     import HideOn from '$lib/utility/hide-on.svelte';
     import GithubIcon from '$lib/images/GithubIcon.svelte';
-    import type { GithubQueryProps } from './types';
+    import { createQuery } from '@tanstack/svelte-query';
 
-    const { query }: GithubQueryProps = $props();
+    const query = createQuery({
+        queryKey: ['stargazers-count'],
+        queryFn: async () =>
+            await fetch(`https://api.github.com/repositories/${PUBLIC_GITHUB_REPO_ID}`).then(
+                (res) => res.json(),
+            ),
+    });
 </script>
 
-<a href={PUBLIC_GITHUB_REPO_URL} class="pill-link">
+<a href={PUBLIC_GITHUB_REPO_URL} class="pill-link" target="_blank">
     <Pill color="white" borderColor="#EAE2DF" width="100%">
         <div class="pill-content">
             <HideOn mobileXS tablet ds dm>
