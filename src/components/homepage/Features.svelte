@@ -412,8 +412,22 @@
                 /* 1px border */
                 padding: calc(1rem - 1px);
 
+                h3 {
+                    white-space: nowrap;
+
+                    @media (max-width: 685px) {
+                        white-space: normal;
+                    }
+                }
+
                 &.main {
                     background-color: var(--color-orange500);
+                }
+            }
+
+            @media (max-width: 685px) {
+                &:last-child .row-wrapper {
+                    font-size: 1rem;
                 }
             }
 
@@ -422,6 +436,7 @@
                 flex-direction: column;
                 gap: 0.5rem;
                 padding: 0.4rem;
+                font-size: 1.3rem;
 
                 &:last-child {
                     border-top: 1px solid #564546;
@@ -431,7 +446,6 @@
                     background-color: #564546;
                     display: flex;
                     align-items: center;
-                    font-size: 1.3rem;
                     padding: 0 1rem;
                     opacity: 0.8;
 

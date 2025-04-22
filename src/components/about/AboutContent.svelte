@@ -26,48 +26,7 @@
             </p>
         </div>
     </div>
-
-    <div class="about-team">
-        <h2>Our Team</h2>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="team-member-image"></div>
-                <h3>Jane Smith</h3>
-                <p>Founder & CEO</p>
-                <p class="team-member-bio">
-                    Passionate about open-source and democratizing cloud infrastructure for
-                    everyone.
-                </p>
-            </div>
-            <div class="team-member">
-                <div class="team-member-image"></div>
-                <h3>John Davis</h3>
-                <p>CTO</p>
-                <p class="team-member-bio">
-                    Experienced engineer with a background in video streaming technologies.
-                </p>
-            </div>
-            <div class="team-member">
-                <div class="team-member-image"></div>
-                <h3>Alex Johnson</h3>
-                <p>Head of Engineering</p>
-                <p class="team-member-bio">
-                    Leading our development efforts with a focus on performance and reliability.
-                </p>
-            </div>
-            <div class="team-member">
-                <div class="team-member-image"></div>
-                <h3>Sam Parker</h3>
-                <p>Open Source Advocate</p>
-                <p class="team-member-bio">
-                    Building bridges with our community and ensuring we stay true to our open-source
-                    roots.
-                </p>
-            </div>
-        </div>
-    </div>
     <div class="contributors">
-        <h2>Our Team</h2>
         <div class="contributors-section">
             <h3>Contributors</h3>
             <div class="contributors-grid">
@@ -157,15 +116,8 @@
             }
         }
     }
-
     .contributors {
         margin-top: 2rem;
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
 
         .contributors-section {
             margin: 2rem 0;
