@@ -99,7 +99,7 @@ jobs:
                   override_commit: ${{ env.RUN_COMMIT_SHA || env.SHA }}
                   token: ${{ secrets.CODECOV_TOKEN }}
 
-    landing_page:
+    build:
         name: Landing Page
         runs-on: ubuntu-24.04
         permissions:
@@ -122,17 +122,27 @@ jobs:
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
-            - name: Build
+            - name: Build Email Worker
+              run: |
+                  pnpm --filter ./email-worker build
+
+            - name: Upload Email Worker Build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: email-worker
+                  path: ./email-worker/dist
+
+            - name: Build Landing Page
               run: |
                   pnpm build
 
-            - name: Upload Build
+            - name: Upload Landing Page Build
               uses: actions/upload-artifact@v4
               with:
                   name: landing-page
                   path: build
 
-            - name: Deploy
+            - name: Deploy Landing Page
               if: ${{ startsWith(github.ref, 'refs/heads/automation/brawl/try/') || github.event.pull_request.head.repo.full_name == github.repository }}
               id: deploy
               uses: cloudflare/wrangler-action@v3
@@ -143,7 +153,7 @@ jobs:
 
     brawl-done:
         runs-on: ubuntu-24.04
-        needs: [lint, test, landing_page]
+        needs: [lint, test, build]
         if: ${{ !cancelled() && github.event_name == 'push' }}
         steps:
             - name: calculate the correct exit status
