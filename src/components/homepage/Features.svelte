@@ -129,30 +129,66 @@
         making high-quality video streaming accessible to all.
     </p>
     <div class="comparison-grid">
-        <div class="solution-card">
-            <div class="solution-card-header main">
+        <div class="header-row">
+            <div class="column-header main">
                 <h3 class="bold our-solution">Scuffle&apos;s</h3>
                 <h3 class="our-solution">Video Streaming Solution</h3>
             </div>
-            <div class="row-wrapper">
-                <div class="row">AV1 Encoding</div>
-                <div class="row">True Sub-Second Latency</div>
-                <div class="row">At-Cost Pricing</div>
-                <div class="row">Developer-friendly API</div>
-                <div class="row">Open Source Freedom</div>
-                <div class="row">Actively Evolving Infrastructure</div>
-            </div>
-        </div>
-        <div class="solution-card">
-            <div class="solution-card-header">
+            <div class="column-header">
                 <h3>Other<br />Video Streaming Solutions</h3>
             </div>
-            <div class="row-wrapper">
+        </div>
+
+        <div class="comparison-row">
+            <div class="item-wrapper left">
+                <div class="row">AV1 Encoding</div>
+            </div>
+            <div class="item-wrapper right">
                 <div class="row">Not available</div>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="item-wrapper left">
+                <div class="row">True Sub-Second Latency</div>
+            </div>
+            <div class="item-wrapper right">
                 <div class="row">Low-latency only on premium plans</div>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="item-wrapper left">
+                <div class="row">At-Cost Pricing</div>
+            </div>
+            <div class="item-wrapper right">
                 <div class="row">Inflated pricing models with hidden costs</div>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="item-wrapper left">
+                <div class="row">Developer-friendly API</div>
+            </div>
+            <div class="item-wrapper right">
                 <div class="row">Complex integration requirements</div>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="item-wrapper left">
+                <div class="row">Open Source Freedom</div>
+            </div>
+            <div class="item-wrapper right">
                 <div class="row">Closed-source with limited customization</div>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="item-wrapper left">
+                <div class="row">Actively Evolving Infrastructure</div>
+            </div>
+            <div class="item-wrapper right">
                 <div class="row">Stagnant features with no clear roadmap</div>
             </div>
         </div>
@@ -369,85 +405,104 @@
             line-height: 1.5;
             margin-bottom: 2rem;
         }
+    }
 
-        .comparison-grid {
+    .comparison-grid {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .header-row {
             display: grid;
             grid-template-columns: minmax(20rem, 30%) minmax(20rem, 1fr);
 
-            @media screen and (max-width: 692px) {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .solution-card {
-            display: flex;
-            flex-direction: column;
-            border: 2px solid transparent;
-            color: var(--color-light100);
-
-            h3 {
-                font-size: 1.5rem;
-                margin: 0;
-                line-height: 1.3;
-                font-weight: 400;
-
-                &.bold {
-                    font-weight: 600;
-                }
-                &.our-solution {
-                    color: black;
-                }
-            }
-
-            .solution-card-header {
-                /* 1px border */
+            .column-header {
                 padding: calc(1rem - 1px);
+                background-color: inherit;
+                border: 2px solid var(--color-brown700);
+
+                &.main {
+                    background-color: var(--color-orange500);
+                    border: 2px solid var(--color-orange500);
+                }
 
                 h3 {
-                    white-space: nowrap;
+                    font-size: 1.5rem;
+                    margin: 0;
+                    line-height: 1.3;
+                    font-weight: 400;
 
+                    &.bold {
+                        font-weight: 600;
+                    }
+                    &.our-solution {
+                        color: black;
+                    }
+
+                    /* Alter this to sync headers when flexed */
                     @media (max-width: 685px) {
                         white-space: normal;
                     }
                 }
-
-                &.main {
-                    background-color: var(--color-orange500);
-                }
             }
+        }
 
-            @media (max-width: 685px) {
-                &:last-child .row-wrapper {
-                    font-size: 1rem;
-                }
-            }
+        .comparison-row {
+            display: grid;
+            grid-template-columns: minmax(20rem, 30%) minmax(20rem, 1fr);
 
-            .row-wrapper {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-                padding: 0.4rem;
-                font-size: 1.3rem;
-
-                &:last-child {
-                    border-top: 1px solid #564546;
-                }
+            &:nth-child(even) {
                 .row {
-                    height: 3.2rem;
                     background-color: #564546;
+                }
+            }
+
+            .item-wrapper {
+                padding: 0.4rem 0.4rem 0 0.4rem;
+
+                &.left {
+                    border-left: 2px solid var(--color-orange500);
+                    border-right: 2px solid var(--color-orange500);
+                }
+
+                &.right {
+                    border-left: 2px solid var(--color-brown700);
+                    border-right: 2px solid var(--color-brown700);
+                }
+
+                .row {
+                    min-height: 3.2rem;
+                    height: 100%;
                     display: flex;
                     align-items: center;
                     padding: 0 1rem;
                     opacity: 0.8;
+                    font-size: 1.3rem;
 
-                    &:nth-child(even) {
-                        background-color: inherit;
+                    @media (max-width: 685px) {
+                        font-size: 1rem;
                     }
                 }
             }
 
-            &:first-child {
-                border: 2px solid var(--color-orange500);
+            &:nth-child(2) {
+                .item-wrapper.right {
+                    border-top: 1px solid #564546;
+                }
+            }
+
+            &:last-child {
+                .item-wrapper.left {
+                    border-bottom: 1px solid var(--color-orange500);
+                    padding-bottom: 0.5rem;
+                }
+            }
+        }
+
+        @media screen and (max-width: 692px) {
+            .header-row,
+            .comparison-row {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     }
