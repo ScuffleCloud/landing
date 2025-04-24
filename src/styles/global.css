@@ -11,6 +11,7 @@
     --layout-padding: 2rem;
 
     --mobile-width: 768px;
+    color-scheme: only light;
     font-feature-settings:
         'cpsp' on,
         'liga' off;

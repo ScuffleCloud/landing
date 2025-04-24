@@ -493,7 +493,7 @@
                     height: 100%;
                     display: flex;
                     align-items: center;
-                    padding: 0 1rem;
+                    padding: 0.5rem 1rem;
                     opacity: 0.8;
                     font-size: 1.3rem;
 
