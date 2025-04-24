@@ -37,7 +37,6 @@ jobs:
                   run_install: false
 
             - name: Deploy
-              id: deploy
               uses: cloudflare/wrangler-action@v3
               with:
                   apiToken: ${{ secrets.CF_LANDING_PAGE_API_KEY }}
@@ -45,7 +44,6 @@ jobs:
                   command: pages deploy --project-name=scuffle-landing-page --branch=main --commit-hash=${{ github.sha }} --commit-dirty=true ./build
 
             - name: Deploy
-              id: deploy
               uses: cloudflare/wrangler-action@v3
               with:
                   apiToken: ${{ secrets.CF_LANDING_PAGE_API_KEY }}
