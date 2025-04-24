@@ -14,7 +14,6 @@ jobs:
             - uses: actions/checkout@v4
 
             - name: Download Artifact
-              id: download-artifact
               uses: dawidd6/action-download-artifact@v7
               with:
                   workflow: ci.yaml
@@ -24,7 +23,6 @@ jobs:
                   path: build
 
             - name: Download Artifact
-              id: download-artifact
               uses: dawidd6/action-download-artifact@v7
               with:
                   workflow: ci.yaml

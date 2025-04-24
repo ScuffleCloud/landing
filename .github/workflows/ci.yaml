@@ -100,7 +100,7 @@ jobs:
                   token: ${{ secrets.CODECOV_TOKEN }}
 
     build:
-        name: Landing Page
+        name: Build
         runs-on: ubuntu-24.04
         permissions:
             pull-requests: write
