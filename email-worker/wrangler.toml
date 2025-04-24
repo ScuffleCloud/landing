@@ -9,14 +9,11 @@ enabled = true
 
 [vars]
 ENVIRONMENT = "development"
-MAILGUN_MAILINGLIST = "scuffle.tv@scuffle.tv"
-ALLOWED_ORIGIN_URLS = 'http://localhost:5173,http://www.localhost:5173'
-
-[vars.secrets]
-MAILGUN_API_KEY=''
-TURNSTILE_SECRET_KEY=''
+MAILGUN_MAILINGLIST = "website-landing@noreply.scuffle.cloud"
+ALLOWED_ORIGIN_URLS = ''
 
 [env.production]
-name = "email-worker-production"
+name = "scuffle-landing-page-email-worker"
 vars.ENVIRONMENT = "production"
-vars.ALLOWED_ORIGIN_URLS=''
+vars.ALLOWED_ORIGIN_URLS='https://www.scuffle.cloud,https://scuffle.cloud'
+vars.MAILGUN_MAILINGLIST = "website-landing@noreply.scuffle.cloud"

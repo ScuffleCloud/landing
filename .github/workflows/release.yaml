@@ -23,6 +23,16 @@ jobs:
                   name: landing-page
                   path: build
 
+            - name: Download Artifact
+              id: download-artifact
+              uses: dawidd6/action-download-artifact@v7
+              with:
+                  workflow: ci.yaml
+                  workflow_conclusion: success
+                  commit: ${{ github.sha }}
+                  name: email-worker
+                  path: ./email-worker/dist
+
             - uses: pnpm/action-setup@v4
               with:
                   version: 10
@@ -35,3 +45,11 @@ jobs:
                   apiToken: ${{ secrets.CF_LANDING_PAGE_API_KEY }}
                   accountId: ${{ secrets.CF_LANDING_PAGE_ACCOUNT_ID }}
                   command: pages deploy --project-name=scuffle-landing-page --branch=main --commit-hash=${{ github.sha }} --commit-dirty=true ./build
+
+            - name: Deploy
+              id: deploy
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CF_LANDING_PAGE_API_KEY }}
+                  accountId: ${{ secrets.CF_LANDING_PAGE_ACCOUNT_ID }}
+                  command: deploy --env=production --no-bundle ./email-worker/dist/index.js
