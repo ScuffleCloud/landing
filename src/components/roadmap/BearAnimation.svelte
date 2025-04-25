@@ -179,7 +179,7 @@
         max-width: 125rem;
         margin: 0 auto;
         overflow-x: clip;
-
+        -webkit-tap-highlight-color: transparent;
         @media (max-width: 768px) {
             padding: 0;
         }
