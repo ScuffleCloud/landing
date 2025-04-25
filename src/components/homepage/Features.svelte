@@ -128,71 +128,74 @@
         Significantly more affordable than current market options,<br />
         making high-quality video streaming accessible to all.
     </p>
-    <div class="comparison-grid">
-        <div class="header-row">
-            <div class="column-header main">
-                <h3 class="bold our-solution">Scuffle&apos;s</h3>
-                <h3 class="our-solution">Video Streaming Solution</h3>
-            </div>
-            <div class="column-header">
-                <h3>Other<br />Video Streaming Solutions</h3>
-            </div>
-        </div>
+    <table class="comparison-grid">
+        <thead>
+            <tr class="header-row">
+                <th class="column-header main">
+                    <h3 class="bold our-solution">Scuffle&apos;s</h3>
+                    <h3 class="our-solution">Video Streaming Solution</h3>
+                </th>
+                <th class="column-header">
+                    <h3>Other<br />Video Streaming Solutions</h3>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="comparison-row">
+                <td class="item-wrapper left">
+                    <div class="row">AV1 Encoding</div>
+                </td>
+                <td class="item-wrapper right">
+                    <div class="row">Not available</div>
+                </td>
+            </tr>
 
-        <div class="comparison-row">
-            <div class="item-wrapper left">
-                <div class="row">AV1 Encoding</div>
-            </div>
-            <div class="item-wrapper right">
-                <div class="row">Not available</div>
-            </div>
-        </div>
+            <tr class="comparison-row">
+                <td class="item-wrapper left">
+                    <div class="row">True Sub-Second Latency</div>
+                </td>
+                <td class="item-wrapper right">
+                    <div class="row">Low-latency only on premium plans</div>
+                </td>
+            </tr>
 
-        <div class="comparison-row">
-            <div class="item-wrapper left">
-                <div class="row">True Sub-Second Latency</div>
-            </div>
-            <div class="item-wrapper right">
-                <div class="row">Low-latency only on premium plans</div>
-            </div>
-        </div>
+            <tr class="comparison-row">
+                <td class="item-wrapper left">
+                    <div class="row">At-Cost Pricing</div>
+                </td>
+                <td class="item-wrapper right">
+                    <div class="row">Inflated pricing models with hidden costs</div>
+                </td>
+            </tr>
 
-        <div class="comparison-row">
-            <div class="item-wrapper left">
-                <div class="row">At-Cost Pricing</div>
-            </div>
-            <div class="item-wrapper right">
-                <div class="row">Inflated pricing models with hidden costs</div>
-            </div>
-        </div>
+            <tr class="comparison-row">
+                <td class="item-wrapper left">
+                    <div class="row">Developer-friendly API</div>
+                </td>
+                <td class="item-wrapper right">
+                    <div class="row">Complex integration requirements</div>
+                </td>
+            </tr>
 
-        <div class="comparison-row">
-            <div class="item-wrapper left">
-                <div class="row">Developer-friendly API</div>
-            </div>
-            <div class="item-wrapper right">
-                <div class="row">Complex integration requirements</div>
-            </div>
-        </div>
+            <tr class="comparison-row">
+                <td class="item-wrapper left">
+                    <div class="row">Open Source Freedom</div>
+                </td>
+                <td class="item-wrapper right">
+                    <div class="row">Closed-source with limited customization</div>
+                </td>
+            </tr>
 
-        <div class="comparison-row">
-            <div class="item-wrapper left">
-                <div class="row">Open Source Freedom</div>
-            </div>
-            <div class="item-wrapper right">
-                <div class="row">Closed-source with limited customization</div>
-            </div>
-        </div>
-
-        <div class="comparison-row">
-            <div class="item-wrapper left">
-                <div class="row">Actively Evolving Infrastructure</div>
-            </div>
-            <div class="item-wrapper right">
-                <div class="row">Stagnant features with no clear roadmap</div>
-            </div>
-        </div>
-    </div>
+            <tr class="comparison-row">
+                <td class="item-wrapper left">
+                    <div class="row">Actively Evolving Infrastructure</div>
+                </td>
+                <td class="item-wrapper right">
+                    <div class="row">Stagnant features with no clear roadmap</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 <EmailForm />
 
@@ -420,6 +423,7 @@
                 padding: calc(1rem - 1px);
                 background-color: inherit;
                 border: 2px solid var(--color-brown700);
+                text-align: left;
 
                 &.main {
                     background-color: var(--color-orange500);
@@ -452,7 +456,7 @@
             display: grid;
             grid-template-columns: minmax(20rem, 30%) minmax(20rem, 1fr);
 
-            &:nth-child(even) {
+            &:nth-child(odd) {
                 .row {
                     background-color: #564546;
                 }
@@ -503,7 +507,7 @@
                 }
             }
 
-            &:nth-child(2) {
+            &:nth-child(1) {
                 .item-wrapper.right {
                     border-top: 1px solid #564546;
                 }
