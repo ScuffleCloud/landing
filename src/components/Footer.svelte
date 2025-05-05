@@ -2,6 +2,7 @@
     import {
         PUBLIC_BLOG_URL,
         PUBLIC_BLUESKY_URL,
+        PUBLIC_DISCORD_URL,
         PUBLIC_GITHUB_REPO_URL,
         PUBLIC_TWITTER_URL,
     } from '$env/static/public';
@@ -13,10 +14,7 @@
             <h3>Company</h3>
             <nav>
                 <a href="/about">About</a>
-                <!-- <a href="/contact">Contact</a> -->
-                <!-- <a href="/brand">Brand</a> -->
-                <!-- <a href="/partner">Partner</a> -->
-                <!-- <a href="/contribute">Contribute</a> -->
+                <a href={PUBLIC_DISCORD_URL} target="_blank">Discord</a>
             </nav>
         </div>
 
@@ -30,11 +28,6 @@
 
         <div class="footer-section">
             <h3>Legal</h3>
-            <nav>
-                <!-- <a href="/licenses">Licenses</a> -->
-                <!-- <a href="/terms">Term & Conditions</a> -->
-                <!-- <a href="/sla">Service Level Agreement</a> -->
-            </nav>
         </div>
 
         <div class="footer-section">
