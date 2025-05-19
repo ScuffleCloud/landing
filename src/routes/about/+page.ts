@@ -1,6 +1,7 @@
 export const ssr = false;
 
 import { PUBLIC_GITHUB_REPO_ID } from '$env/static/public';
+import type { Contributor } from '$lib/types';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ depends, fetch }) => {
@@ -11,7 +12,10 @@ export const load = (async ({ depends, fetch }) => {
             `https://api.github.com/repositories/${PUBLIC_GITHUB_REPO_ID}/contributors`,
         );
         if (!response.ok) throw new Error(`Failed to fetch contributors: ${response.statusText}`);
-        return response.json();
+
+        const contributors = await response.json();
+
+        return contributors.filter((contributor: Contributor) => contributor.type === 'User');
     };
 
     return {
