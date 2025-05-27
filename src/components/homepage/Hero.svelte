@@ -6,23 +6,26 @@
 
 <div class="hero-section-header">
     <div class="hero-section">
-        <h1 class="hero-section-title-1">Scuffle.</h1>
-        <h1 class="hero-section-title-2">
+        <h1 class="hero-section-title-1" data-aos="fade-up">Scuffle.</h1>
+        <h1 class="hero-section-title-2" data-aos="fade-up" data-aos-delay="100">
             new up-and-coming.<br />
             open source.<br />
             cloud provider.
         </h1>
     </div>
-    <div class="header-bubble-container hide-tablet hide-mobile hide-mobile-xs">
+    <div
+        class="header-bubble-container hide-tablet hide-mobile hide-mobile-xs"
+        data-aos="fade-left"
+    >
         <div class="you-should-contribute-container">
             <YouShouldContribute />
         </div>
     </div>
     <div class="header-bubble-container-mobile hide-ds hide-dm hide-dl">
-        <div class="left-bubble">
+        <div class="left-bubble" data-aos="fade-right">
             <YouShouldContributeMobileLeft />
         </div>
-        <div class="right-bubble">
+        <div class="right-bubble" data-aos="fade-left">
             <YouShouldContributeMobileRight />
         </div>
     </div>

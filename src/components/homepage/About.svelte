@@ -5,10 +5,10 @@
 </script>
 
 <div class="scuffle-about-container">
-    <div class="content-1">
+    <div class="content-1" data-aos="fade-right" data-aos-duration="800">
         <ScuffleBear />
     </div>
-    <div class="content-2">
+    <div class="content-2" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
         <div class="addon-accent">
             <AddonAccent />
         </div>
@@ -21,7 +21,7 @@
             </p>
         </div>
     </div>
-    <div class="content-3">
+    <div class="content-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
         <h3>
             Open Source - Community driven vision
             <div class="addon-hearts">

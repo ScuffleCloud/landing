@@ -66,15 +66,17 @@
     };
 </script>
 
-<div class="rectangle">
+<div class="rectangle" data-aos="fade-up">
     <img src={rectangle} alt="Rectangle" class="rectangle-image" />
     <div class="update-banner">
-        <div class="update-banner-container">
+        <div class="update-banner-container" data-aos="fade-up" data-aos-delay="100">
             <p class="title">Receive an Update when we&apos;ll go live!</p>
             <p class="subtitle">News from the Scuffle Engineering Team</p>
         </div>
         <form
             class="entry-field-container"
+            data-aos="fade-up"
+            data-aos-delay="200"
             onsubmit={(e) => {
                 e.preventDefault();
                 handleSubmit({ email });

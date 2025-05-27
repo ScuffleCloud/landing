@@ -10,7 +10,7 @@
 
 <footer class="container">
     <div class="footer-content">
-        <div class="footer-section">
+        <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
             <h3>Company</h3>
             <nav>
                 <a href="/about">About</a>
@@ -18,7 +18,7 @@
             </nav>
         </div>
 
-        <div class="footer-section">
+        <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
             <h3>Resources</h3>
             <nav>
                 <a href={PUBLIC_BLOG_URL} target="_blank">Blog</a>
@@ -26,11 +26,11 @@
             </nav>
         </div>
 
-        <div class="footer-section">
+        <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
             <h3>Legal</h3>
         </div>
 
-        <div class="footer-section">
+        <div class="footer-section" data-aos="fade-up" data-aos-delay="400">
             <h3>Follow Scuffle</h3>
             <nav>
                 <a href={PUBLIC_GITHUB_REPO_URL} target="_blank">Github</a>

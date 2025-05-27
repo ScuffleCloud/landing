@@ -11,12 +11,12 @@
 
 <div class="about-container">
     <div class="about-hero">
-        <div class="about-hero-left">
+        <div class="about-hero-left" data-aos="fade-right">
             <div class="about-hero-image">
                 <PointingBear />
             </div>
         </div>
-        <div class="about-hero-content">
+        <div class="about-hero-content" data-aos="fade-left" data-aos-delay="200">
             <h1>We are committed to building a better livestreaming experience</h1>
             <p>
                 It shouldn't be hard or expensive to build a upload or stream video content online.
@@ -26,19 +26,21 @@
             </p>
         </div>
     </div>
-    <div class="contributors">
+    <div class="contributors" data-aos="fade-up" data-aos-delay="400">
         <div class="contributors-section">
             <h3>Contributors</h3>
             <div class="contributors-grid">
                 {#await streamedData}
                     <p>Loading contributors...</p>
                 {:then resolvedContributors}
-                    {#each resolvedContributors as contributor (contributor.id)}
+                    {#each resolvedContributors as contributor, i (contributor.id)}
                         <a
                             href={contributor.html_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             class="contributor"
+                            data-aos="zoom-in"
+                            data-aos-delay={500 + i * 50}
                         >
                             <div class="contributor-image">
                                 <img src={contributor.avatar_url} alt={contributor.login} />
