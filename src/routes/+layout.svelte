@@ -26,11 +26,10 @@
 
     onMount(() => {
         AOS.init({
-            // Global settings
-            duration: 800, // values from 0 to 3000, with step 50ms
-            once: false, // whether animation should happen only once - while scrolling down
-            mirror: true, // whether elements should animate out while scrolling past them
-            offset: 120, // offset (in px) from the original trigger point
+            duration: 800,
+            once: true,
+            mirror: true,
+            offset: 120,
         });
     });
 
