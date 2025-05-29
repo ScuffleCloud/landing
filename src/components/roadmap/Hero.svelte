@@ -42,7 +42,6 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        overflow: hidden;
 
         .roadmap-icon-container {
             width: 67.25rem;

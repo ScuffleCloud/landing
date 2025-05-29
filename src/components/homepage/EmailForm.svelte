@@ -82,7 +82,7 @@
         >
             <input
                 class="entry-field"
-                placeholder="Your email address"
+                placeholder="you@scuffle.cloud "
                 type="email"
                 bind:value={email}
                 required

@@ -21,11 +21,11 @@
             <YouShouldContribute />
         </div>
     </div>
-    <div class="header-bubble-container-mobile hide-ds hide-dm hide-dl">
-        <div class="left-bubble" data-aos="fade-right">
+    <div class="header-bubble-container-mobile hide-ds hide-dm hide-dl" data-aos="fade-up">
+        <div class="left-bubble">
             <YouShouldContributeMobileLeft />
         </div>
-        <div class="right-bubble" data-aos="fade-left">
+        <div class="right-bubble">
             <YouShouldContributeMobileRight />
         </div>
     </div>
