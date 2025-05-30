@@ -33,14 +33,12 @@
                 {#await streamedData}
                     <p>Loading contributors...</p>
                 {:then resolvedContributors}
-                    {#each resolvedContributors as contributor, i (contributor.id)}
+                    {#each resolvedContributors as contributor (contributor.id)}
                         <a
                             href={contributor.html_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             class="contributor"
-                            data-aos="zoom-in"
-                            data-aos-delay={500 + i * 50}
                         >
                             <div class="contributor-image">
                                 <img src={contributor.avatar_url} alt={contributor.login} />

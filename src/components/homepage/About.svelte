@@ -2,6 +2,7 @@
     import AddonHearts from '$lib/images/AddonHearts.svelte';
     import AddonAccent from '$lib/images/AddonAccent.svelte';
     import ScuffleBear from '$lib/images/ScuffleBear.svelte';
+    import { PUBLIC_LEARN_MORE_URL } from '$env/static/public';
 </script>
 
 <div class="scuffle-about-container">
@@ -32,7 +33,7 @@
             Scuffle aims to be a community-driven platform, built from the ground up with
             transparency and openness in mind. Licensed under AGPL3, Apache 2.0, and MIT*.
         </p>
-        <p class="underlined-text">Learn more</p>
+        <a href={PUBLIC_LEARN_MORE_URL} target="_blank" class="underlined-text">Learn more</a>
     </div>
 </div>
 
