@@ -66,7 +66,7 @@
     };
 </script>
 
-<div class="rectangle">
+<div class="rectangle" data-aos="fade-up" data-aos-duration="800">
     <img src={rectangle} alt="Rectangle" class="rectangle-image" />
     <div class="update-banner">
         <div class="update-banner-container">
@@ -82,7 +82,7 @@
         >
             <input
                 class="entry-field"
-                placeholder="Your email address"
+                placeholder="you@scuffle.cloud "
                 type="email"
                 bind:value={email}
                 required

@@ -2,13 +2,14 @@
     import AddonHearts from '$lib/images/AddonHearts.svelte';
     import AddonAccent from '$lib/images/AddonAccent.svelte';
     import ScuffleBear from '$lib/images/ScuffleBear.svelte';
+    import { PUBLIC_LEARN_MORE_URL } from '$env/static/public';
 </script>
 
 <div class="scuffle-about-container">
-    <div class="content-1">
+    <div class="content-1" data-aos="fade-right" data-aos-duration="800">
         <ScuffleBear />
     </div>
-    <div class="content-2">
+    <div class="content-2" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
         <div class="addon-accent">
             <AddonAccent />
         </div>
@@ -21,7 +22,7 @@
             </p>
         </div>
     </div>
-    <div class="content-3">
+    <div class="content-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
         <h3>
             Open Source - Community driven vision
             <div class="addon-hearts">
@@ -32,7 +33,7 @@
             Scuffle aims to be a community-driven platform, built from the ground up with
             transparency and openness in mind. Licensed under AGPL3, Apache 2.0, and MIT*.
         </p>
-        <p class="underlined-text">Learn more</p>
+        <a href={PUBLIC_LEARN_MORE_URL} target="_blank" class="underlined-text">Learn more</a>
     </div>
 </div>
 

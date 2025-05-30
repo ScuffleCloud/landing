@@ -4,7 +4,7 @@
     import { browser } from '$app/environment';
     import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
     import TurnstileOverlay from '../components/TurnstileOverlay.svelte';
-    import { setContext } from 'svelte';
+    import { onMount, setContext } from 'svelte';
     import { TURNSTILE_CONTEXT_KEY } from '$lib/design-components/utils';
     import '@fontsource-variable/rubik';
     import { beforeNavigate } from '$app/navigation';
@@ -12,8 +12,9 @@
     import '../styles/global.css';
     import Footer from '../components/Footer.svelte';
     import { PUBLIC_WEBSITE_HOSTED_URL, PUBLIC_TWITTER_HANDLE } from '$env/static/public';
-
     import { MediaQuery } from 'svelte/reactivity';
+    import AOS from 'aos';
+    import 'aos/dist/aos.css';
 
     const showingMobileMenu = new MediaQuery('min-width: 961px');
 
@@ -21,6 +22,15 @@
         if (showingMobileMenu.current && $showMobileMenu) {
             $showMobileMenu = false;
         }
+    });
+
+    onMount(() => {
+        AOS.init({
+            duration: 800,
+            once: true,
+            mirror: true,
+            offset: 120,
+        });
     });
 
     const { children } = $props();

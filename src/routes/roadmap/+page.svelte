@@ -19,5 +19,6 @@
         max-width: var(--layout-width);
         margin: 0 auto;
         width: 100%;
+        overflow: hidden;
     }
 </style>

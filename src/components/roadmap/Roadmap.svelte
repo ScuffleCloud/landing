@@ -53,7 +53,7 @@
     ];
 </script>
 
-<div class="roadmap-timeline-container">
+<div class="roadmap-timeline-container" data-aos="fade-up" data-aos-duration="800">
     {#each roadmapItems as panel (panel.key)}
         <RoadmapPanel
             key={panel.key}

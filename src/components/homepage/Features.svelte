@@ -7,7 +7,7 @@
 </script>
 
 <section class="features-main">
-    <div class="content-wrapper">
+    <div class="content-wrapper" data-aos="fade-right">
         <div class="title-container">
             <div class="features-pill">COMING SOON</div>
             <div class="title-wrapper">
@@ -27,26 +27,26 @@
             <p class="feature-description">Dive in and explore what we have to offer!</p>
         </div>
     </div>
-    <div class="image-wrapper">
+    <div class="image-wrapper" data-aos="fade-left" data-aos-delay="200">
         <img src={streamingSolution} alt="streaming-solution" class="streaming-solution-image" />
     </div>
 </section>
 <section class="features-performance">
-    <h2>Technical and Performance Features</h2>
+    <h2 data-aos="fade-up">Technical and Performance Features</h2>
     <div class="grid">
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
             <div class="features-pill filled">UHD 144FPS</div>
             <h3>Higher Quality Streaming</h3>
             <p>Enjoy video streaming in 4K resolution and up to 144fps.</p>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
             <div class="features-pill filled">SPEED</div>
             <h3>Sub second latency</h3>
             <p>Experience real-time video streaming with sub-second latency.</p>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
             <div class="features-pill filled">AV1</div>
             <h3>AV1 Encoding</h3>
             <p>
@@ -55,13 +55,13 @@
             </p>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
             <div class="features-pill filled">CAPTIONS</div>
             <h3>Live Transcription</h3>
             <p>Provide live transcription services, enhancing accessibility and user immersion.</p>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="500">
             <div class="features-pill filled">SECURITY</div>
             <h3>Encrypted Broadcasts</h3>
             <p>
@@ -70,7 +70,7 @@
             </p>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="600">
             <div class="features-pill filled">HOSTING</div>
             <h3>Self Hosting</h3>
             <p>
@@ -81,9 +81,9 @@
     </div>
 </section>
 <section class="features-management">
-    <h2>Content Management and Enhancement Features</h2>
+    <h2 data-aos="fade-up">Content Management and Enhancement Features</h2>
     <div class="grid">
-        <div class="card">
+        <div class="card" data-aos="zoom-in-right">
             <div class="image-wrapper audio-video-tracks">
                 <FeaturesAudioVideoTracks />
             </div>
@@ -96,7 +96,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="zoom-in">
             <div class="image-wrapper vod-recordings">
                 <FeaturesVodRecordings />
             </div>
@@ -109,7 +109,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="zoom-in-left">
             <div class="image-wrapper highlights">
                 <FeaturesStreamHighlights />
             </div>
@@ -123,12 +123,12 @@
     </div>
 </section>
 <section class="features-solutions">
-    <h2>Cost-Effective Solution</h2>
-    <p class="solution-description">
+    <h2 data-aos="fade-up">Cost-Effective Solution</h2>
+    <p class="solution-description" data-aos="fade-up" data-aos-delay="100">
         Significantly more affordable than current market options,<br />
         making high-quality video streaming accessible to all.
     </p>
-    <table class="comparison-grid">
+    <table class="comparison-grid" data-aos="fade-up" data-aos-delay="200">
         <thead>
             <tr class="header-row">
                 <th class="column-header main">

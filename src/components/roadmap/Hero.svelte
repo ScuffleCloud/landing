@@ -7,18 +7,24 @@
 </script>
 
 <div class="roadmap-header-container">
-    <div class="roadmap-icon-container">
+    <div class="roadmap-icon-container" data-aos="fade-up">
         <RoadmapIcon />
     </div>
     <div class="header-overlay">
-        <div class="header-overlay-content">
+        <div class="header-overlay-content" data-aos="fade-up" data-aos-delay="200">
             <h1>Scuffle's Roadmap</h1>
             <p>
                 Here is an overview of the features we are currently<br />
                 developing, along with the progress made so far.<br />
             </p>
         </div>
-        <a href={PUBLIC_JIRA_URL} class="pill-link" target="_blank">
+        <a
+            href={PUBLIC_JIRA_URL}
+            class="pill-link"
+            target="_blank"
+            data-aos="fade-up"
+            data-aos-delay="400"
+        >
             <Pill color={theme.colors.orange500}>
                 <p>Detailed Kanban Board</p>
                 <div class="pill-back-button">
@@ -36,7 +42,6 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        overflow: hidden;
 
         .roadmap-icon-container {
             width: 67.25rem;

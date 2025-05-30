@@ -33,14 +33,14 @@
 <div class="header-container-wrapper" class:hide={hideNav}>
     <div class="header-container">
         <header>
-            <a class="logo-container" href="/">
+            <a class="logo-container" href="/" data-aos="fade-down" data-aos-duration="600">
                 <div class="logo-container-image">
                     <ScuffleLogo />
                 </div>
                 scuffle
             </a>
             <HideOn mobileXS mobile tablet>
-                <nav>
+                <nav data-aos="fade-down" data-aos-duration="600" data-aos-delay="100">
                     <ul>
                         <li class:active={pathname === '/'}>
                             <a href="/">Homepage</a>
@@ -54,11 +54,21 @@
                     </ul>
                 </nav>
             </HideOn>
-            <div class="pill-options-container hide-mobile-xs hide-mobile hide-tablet">
+            <div
+                class="pill-options-container hide-mobile-xs hide-mobile hide-tablet"
+                data-aos="fade-down"
+                data-aos-duration="600"
+                data-aos-delay="200"
+            >
                 <GithubStats />
                 <DemoPill />
             </div>
-            <div class="button-container hide-ds hide-dm hide-dl">
+            <div
+                class="button-container hide-ds hide-dm hide-dl"
+                data-aos="fade-down"
+                data-aos-duration="600"
+                data-aos-delay="200"
+            >
                 <div class="pill-options-container hide-mobile hide-mobile-xs">
                     <GithubStats />
                     <DemoPill />
