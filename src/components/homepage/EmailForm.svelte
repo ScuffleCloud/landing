@@ -192,7 +192,7 @@
 
                     &::placeholder {
                         color: var(--color-brown600);
-                        font-weight: 500;
+                        font-weight: 400;
                         line-height: 1rem;
                     }
                 }
